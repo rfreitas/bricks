@@ -176,7 +176,7 @@
 /* Begin PBXProject section */
 		A01FB69C0F07CF63000AAC7B /* Project object */ = {
 			isa = PBXProject;
-			buildConfigurationList = A01FB69F0F07CF63000AAC7B /* Build configuration list for PBXProject "SFML Graphics-based Application" */;
+			buildConfigurationList = A01FB69F0F07CF63000AAC7B /* Build configuration list for PBXProject "Bricks" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -267,7 +267,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A01FB69F0F07CF63000AAC7B /* Build configuration list for PBXProject "SFML Graphics-based Application" */ = {
+		A01FB69F0F07CF63000AAC7B /* Build configuration list for PBXProject "Bricks" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A01FB69D0F07CF63000AAC7B /* Debug */,

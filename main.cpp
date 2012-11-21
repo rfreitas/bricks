@@ -82,7 +82,7 @@ void keyboardListenner(sf::RenderWindow &App){
     // Process events
     sf::Event Event;
     while (App.GetEvent(Event))
-    {   
+    {  
         // Close window : exit
         if (Event.Type == sf::Event::KeyPressed && Event.Key.Code == sf::Key::Escape){
             App.Close();
