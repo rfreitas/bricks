@@ -46,7 +46,6 @@ bool ColisionManager::collisionHappened(Component& cA, Component& cB){
             return true;
         }
     }
-    
     return false;
 }
 

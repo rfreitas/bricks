@@ -6,15 +6,19 @@
 #include "Component.h"
 #include "Generator.h"
 #include "RectangleShape.h"
+#include "BallShape.h"
 #include "ColisionManager.h"
 
 using namespace std;
 
-#define PLATFORM_STEP 7
+// TODO @config file
+#define PLATFORM_STEP 8
+#define GAME_LIMIT_LEFT 120
+#define GAME_LIMIT_RIGHT 700
 
 // Vector of Components
-vector<Component*> components(3);
-vector<Component*> balls(1);
+vector<Component*> components(6);
+vector<Component*> balls(2);
 Component* platform;
 ColisionManager* collisionManager;
 
@@ -34,9 +38,14 @@ void init(){
     // generator->notRandom(&components);
     // BUT for tests //////////////////////////////////////////////
     Component* ball = new Component(300, 300, 0, 0, 0, NULL);
-    RectangleShape* ballShape = new RectangleShape(0, 0, 10, 10, sf::Color::White);
+    BallShape* ballShape = new BallShape(5, sf::Color::White);
     ball->setShape(ballShape);
     balls[0] = ball;
+    
+    Component* ball2 = new Component(130, 200, 0, 0, 0, NULL);
+    BallShape* ball2Shape = new BallShape(5, sf::Color::Red);
+    ball2->setShape(ball2Shape);
+    balls[1] = ball2;
     
     // left wall
     Component* leftWall = new Component(100, 50, 0, 0, 0, NULL);
@@ -58,9 +67,27 @@ void init(){
     recShape = new RectangleShape(0, 0, 90, 10, sf::Color::Yellow);
     platform->setShape(recShape);
     
+    
+    // block 1
+    Component* block1 = new Component(200, 210, 0, 0, 0, NULL);
+    recShape = new RectangleShape(0, 0, 20, 70, sf::Color::Yellow);
+    block1->setShape(recShape);
+    // block 2
+    Component* block2 = new Component(260, 110, 0, 0, 0, NULL);
+    recShape = new RectangleShape(0, 0, 20, 120, sf::Color::Yellow);
+    block2->setShape(recShape);
+    // block 3
+    Component* block3 = new Component(500, 300, 0, 0, 0, NULL);
+    recShape = new RectangleShape(0, 0, 120, 20, sf::Color::Yellow);
+    block3->setShape(recShape);
+    
+    
     components[0] = leftWall;
     components[1] = rightWall;
     components[2] = topWall;
+    components[3] = block1;
+    components[4] = block2;
+    components[5] = block3;
     
     //////////////////////////////////////////////////////////////
 }
@@ -68,16 +95,15 @@ void init(){
 void checkCollisions(){
     
     //uncomment when collision maths are done
-//    for(int i = 0; i < balls.size() ; i++){
-//        Component* ball = balls[i];
-//        for(int j = 0 ; j < components.size() ; j++){
-//            Component* actualComponent = components[j];
-//            collisionManager->evaluate(*ball, *actualComponent);
-//        }
-//    }
+    for(int i = 0; i < balls.size() ; i++){
+        Component* ball = balls[i];
+        for(int j = 0 ; j < components.size() ; j++){
+            Component* actualComponent = components[j];
+            collisionManager->evaluate(*ball, *actualComponent);
+        }
+    }
     
     collisionManager->evaluate(*(balls[0]), *platform);
-    collisionManager->evaluate(*(balls[0]), *components[2]);
     
 }
 
@@ -96,21 +122,23 @@ void keyboardListenner(sf::RenderWindow &App){
         if ((Event.Type == sf::Event::KeyPressed) && (Event.Key.Code == sf::Key::Left)){
             double x = platform->getX();
             x -= PLATFORM_STEP;
-            platform->setX(x);
+            if(x>=GAME_LIMIT_LEFT){
+                platform->setX(x);
+            }
         }
         else if ((Event.Type == sf::Event::KeyPressed) && (Event.Key.Code == sf::Key::Right)){
             double x = platform->getX();
             x += PLATFORM_STEP;
-            platform->setX(x);
+            RectangleShape* shape = dynamic_cast<RectangleShape*>(platform->getShape());
+            if(x + shape->getX2() <= GAME_LIMIT_RIGHT){
+                platform->setX(x);
+            }
         }
     }
     
 }
 
 void draw(sf::RenderWindow &App){
-    
-    // Listen to keyboard inputs
-    keyboardListenner(App);
     
     // Clear screen
     App.Clear();
@@ -122,7 +150,10 @@ void draw(sf::RenderWindow &App){
     }
     
     for (int i = 0; i<balls.size(); i++) {
-        App.Draw(sf::Shape::Circle(balls[i]->getX(), balls[i]->getY(), 6, sf::Color::Blue, 2, sf::Color::Blue));
+        Component* auxComponent = balls[i];
+        Shape* s = auxComponent->getShape();
+        s->draw(App, auxComponent->getX(), auxComponent->getY());
+        
         // for tests
         balls[i]->moveMe();
     }
@@ -146,13 +177,18 @@ int main()
     init();
     
     // Create main window
-    sf::RenderWindow App(sf::VideoMode(800, 600), "Bricks" /*@config file*/);
+    sf::RenderWindow App(sf::VideoMode(800, 640), "Bricks" /*@config file*/);
     
     // Start game loop
     while (App.IsOpened())
     {
-        checkCollisions();
+        // Listen to keyboard inputs
+        keyboardListenner(App);
+        
         draw(App);
+        
+        checkCollisions();
+        
     }
 
     return EXIT_SUCCESS;

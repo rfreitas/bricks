@@ -49,3 +49,7 @@ double* RectangleShape::getBounderyRectangle(){
     bounderies[3] = y2;
     return bounderies;
 }
+
+double RectangleShape::getX2(){
+    return x2;
+}
