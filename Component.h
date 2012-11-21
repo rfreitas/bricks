@@ -46,6 +46,8 @@ public:
     void willCollideWith(Component& comp);
     void collidedWith(Component& comp);
     
+    void draw(sf::RenderWindow &App);
+    
     // for test
     void moveMe();
 };

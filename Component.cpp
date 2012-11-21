@@ -78,3 +78,7 @@ void Component::setX(double xValue){
     x = xValue;
 }
 
+void Component::draw(sf::RenderWindow &App)
+{
+    shape->draw(App, x, y);
+}

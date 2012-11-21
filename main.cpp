@@ -145,14 +145,12 @@ void draw(sf::RenderWindow &App){
     
     for (int i = 0; i<components.size(); i++) {
         Component* auxComponent = components[i];
-        Shape* s = auxComponent->getShape();
-        s->draw(App, auxComponent->getX(), auxComponent->getY());
+        auxComponent->draw(App);
     }
     
     for (int i = 0; i<balls.size(); i++) {
         Component* auxComponent = balls[i];
-        Shape* s = auxComponent->getShape();
-        s->draw(App, auxComponent->getX(), auxComponent->getY());
+        auxComponent->draw(App);
         
         // for tests
         balls[i]->moveMe();
