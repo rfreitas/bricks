@@ -138,7 +138,7 @@ void keyboardListenner(sf::RenderWindow &App){
     
 }
 
-void draw(sf::RenderWindow &App){
+void draw(sf::RenderWindow &App, time_t  currentTimeStamp, time_t  previousTimeStamp){
     
     // Clear screen
     App.Clear();
@@ -153,7 +153,7 @@ void draw(sf::RenderWindow &App){
         auxComponent->draw(App);
         
         // for tests
-        balls[i]->moveMe();
+        balls[i]->newFrame(currentTimeStamp, previousTimeStamp);
     }
     
     // draw platform
@@ -177,12 +177,16 @@ int main()
     sf::RenderWindow App(sf::VideoMode(800, 640), "Bricks" /*@config file*/);
     
     // Start game loop
+    time_t previousTimeStamp, currentTimeStamp;
+    time(&currentTimeStamp);
+    previousTimeStamp = currentTimeStamp;
     while (App.IsOpened())
     {
+        time(&currentTimeStamp);
         // Listen to keyboard inputs
         keyboardListenner(App);
         
-        draw(App);
+        draw(App,currentTimeStamp,previousTimeStamp);
         
         checkCollisions();
         
