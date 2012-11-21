@@ -157,8 +157,7 @@ void draw(sf::RenderWindow &App){
     }
     
     // draw platform
-    Shape* platformShape = platform->getShape();
-    platformShape->draw(App, platform->getX(), platform->getY());
+    platform->draw(App);
     
     App.Display();
 }
