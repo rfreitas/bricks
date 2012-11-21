@@ -40,3 +40,12 @@ void RectangleShape::draw(sf::RenderWindow &App, double x, double y)
 {
     App.Draw(sf::Shape::Rectangle(x1+x, y1+y, x2+x, y2+y, Shape::color));
 }
+
+double* RectangleShape::getBounderyRectangle(){
+    double *bounderies = new double[4];
+    bounderies[0] = x1;
+    bounderies[1] = y1;
+    bounderies[2] = x2;
+    bounderies[3] = y2;
+    return bounderies;
+}

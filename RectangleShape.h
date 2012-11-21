@@ -28,4 +28,5 @@ public:
 	~RectangleShape();
     
     void draw(sf::RenderWindow &App, double x, double y);
+    double* getBounderyRectangle();
 };

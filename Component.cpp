@@ -21,7 +21,7 @@ Component::Component(double posX, double posY, double areaValue, double normalVa
     shape = componentShape;
     
     // test
-    test = 0.08;
+    test = 0.1;
 }
 
 /**
@@ -36,12 +36,12 @@ void Component::willCollideWith(Component& comp){
 }
 
 void Component::collidedWith(Component& comp){
-    test = -0.08;
+    test = test * -1.0;
 }
 
 // Test
 void Component::moveMe(){
-    y += test;
+    y -= test;
 }
 
 
