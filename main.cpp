@@ -34,6 +34,8 @@ void init(){
     // generator->notRandom(&components);
     // BUT for tests //////////////////////////////////////////////
     Component* ball = new Component(300, 300, 0, 0, 0, NULL);
+    RectangleShape* ballShape = new RectangleShape(0, 0, 10, 10, sf::Color::White);
+    ball->setShape(ballShape);
     balls[0] = ball;
     
     // left wall
@@ -52,8 +54,8 @@ void init(){
     topWall->setShape(recShape);
     
     // platform
-    platform = new Component(300, 530, 0, 0, 0, NULL);
-    recShape = new RectangleShape(0, 0, 90, -10, sf::Color::Yellow);
+    platform = new Component(300, 510, 0, 0, 0, NULL);
+    recShape = new RectangleShape(0, 0, 90, 10, sf::Color::Yellow);
     platform->setShape(recShape);
     
     components[0] = leftWall;
@@ -65,7 +67,7 @@ void init(){
 
 void checkCollisions(){
     
-//    uncomment when collision maths are done
+    //uncomment when collision maths are done
 //    for(int i = 0; i < balls.size() ; i++){
 //        Component* ball = balls[i];
 //        for(int j = 0 ; j < components.size() ; j++){
@@ -75,6 +77,7 @@ void checkCollisions(){
 //    }
     
     collisionManager->evaluate(*(balls[0]), *platform);
+    collisionManager->evaluate(*(balls[0]), *components[2]);
     
 }
 

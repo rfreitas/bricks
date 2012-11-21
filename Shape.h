@@ -20,6 +20,7 @@ protected:
     
 public:
     virtual void draw(sf::RenderWindow &App, double x, double y){};
+    virtual double* getBounderyRectangle(){};
     
     Shape();
     Shape(sf::Color colorValue);
