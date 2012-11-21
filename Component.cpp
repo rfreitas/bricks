@@ -42,6 +42,7 @@ void Component::collidedWith(Component& comp){
 // Test
 void Component::moveMe(){
     x += test;
+    y += test;
 }
 
 

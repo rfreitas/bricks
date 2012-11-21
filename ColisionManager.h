@@ -17,10 +17,12 @@
 
 class ColisionManager {
 private:
-    bool collisionHappened(Component& cA, Component& cB);
+
 public:
     ColisionManager();
 	~ColisionManager();
     
     void evaluate(Component& componentA, Component& componentB);
+    bool collisionHappened(Component& cA, Component& cB);
+
 };

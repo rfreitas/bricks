@@ -32,7 +32,7 @@ BallShape::~BallShape() {
 
 void BallShape::draw(sf::RenderWindow &App, double x, double y)
 {
-    App.Draw(sf::Shape::Circle(x, y, radius, sf::Color::Blue));
+    App.Draw(sf::Shape::Circle(x, y, radius, Shape::color));
 }
 
 double* BallShape::getBounderyRectangle(){
