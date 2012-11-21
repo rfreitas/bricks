@@ -6,6 +6,7 @@
 #include "Component.h"
 #include "Generator.h"
 #include "RectangleShape.h"
+#include "BallShape.h"
 #include "ColisionManager.h"
 
 using namespace std;
@@ -34,7 +35,7 @@ void init(){
     // generator->notRandom(&components);
     // BUT for tests //////////////////////////////////////////////
     Component* ball = new Component(300, 300, 0, 0, 0, NULL);
-    RectangleShape* ballShape = new RectangleShape(0, 0, 10, 10, sf::Color::White);
+    BallShape* ballShape = new BallShape(5, sf::Color::White);
     ball->setShape(ballShape);
     balls[0] = ball;
     
@@ -68,16 +69,15 @@ void init(){
 void checkCollisions(){
     
     //uncomment when collision maths are done
-//    for(int i = 0; i < balls.size() ; i++){
-//        Component* ball = balls[i];
-//        for(int j = 0 ; j < components.size() ; j++){
-//            Component* actualComponent = components[j];
-//            collisionManager->evaluate(*ball, *actualComponent);
-//        }
-//    }
+    for(int i = 0; i < balls.size() ; i++){
+        Component* ball = balls[i];
+        for(int j = 0 ; j < components.size() ; j++){
+            Component* actualComponent = components[j];
+            collisionManager->evaluate(*ball, *actualComponent);
+        }
+    }
     
     collisionManager->evaluate(*(balls[0]), *platform);
-    collisionManager->evaluate(*(balls[0]), *components[2]);
     
 }
 
@@ -122,7 +122,10 @@ void draw(sf::RenderWindow &App){
     }
     
     for (int i = 0; i<balls.size(); i++) {
-        App.Draw(sf::Shape::Circle(balls[i]->getX(), balls[i]->getY(), 6, sf::Color::Blue, 2, sf::Color::Blue));
+        Component* auxComponent = balls[i];
+        Shape* s = auxComponent->getShape();
+        s->draw(App, auxComponent->getX(), auxComponent->getY());
+        
         // for tests
         balls[i]->moveMe();
     }

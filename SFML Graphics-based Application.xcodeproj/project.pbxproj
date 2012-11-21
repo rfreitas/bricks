@@ -19,6 +19,7 @@
 		C417A3C6165B210F0044BA2A /* Shape.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C417A3C4165B210F0044BA2A /* Shape.cpp */; };
 		C48A3653165B1BE5003C31A5 /* Generator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C48A3651165B1BE5003C31A5 /* Generator.cpp */; };
 		C48CA7D1165C0CAB00C6DA5F /* RectangleShape.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C48CA7CF165C0CAB00C6DA5F /* RectangleShape.cpp */; };
+		C4BBDD5F165C6AE800FD264E /* BallShape.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C4BBDD5D165C6AE800FD264E /* BallShape.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -55,6 +56,8 @@
 		C48A3652165B1BE5003C31A5 /* Generator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Generator.h; sourceTree = "<group>"; };
 		C48CA7CF165C0CAB00C6DA5F /* RectangleShape.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RectangleShape.cpp; sourceTree = "<group>"; };
 		C48CA7D0165C0CAB00C6DA5F /* RectangleShape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RectangleShape.h; sourceTree = "<group>"; };
+		C4BBDD5D165C6AE800FD264E /* BallShape.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BallShape.cpp; sourceTree = "<group>"; };
+		C4BBDD5E165C6AE800FD264E /* BallShape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BallShape.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +140,8 @@
 				C417A3C5165B210F0044BA2A /* Shape.h */,
 				C48CA7CF165C0CAB00C6DA5F /* RectangleShape.cpp */,
 				C48CA7D0165C0CAB00C6DA5F /* RectangleShape.h */,
+				C4BBDD5D165C6AE800FD264E /* BallShape.cpp */,
+				C4BBDD5E165C6AE800FD264E /* BallShape.h */,
 			);
 			name = data;
 			sourceTree = "<group>";
@@ -214,6 +219,7 @@
 				C48A3653165B1BE5003C31A5 /* Generator.cpp in Sources */,
 				C417A3C6165B210F0044BA2A /* Shape.cpp in Sources */,
 				C48CA7D1165C0CAB00C6DA5F /* RectangleShape.cpp in Sources */,
+				C4BBDD5F165C6AE800FD264E /* BallShape.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
