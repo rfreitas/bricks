@@ -109,9 +109,6 @@ void keyboardListenner(sf::RenderWindow &App){
 
 void draw(sf::RenderWindow &App){
     
-    // Listen to keyboard inputs
-    keyboardListenner(App);
-    
     // Clear screen
     App.Clear();
     
@@ -154,8 +151,13 @@ int main()
     // Start game loop
     while (App.IsOpened())
     {
-        checkCollisions();
+        // Listen to keyboard inputs
+        keyboardListenner(App);
+        
         draw(App);
+        
+        checkCollisions();
+        
     }
 
     return EXIT_SUCCESS;
