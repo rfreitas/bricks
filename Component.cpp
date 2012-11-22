@@ -40,7 +40,7 @@ void Component::collidedWith(Component& comp){
 }
 
 // Test
-void Component::moveMe(){
+void Component::newFrame(time_t  currentTimeStamp, time_t  previousTimeStamp){
     x += test;
     y += test;
 }
@@ -78,3 +78,7 @@ void Component::setX(double xValue){
     x = xValue;
 }
 
+void Component::draw(sf::RenderWindow &App)
+{
+    shape->draw(App, x, y);
+}

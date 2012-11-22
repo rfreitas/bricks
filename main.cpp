@@ -111,7 +111,7 @@ void keyboardListenner(sf::RenderWindow &App){
     // Process events
     sf::Event Event;
     while (App.GetEvent(Event))
-    {   
+    {  
         // Close window : exit
         if (Event.Type == sf::Event::KeyPressed && Event.Key.Code == sf::Key::Escape){
             App.Close();
@@ -138,29 +138,26 @@ void keyboardListenner(sf::RenderWindow &App){
     
 }
 
-void draw(sf::RenderWindow &App){
+void draw(sf::RenderWindow &App, time_t  currentTimeStamp, time_t  previousTimeStamp){
     
     // Clear screen
     App.Clear();
     
     for (int i = 0; i<components.size(); i++) {
         Component* auxComponent = components[i];
-        Shape* s = auxComponent->getShape();
-        s->draw(App, auxComponent->getX(), auxComponent->getY());
+        auxComponent->draw(App);
     }
     
     for (int i = 0; i<balls.size(); i++) {
         Component* auxComponent = balls[i];
-        Shape* s = auxComponent->getShape();
-        s->draw(App, auxComponent->getX(), auxComponent->getY());
+        auxComponent->draw(App);
         
         // for tests
-        balls[i]->moveMe();
+        balls[i]->newFrame(currentTimeStamp, previousTimeStamp);
     }
     
     // draw platform
-    Shape* platformShape = platform->getShape();
-    platformShape->draw(App, platform->getX(), platform->getY());
+    platform->draw(App);
     
     App.Display();
 }
@@ -180,12 +177,16 @@ int main()
     sf::RenderWindow App(sf::VideoMode(800, 640), "Bricks" /*@config file*/);
     
     // Start game loop
+    time_t previousTimeStamp, currentTimeStamp;
+    time(&currentTimeStamp);
+    previousTimeStamp = currentTimeStamp;
     while (App.IsOpened())
     {
+        time(&currentTimeStamp);
         // Listen to keyboard inputs
         keyboardListenner(App);
         
-        draw(App);
+        draw(App,currentTimeStamp,previousTimeStamp);
         
         checkCollisions();
         

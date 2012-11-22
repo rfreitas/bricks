@@ -14,6 +14,15 @@
 
 #endif /* defined(__SFML_Graphics_based_Application__Component__) */
 
+typedef enum
+{
+    top = 0,
+    left,
+    right,
+    bottom
+}  POSITION;
+
+
 
 class Component {
 private:
@@ -34,6 +43,8 @@ public:
 	
     ~Component();
     
+    POSITION whereRelativeTo(Component& comp);
+    
     double getX();
     double getY();
     double getArea();
@@ -46,6 +57,8 @@ public:
     void willCollideWith(Component& comp);
     void collidedWith(Component& comp);
     
+    void draw(sf::RenderWindow &App);
+    
     // for test
-    void moveMe();
+    void newFrame(time_t  currentTimeStamp, time_t  previousTimeStamp);
 };
