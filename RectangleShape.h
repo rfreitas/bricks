@@ -12,8 +12,6 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 
-#endif /* defined(__SFML_Graphics_based_Application__RectangleShape__) */
-
 class RectangleShape: public Shape {
 private:
     double x1;
@@ -33,3 +31,6 @@ public:
     double getX2();
     Pair normalVector( Pair externalPoint, Pair topLeft);
 };
+
+#endif /* defined(__SFML_Graphics_based_Application__RectangleShape__) */
+

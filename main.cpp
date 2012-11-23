@@ -41,9 +41,9 @@ void init(){
     Generator* generator = new Generator();
     
     ///////////////////////////////////////////////////////////////
-    // Generate Components /*@config file*/
+    // Generate Components
     // if random
-    //generator->randomBlocks(/*&components*/);
+    //generator->randomBlocks();
     // then
     // generator->notRandom(&components);
     // BUT for tests //////////////////////////////////////////////
@@ -180,11 +180,13 @@ void draw(sf::RenderWindow &App, time_t  currentTimeStamp, time_t  previousTimeS
 ////////////////////////////////////////////////////////////
 int main()
 {
+    
+    
     // Init
     init();
     
     // Create main window
-    sf::RenderWindow App(sf::VideoMode(800, 640), "Bricks" /*@config file*/);
+    sf::RenderWindow App(sf::VideoMode(800, 640), "Bricks");
     
     // Start game loop
     unsigned long long previousTimeStamp, currentTimeStamp;

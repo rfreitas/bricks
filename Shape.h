@@ -13,7 +13,6 @@
 #include <SFML/Graphics.hpp>
 #include <math.h>
 
-#endif /* defined(__SFML_Graphics_based_Application__Shape__) */
 
 
 struct Pair {
@@ -21,24 +20,11 @@ struct Pair {
     double y;
 };
 
-double vectorMagnitude( Pair vector){
-    return sqrt(vector.x*vector.x + vector.y*vector.y);
-}
+double vectorMagnitude( Pair vector);
 
-Pair normalizeVector(Pair vector){
-    double mag = vectorMagnitude(vector);
-    return {
-        .x = vector.x/mag,
-        .y = vector.y/mag
-    };
-}
+Pair normalizeVector(Pair vector);
 
-Pair vector( Pair pointStart, Pair pointEnd ){
-    return {
-        .x = pointEnd.x - pointStart.x,
-        .y = pointEnd.y - pointStart.y
-    };
-}
+Pair vector( Pair pointStart, Pair pointEnd );
 
 
 
@@ -60,3 +46,6 @@ public:
    
     
 };
+
+#endif /* defined(__SFML_Graphics_based_Application__Shape__) */
+

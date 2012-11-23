@@ -14,7 +14,6 @@
 
 using namespace std;
 
-#endif /* defined(__SFML_Graphics_based_Application__Generator__) */
 
 class Generator {
 private:
@@ -25,3 +24,5 @@ public:
     
     void randomBlocks(/*vector<Component*>& components*/);
 };
+
+#endif /* defined(__SFML_Graphics_based_Application__Generator__) */

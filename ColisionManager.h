@@ -13,7 +13,6 @@
 #include <iostream>
 #include "Component.h"
 
-#endif /* defined(__SFML_Graphics_based_Application__ColisionManager__) */
 
 class ColisionManager {
 private:
@@ -26,3 +25,6 @@ public:
     bool collisionHappened(Component& cA, Component& cB);
 
 };
+
+#endif /* defined(__SFML_Graphics_based_Application__ColisionManager__) */
+

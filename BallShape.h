@@ -12,8 +12,6 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 
-#endif /* defined(__SFML_Graphics_based_Application__BallShape__) */
-
 class BallShape: public Shape {
 private:
     double radius;
@@ -28,3 +26,6 @@ public:
     double* getBounderyRectangle();
     Pair normalVector( Pair externalPoint, Pair topLeft);
 };
+
+
+#endif /* defined(__SFML_Graphics_based_Application__BallShape__) */

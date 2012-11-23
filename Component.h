@@ -12,7 +12,6 @@
 #include "Shape.h"
 #include <iostream>
 
-#endif /* defined(__SFML_Graphics_based_Application__Component__) */
 
 typedef enum
 {
@@ -66,3 +65,6 @@ public:
     // for test
     void newFrame(unsigned long long  currentTimeStamp, unsigned long long  previousTimeStamp);
 };
+
+#endif /* defined(__SFML_Graphics_based_Application__Component__) */
+
