@@ -13,6 +13,7 @@
 #include <SFML/Graphics.hpp>
 #include <math.h>
 
+#endif /* defined(__SFML_Graphics_based_Application__Shape__) */
 
 
 struct Pair {
@@ -23,6 +24,7 @@ struct Pair {
 double vectorMagnitude( Pair vector);
 Pair normalizeVector(Pair vector);
 Pair vector( Pair pointStart, Pair pointEnd );
+
 
 class Shape {
 protected:
@@ -42,6 +44,3 @@ public:
    
     
 };
-
-#endif /* defined(__SFML_Graphics_based_Application__Shape__) */
-

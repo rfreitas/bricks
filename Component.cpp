@@ -14,11 +14,10 @@ int hey = 0;
 Pair reflect( Pair vector, Pair normal){
     // R = V - 2 * (V · N)   <-- formula I found online somewhere
     double d = (vector.x*normal.x) + (vector.y*normal.y);
-
-    Pair pair;
-    pair.x =  vector.x - 2 * d;
-    pair.y =  vector.y - 2 * d;
-    return pair;
+    return {
+        .x =  vector.x - 2 * d * normal.x,
+        .y =  vector.y - 2 * d * normal.y
+    };
 }
 
 
@@ -66,9 +65,10 @@ void Component::collidedWith(Component& comp){
 
 Pair Component::center(){
     Pair shapeCenter = shape->center();
-    Pair pair;
-    pair.x = shapeCenter.x;
-    pair.y = shapeCenter.y;
+    return {
+        .x = shapeCenter.x +x,
+        .y = shapeCenter.y + y
+    };
 };
 
 Pair Component::normalVector(Pair externalPoint){

@@ -27,6 +27,8 @@ Pair vector( Pair pointStart, Pair pointEnd ){
     };
 }
 
+
+
 /**
  * Component Constructor
  **/
@@ -42,11 +44,11 @@ Shape::Shape(sf::Color colorValue)
 Pair Shape::center()
 {
     double* rect = getBounderyRectangle();
-    Pair center;
-    
-    center.x = (rect[2] - rect[0])/2;
-    center.y = (rect[3] - rect[1])/2;
-    return center;
+    //Pair center;
+    return {
+        .x = (rect[2] - rect[0])/2,
+        .y = (rect[3] - rect[1])/2
+    };
 }
 
 

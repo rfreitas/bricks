@@ -27,8 +27,8 @@ unsigned long long GetTimeSinceBootInMilliseconds()
 }*/
 
 // Vector of Components
-std::vector<Component*> components(6);
-std::vector<Component*> balls(2);
+vector<Component*> components(6);
+vector<Component*> balls(2);
 Component* platform;
 ColisionManager* collisionManager;
 
@@ -41,9 +41,9 @@ void init(){
     Generator* generator = new Generator();
     
     ///////////////////////////////////////////////////////////////
-    // Generate Components
+    // Generate Components /*@config file*/
     // if random
-    //generator->randomBlocks();
+    //generator->randomBlocks(/*&components*/);
     // then
     // generator->notRandom(&components);
     // BUT for tests //////////////////////////////////////////////
@@ -194,13 +194,11 @@ void move(){
 ////////////////////////////////////////////////////////////
 int main()
 {
-    
-    
     // Init
     init();
     
     // Create main window
-    sf::RenderWindow App(sf::VideoMode(800, 640), "Bricks");
+    sf::RenderWindow App(sf::VideoMode(800, 640), "Bricks" /*@config file*/);
     
     // Start game loop
     unsigned long long previousTimeStamp, currentTimeStamp;

@@ -58,14 +58,16 @@ double RectangleShape::getX2(){
 
 
 Pair RectangleShape::normalVector( Pair externalPoint, Pair topLeft){
-    Pair bottomRight;
-    bottomRight.x = topLeft.x + x2;
-    bottomRight.y = topLeft.y + y2;
-    
-    Pair outNormal;
-    outNormal.x = 0;
-    outNormal.y = 0;
-
+    Pair bottomRight = {
+        .x = topLeft.x + x2,
+        .y = topLeft.y + y2
+    };
+    Pair outNormal = {
+      .x = 0,
+        .y = 0
+    };
+    //printf("extPoint: %f,%f \n", externalPoint.x, externalPoint.y);
+    //printf(" topLeft: %f,%f \n", topLeft.x, topLeft.y);
     if ( externalPoint.x <= topLeft.x){
         outNormal.x = -1;
     }
