@@ -48,13 +48,13 @@ void init(){
     // generator->notRandom(&components);
     // BUT for tests //////////////////////////////////////////////
     Component* ball = new Component(300, 300, 0, 0, 0, NULL);
-    BallShape* ballShape = new BallShape(15, sf::Color::White);
+    BallShape* ballShape = new BallShape(10, sf::Color::White);
     ball->setShape(ballShape);
     balls[0] = ball;
     
     
     Component* ball2 = new Component(230, 200, 0, 0, 0, NULL);
-    BallShape* ball2Shape = new BallShape(15, sf::Color::Red);
+    BallShape* ball2Shape = new BallShape(10, sf::Color::Red);
     ball2->setShape(ball2Shape);
     balls[1] = ball2;
     
@@ -77,7 +77,7 @@ void init(){
     
     // platform
     platform = new Component(200, 510, 0, 0, 0, NULL);
-    recShape = new RectangleShape(0, 0, 490, 50, sf::Color::Yellow);
+    recShape = new RectangleShape(0, 0, 90, 30, sf::Color::Yellow);
     platform->setShape(recShape);
     
     
