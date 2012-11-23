@@ -8,7 +8,7 @@
 
 #include "Component.h"
 
-
+int hey = 0;
 
 // 'v' is the incoming vector, 'n' is the normalized wall vector
 Pair reflect( Pair vector, Pair normal){
@@ -53,6 +53,7 @@ void Component::willCollideWith(Component& comp){
 }
 
 void Component::collidedWith(Component& comp){
+    //printf("\ncollision %d\n",hey++);
     test = test * -1.0;
     Pair normal = comp.normalVector( center()  );
     Pair newVel = reflect(vVector, normal);
@@ -82,6 +83,8 @@ void Component::newFrame(unsigned long long  currentTimeStamp, unsigned long lon
     //printf("hey");
     //double elapsedTime = difftime(currentTimeStamp, previousTimeStamp)*1000;
     //printf("e:%f",elapsedTime);
+    previousPosition.x = x;
+    previousPosition.y = y;
     x += vVector.x;
     y += vVector.y;
 }

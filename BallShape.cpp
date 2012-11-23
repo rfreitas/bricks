@@ -37,8 +37,8 @@ void BallShape::draw(sf::RenderWindow &App, double x, double y)
 
 double* BallShape::getBounderyRectangle(){
     double *bounderies = new double[4];
-    bounderies[0] = 0;
-    bounderies[1] = 0;
+    bounderies[0] = -radius;
+    bounderies[1] = -radius;
     bounderies[2] = radius;
     bounderies[3] = radius;
     return bounderies;
