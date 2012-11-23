@@ -8,27 +8,24 @@
 
 #include "Shape.h"
 
-
 double vectorMagnitude( Pair vector){
     return sqrt(vector.x*vector.x + vector.y*vector.y);
 }
 
 Pair normalizeVector(Pair vector){
     double mag = vectorMagnitude(vector);
-    Pair pair;
-    pair.x = vector.x/mag;
-    pair.y = vector.y/mag;
-    return pair;
+    return {
+        .x = vector.x/mag,
+        .y = vector.y/mag
+    };
 }
 
 Pair vector( Pair pointStart, Pair pointEnd ){
-    Pair pair;
-    pair.x = pointEnd.x - pointStart.x;
-    pair.y = pointEnd.y - pointStart.y;
-    return pair;
+    return {
+        .x = pointEnd.x - pointStart.x,
+        .y = pointEnd.y - pointStart.y
+    };
 }
-
-
 
 /**
  * Component Constructor

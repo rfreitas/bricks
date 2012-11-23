@@ -21,12 +21,8 @@ struct Pair {
 };
 
 double vectorMagnitude( Pair vector);
-
 Pair normalizeVector(Pair vector);
-
 Pair vector( Pair pointStart, Pair pointEnd );
-
-
 
 class Shape {
 protected:

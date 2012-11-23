@@ -27,6 +27,7 @@ class Component {
 private:
 	double x;
 	double y;
+    Pair previousPosition;
     double area;
     double normal;
     double velocity;

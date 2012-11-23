@@ -12,7 +12,7 @@
 using namespace std;
 
 // TODO @config file
-#define PLATFORM_STEP 8
+#define PLATFORM_STEP 28
 #define GAME_LIMIT_LEFT 120
 #define GAME_LIMIT_RIGHT 700
 
@@ -27,8 +27,8 @@ unsigned long long GetTimeSinceBootInMilliseconds()
 }*/
 
 // Vector of Components
-vector<Component*> components(6);
-vector<Component*> balls(2);
+std::vector<Component*> components(6);
+std::vector<Component*> balls(2);
 Component* platform;
 ColisionManager* collisionManager;
 
@@ -48,14 +48,17 @@ void init(){
     // generator->notRandom(&components);
     // BUT for tests //////////////////////////////////////////////
     Component* ball = new Component(300, 300, 0, 0, 0, NULL);
-    BallShape* ballShape = new BallShape(5, sf::Color::White);
+    BallShape* ballShape = new BallShape(15, sf::Color::White);
     ball->setShape(ballShape);
     balls[0] = ball;
     
-    Component* ball2 = new Component(130, 200, 0, 0, 0, NULL);
-    BallShape* ball2Shape = new BallShape(5, sf::Color::Red);
+    
+    Component* ball2 = new Component(230, 200, 0, 0, 0, NULL);
+    BallShape* ball2Shape = new BallShape(15, sf::Color::Red);
     ball2->setShape(ball2Shape);
     balls[1] = ball2;
+    
+    
     
     // left wall
     Component* leftWall = new Component(100, 50, 0, 0, 0, NULL);
@@ -73,8 +76,8 @@ void init(){
     topWall->setShape(recShape);
     
     // platform
-    platform = new Component(300, 510, 0, 0, 0, NULL);
-    recShape = new RectangleShape(0, 0, 90, 10, sf::Color::Yellow);
+    platform = new Component(200, 510, 0, 0, 0, NULL);
+    recShape = new RectangleShape(0, 0, 490, 50, sf::Color::Yellow);
     platform->setShape(recShape);
     
     
@@ -148,7 +151,7 @@ void keyboardListenner(sf::RenderWindow &App){
     
 }
 
-void draw(sf::RenderWindow &App, time_t  currentTimeStamp, time_t  previousTimeStamp){
+void draw(sf::RenderWindow &App, unsigned long long  currentTimeStamp, unsigned long long  previousTimeStamp){
     
     // Clear screen
     App.Clear();
@@ -161,15 +164,26 @@ void draw(sf::RenderWindow &App, time_t  currentTimeStamp, time_t  previousTimeS
     for (int i = 0; i<balls.size(); i++) {
         Component* auxComponent = balls[i];
         auxComponent->draw(App);
-        
-        // for tests
-        balls[i]->newFrame(currentTimeStamp, previousTimeStamp);
     }
     
     // draw platform
     platform->draw(App);
     
     App.Display();
+}
+
+void move(){
+    for (int i = 0; i<components.size(); i++) {
+        Component* auxComponent = components[i];
+
+    }
+    
+    for (int i = 0; i<balls.size(); i++) {
+        Component* auxComponent = balls[i];
+        
+        // for tests
+        balls[i]->newFrame(0, 0);
+    }
 }
 
 ////////////////////////////////////////////////////////////
@@ -197,9 +211,13 @@ int main()
         // Listen to keyboard inputs
         keyboardListenner(App);
         
-        draw(App,currentTimeStamp,previousTimeStamp);
+       
+        
+        move();
         
         checkCollisions();
+        
+        draw(App,currentTimeStamp,previousTimeStamp);
         
         previousTimeStamp = currentTimeStamp;
     }
