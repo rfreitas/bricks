@@ -12,7 +12,7 @@
 using namespace std;
 
 // TODO @config file
-#define PLATFORM_STEP 8
+#define PLATFORM_STEP 28
 #define GAME_LIMIT_LEFT 120
 #define GAME_LIMIT_RIGHT 700
 
@@ -48,14 +48,16 @@ void init(){
     // generator->notRandom(&components);
     // BUT for tests //////////////////////////////////////////////
     Component* ball = new Component(300, 300, 0, 0, 0, NULL);
-    BallShape* ballShape = new BallShape(5, sf::Color::White);
+    BallShape* ballShape = new BallShape(35, sf::Color::White);
     ball->setShape(ballShape);
     balls[0] = ball;
     
+    
     Component* ball2 = new Component(130, 200, 0, 0, 0, NULL);
-    BallShape* ball2Shape = new BallShape(5, sf::Color::Red);
+    BallShape* ball2Shape = new BallShape(35, sf::Color::Red);
     ball2->setShape(ball2Shape);
     balls[1] = ball2;
+    
     
     // left wall
     Component* leftWall = new Component(100, 50, 0, 0, 0, NULL);
@@ -148,7 +150,7 @@ void keyboardListenner(sf::RenderWindow &App){
     
 }
 
-void draw(sf::RenderWindow &App, time_t  currentTimeStamp, time_t  previousTimeStamp){
+void draw(sf::RenderWindow &App, unsigned long long  currentTimeStamp, unsigned long long  previousTimeStamp){
     
     // Clear screen
     App.Clear();

@@ -15,8 +15,8 @@ Pair reflect( Pair vector, Pair normal){
     // R = V - 2 * (V · N)   <-- formula I found online somewhere
     double d = (vector.x*normal.x) + (vector.y*normal.y);
     return {
-        .x =  vector.x - 2 * d,
-        .y =  vector.y - 2 * d
+        .x =  vector.x - 2 * d * normal.x,
+        .y =  vector.y - 2 * d * normal.y
     };
 }
 
@@ -34,8 +34,8 @@ Component::Component(double posX, double posY, double areaValue, double normalVa
     velocity = velocityVector;
     shape = componentShape;
     
-    vVector.x = 2;
-    vVector.y = -1;
+    vVector.x = .2;
+    vVector.y = -.1;
     
     // test
     test = 0.1;
@@ -56,6 +56,8 @@ void Component::collidedWith(Component& comp){
     test = test * -1.0;
     Pair normal = comp.normalVector( center()  );
     Pair newVel = reflect(vVector, normal);
+    //printf("vel: ( %f, %f )\n",vVector.x,vVector.y);
+    //printf("reflect: ( %f, %f )\n",newVel.x,newVel.y);
     vVector.x = newVel.x;
     vVector.y = newVel.y;
 }
@@ -63,8 +65,8 @@ void Component::collidedWith(Component& comp){
 Pair Component::center(){
     Pair shapeCenter = shape->center();
     return {
-        .x = shapeCenter.x,
-        .y = shapeCenter.y
+        .x = shapeCenter.x +x,
+        .y = shapeCenter.y + y
     };
 };
 
