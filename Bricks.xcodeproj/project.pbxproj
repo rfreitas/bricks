@@ -39,6 +39,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		862FBA45165F000C00CC7CDF /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = ../../../../../System/Library/Frameworks/CoreServices.framework; sourceTree = "<group>"; };
 		A01FB6A90F07CF6E000AAC7B /* «PROJECTNAME».app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "«PROJECTNAME».app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A01FB6AC0F07CF6E000AAC7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A01FB6C80F07CFCE000AAC7B /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
@@ -77,6 +78,7 @@
 		A01FB69A0F07CF63000AAC7B = {
 			isa = PBXGroup;
 			children = (
+				862FBA45165F000C00CC7CDF /* CoreServices.framework */,
 				A01FB6B20F07CF80000AAC7B /* Sources */,
 				A01FB6B10F07CF7C000AAC7B /* Resources */,
 				A01FB6B00F07CF75000AAC7B /* Frameworks */,

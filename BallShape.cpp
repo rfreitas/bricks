@@ -43,3 +43,8 @@ double* BallShape::getBounderyRectangle(){
     bounderies[3] = radius;
     return bounderies;
 }
+
+
+Pair BallShape::normalVector( Pair externalPoint, Pair shapePosition){
+    return normalizeVector( vector(shapePosition, externalPoint) );
+}

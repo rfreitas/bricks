@@ -26,4 +26,5 @@ public:
     
     void draw(sf::RenderWindow &App, double x, double y);
     double* getBounderyRectangle();
+    Pair normalVector( Pair externalPoint, Pair topLeft);
 };

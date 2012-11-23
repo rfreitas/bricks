@@ -31,4 +31,5 @@ public:
     double* getBounderyRectangle();
     
     double getX2();
+    Pair normalVector( Pair externalPoint, Pair topLeft);
 };

@@ -16,6 +16,16 @@ using namespace std;
 #define GAME_LIMIT_LEFT 120
 #define GAME_LIMIT_RIGHT 700
 
+/*
+#include <CoreServices/CoreServices.h>
+
+//ref:http://stackoverflow.com/a/2170477/689223
+unsigned long long GetTimeSinceBootInMilliseconds()
+{
+    UnsignedWide uw = AbsoluteToNanoseconds(UpTime());
+    return ((((unsigned long long)uw.hi)<<32)|(uw.lo))/1000000;
+}*/
+
 // Vector of Components
 vector<Component*> components(6);
 vector<Component*> balls(2);
@@ -177,12 +187,11 @@ int main()
     sf::RenderWindow App(sf::VideoMode(800, 640), "Bricks" /*@config file*/);
     
     // Start game loop
-    time_t previousTimeStamp, currentTimeStamp;
-    time(&currentTimeStamp);
-    previousTimeStamp = currentTimeStamp;
+    unsigned long long previousTimeStamp, currentTimeStamp;
+    //previousTimeStamp = currentTimeStamp = GetTimeSinceBootInMilliseconds();
     while (App.IsOpened())
     {
-        time(&currentTimeStamp);
+        //currentTimeStamp = GetTimeSinceBootInMilliseconds();
         // Listen to keyboard inputs
         keyboardListenner(App);
         
@@ -190,6 +199,7 @@ int main()
         
         checkCollisions();
         
+        previousTimeStamp = currentTimeStamp;
     }
 
     return EXIT_SUCCESS;

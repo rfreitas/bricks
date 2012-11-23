@@ -31,6 +31,7 @@ private:
     double area;
     double normal;
     double velocity;
+    Pair vVector;
     
     Shape* shape;
     
@@ -59,6 +60,9 @@ public:
     
     void draw(sf::RenderWindow &App);
     
+    Pair normalVector(Pair externalPoint);
+    Pair center();
+    
     // for test
-    void newFrame(time_t  currentTimeStamp, time_t  previousTimeStamp);
+    void newFrame(unsigned long long  currentTimeStamp, unsigned long long  previousTimeStamp);
 };
