@@ -10,6 +10,7 @@
 
 
 
+
 /**
  * Component Constructor
  **/
@@ -20,6 +21,16 @@ Shape::Shape()
 Shape::Shape(sf::Color colorValue)
 {
     color = colorValue;
+}
+
+Pair Shape::center()
+{
+    double* rect = getBounderyRectangle();
+    //Pair center;
+    return {
+        .x = (rect[2] - rect[0])/2,
+        .y = (rect[3] - rect[1])/2
+    };
 }
 
 
