@@ -8,11 +8,10 @@
 
 #ifndef __SFML_Graphics_based_Application__Component__
 #define __SFML_Graphics_based_Application__Component__
-#pragma once
-#include "Shape.h"
-#include <iostream>
 
-#endif /* defined(__SFML_Graphics_based_Application__Component__) */
+#include "Shape.h"
+#include "Status.h"
+#include <iostream>
 
 typedef enum
 {
@@ -20,50 +19,56 @@ typedef enum
     left,
     right,
     bottom
+    
 }  POSITION;
 
 
 
 class Component {
 private:
-	double x;
-	double y;
-    Pair previousPosition;
-    double area;
-    double normal;
-    double velocity;
-    Pair vVector;
+	double  x;
+	double  y;
+    double  area;
+    double  normal;
+    double  velocity;
+    Pair    previousPosition;
+    Pair    vVector;
     
-    Shape* shape;
-    
-    // test
-    double test;
+    Shape*  shape;
+    Status* status;
 	
 public:
     Component();
-    Component(double posX, double posY, double areaValue, double normalValue, double velocityVector, Shape* componentShape);
+    Component(double posX, double posY, double areaValue, double normalValue,
+              double velocityVector, Shape* componentShape, Status* statusParam);
 	
     ~Component();
     
+    virtual void doCollisionBehaviour(){};
+    
     POSITION whereRelativeTo(Component& comp);
     
-    double getX();
-    double getY();
-    double getArea();
-    double getNormal();
-    double getVelocity();
-    Shape* getShape();
+    double  getX();
+    double  getY();
+    double  getArea();
+    double  getNormal();
+    double  getVelocity();
+    Shape*  getShape();
+    Status* getStatus();
     
-    void setX(double x);
-    void setShape(Shape* shapeObject);
-    void willCollideWith(Component& comp);
-    void collidedWith(Component& comp);
+    void    setX(double x);
+    void    setShape(Shape* shapeObject);
+    void    setStatus(Status* statusParam);
+    void    willCollideWith(Component& comp);
+    void    collidedWith(Component& comp);
     
-    void draw(sf::RenderWindow &App);
+    void    draw(sf::RenderWindow &App);
     
-    Pair normalVector(Pair externalPoint);
-    Pair center();
+    Pair    normalVector(Pair externalPoint);
+    Pair    center();
     
-    // for test
-    void newFrame(unsigned long long  currentTimeStamp, unsigned long long  previousTimeStamp);
+    void    newFrame(unsigned long currentTimeStamp, unsigned long previousTimeStamp);
 };
+
+
+#endif /* defined(__SFML_Graphics_based_Application__Component__) */

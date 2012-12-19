@@ -13,9 +13,6 @@
 #include <SFML/Graphics.hpp>
 #include <math.h>
 
-#endif /* defined(__SFML_Graphics_based_Application__Shape__) */
-
-
 struct Pair {
     double x;
     double y;
@@ -31,16 +28,18 @@ protected:
     sf::Color color;
     
 public:
-    virtual void draw(sf::RenderWindow &App, double x, double y){};
+    virtual void    draw(sf::RenderWindow &App, double x, double y){};
     virtual double* getBounderyRectangle(){};
-    virtual Pair normalVector( Pair externalPoint, Pair topLeft){};
+    virtual Pair    normalVector( Pair externalPoint, Pair topLeft){};
     
     Shape();
     Shape(sf::Color colorValue);
 	~Shape();
     
     Pair center();
-    
-   
-    
+    void setColor(sf::Color paramColor);
+    sf::Color getColor();
 };
+
+
+#endif /* defined(__SFML_Graphics_based_Application__Shape__) */

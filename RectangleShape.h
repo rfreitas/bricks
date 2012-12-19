@@ -8,11 +8,9 @@
 
 #ifndef __SFML_Graphics_based_Application__RectangleShape__
 #define __SFML_Graphics_based_Application__RectangleShape__
-#pragma once
+
 #include <iostream>
 #include <SFML/Graphics.hpp>
-
-#endif /* defined(__SFML_Graphics_based_Application__RectangleShape__) */
 
 class RectangleShape: public Shape {
 private:
@@ -27,9 +25,11 @@ public:
 
 	~RectangleShape();
     
-    void draw(sf::RenderWindow &App, double x, double y);
+    void    draw(sf::RenderWindow &App, double x, double y);
     double* getBounderyRectangle();
     
-    double getX2();
-    Pair normalVector( Pair externalPoint, Pair topLeft);
+    double  getX2();
+    Pair    normalVector( Pair externalPoint, Pair topLeft);
 };
+
+#endif /* defined(__SFML_Graphics_based_Application__RectangleShape__) */

@@ -7,21 +7,24 @@
 //
 #ifndef __SFML_Graphics_based_Application__Generator__
 #define __SFML_Graphics_based_Application__Generator__
-#pragma once
 
 #include <iostream>
 #include "Component.h"
 
 using namespace std;
 
-#endif /* defined(__SFML_Graphics_based_Application__Generator__) */
-
 class Generator {
 private:
-	
+	double game_x;
+    double game_y;
+    double game_width;
+    double game_height;
 public:
-    Generator();
+    Generator(double game_xParam, double game_y, double game_width, double game_height);
 	~Generator();
     
-    void randomBlocks(/*vector<Component*>& components*/);
+    void randomBlocks(vector<Component*>& components);
+    void randomBalls(vector<Component*>& balls, int numBalls);
 };
+
+#endif /* defined(__SFML_Graphics_based_Application__Generator__) */

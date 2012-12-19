@@ -8,11 +8,9 @@
 
 #ifndef __SFML_Graphics_based_Application__BallShape__
 #define __SFML_Graphics_based_Application__BallShape__
-#pragma once
+
 #include <iostream>
 #include <SFML/Graphics.hpp>
-
-#endif /* defined(__SFML_Graphics_based_Application__BallShape__) */
 
 class BallShape: public Shape {
 private:
@@ -24,7 +22,9 @@ public:
     
 	~BallShape();
     
-    void draw(sf::RenderWindow &App, double x, double y);
+    void    draw(sf::RenderWindow &App, double x, double y);
     double* getBounderyRectangle();
-    Pair normalVector( Pair externalPoint, Pair topLeft);
+    Pair    normalVector( Pair externalPoint, Pair topLeft);
 };
+
+#endif /* defined(__SFML_Graphics_based_Application__BallShape__) */

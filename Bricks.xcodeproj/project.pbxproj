@@ -17,8 +17,19 @@
 		C406E56B165B13150001B225 /* Component.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C406E569165B13150001B225 /* Component.cpp */; };
 		C406E56F165B17EF0001B225 /* ColisionManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C406E56D165B17EF0001B225 /* ColisionManager.cpp */; };
 		C417A3C6165B210F0044BA2A /* Shape.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C417A3C4165B210F0044BA2A /* Shape.cpp */; };
+		C426270916682525002F8C12 /* Status.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C426270716682525002F8C12 /* Status.cpp */; };
+		C426270C166826CF002F8C12 /* AliveStatus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C426270A166826CF002F8C12 /* AliveStatus.cpp */; };
+		C426271316683578002F8C12 /* Wall.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C426271116683578002F8C12 /* Wall.cpp */; };
+		C426271716683962002F8C12 /* DoNothing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C426271516683962002F8C12 /* DoNothing.cpp */; };
+		C426271A16683999002F8C12 /* Behaviour.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C426271816683999002F8C12 /* Behaviour.cpp */; };
+		C426271D16683DED002F8C12 /* ChangeColor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C426271B16683DED002F8C12 /* ChangeColor.cpp */; };
+		C426272016683F59002F8C12 /* Block.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C426271E16683F59002F8C12 /* Block.cpp */; };
+		C46E6AEE166A529C0092BC39 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C46E6AEC166A529C0092BC39 /* Player.cpp */; };
+		C47A87161669AB5400F89C22 /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C47A87141669AB5400F89C22 /* Game.cpp */; };
 		C48A3653165B1BE5003C31A5 /* Generator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C48A3651165B1BE5003C31A5 /* Generator.cpp */; };
 		C48CA7D1165C0CAB00C6DA5F /* RectangleShape.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C48CA7CF165C0CAB00C6DA5F /* RectangleShape.cpp */; };
+		C4ABE9D1166A386F00A233D3 /* ConfigFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C4ABE9CF166A386F00A233D3 /* ConfigFile.cpp */; };
+		C4ABE9D2166A440B00A233D3 /* game.config in Resources */ = {isa = PBXBuildFile; fileRef = C4ABE9CE166A378800A233D3 /* game.config */; };
 		C4BBDD5F165C6AE800FD264E /* BallShape.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C4BBDD5D165C6AE800FD264E /* BallShape.cpp */; };
 /* End PBXBuildFile section */
 
@@ -52,10 +63,31 @@
 		C406E56E165B17EF0001B225 /* ColisionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColisionManager.h; sourceTree = "<group>"; };
 		C417A3C4165B210F0044BA2A /* Shape.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Shape.cpp; sourceTree = "<group>"; };
 		C417A3C5165B210F0044BA2A /* Shape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shape.h; sourceTree = "<group>"; };
+		C426270716682525002F8C12 /* Status.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Status.cpp; sourceTree = "<group>"; };
+		C426270816682525002F8C12 /* Status.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Status.h; sourceTree = "<group>"; };
+		C426270A166826CF002F8C12 /* AliveStatus.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AliveStatus.cpp; sourceTree = "<group>"; };
+		C426270B166826CF002F8C12 /* AliveStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliveStatus.h; sourceTree = "<group>"; };
+		C426271116683578002F8C12 /* Wall.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Wall.cpp; sourceTree = "<group>"; };
+		C426271216683578002F8C12 /* Wall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Wall.h; sourceTree = "<group>"; };
+		C426271516683962002F8C12 /* DoNothing.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DoNothing.cpp; sourceTree = "<group>"; };
+		C426271616683962002F8C12 /* DoNothing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoNothing.h; sourceTree = "<group>"; };
+		C426271816683999002F8C12 /* Behaviour.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Behaviour.cpp; sourceTree = "<group>"; };
+		C426271916683999002F8C12 /* Behaviour.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Behaviour.h; sourceTree = "<group>"; };
+		C426271B16683DED002F8C12 /* ChangeColor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ChangeColor.cpp; sourceTree = "<group>"; };
+		C426271C16683DED002F8C12 /* ChangeColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeColor.h; sourceTree = "<group>"; };
+		C426271E16683F59002F8C12 /* Block.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Block.cpp; sourceTree = "<group>"; };
+		C426271F16683F59002F8C12 /* Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Block.h; sourceTree = "<group>"; };
+		C46E6AEC166A529C0092BC39 /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
+		C46E6AED166A529C0092BC39 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		C47A87141669AB5400F89C22 /* Game.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Game.cpp; sourceTree = "<group>"; };
+		C47A87151669AB5400F89C22 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
 		C48A3651165B1BE5003C31A5 /* Generator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Generator.cpp; sourceTree = "<group>"; };
 		C48A3652165B1BE5003C31A5 /* Generator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Generator.h; sourceTree = "<group>"; };
 		C48CA7CF165C0CAB00C6DA5F /* RectangleShape.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RectangleShape.cpp; sourceTree = "<group>"; };
 		C48CA7D0165C0CAB00C6DA5F /* RectangleShape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RectangleShape.h; sourceTree = "<group>"; };
+		C4ABE9CE166A378800A233D3 /* game.config */ = {isa = PBXFileReference; lastKnownFileType = text; path = game.config; sourceTree = "<group>"; };
+		C4ABE9CF166A386F00A233D3 /* ConfigFile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ConfigFile.cpp; sourceTree = "<group>"; };
+		C4ABE9D0166A386F00A233D3 /* ConfigFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigFile.h; sourceTree = "<group>"; };
 		C4BBDD5D165C6AE800FD264E /* BallShape.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BallShape.cpp; sourceTree = "<group>"; };
 		C4BBDD5E165C6AE800FD264E /* BallShape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BallShape.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -114,6 +146,8 @@
 		A01FB6B20F07CF80000AAC7B /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				C4ABE9CC166A376C00A233D3 /* config */,
+				C47A87121669AB4400F89C22 /* game */,
 				C406E572165B1BB60001B225 /* generator */,
 				C406E571165B1BA10001B225 /* data */,
 				C406E570165B1B8D0001B225 /* colisions */,
@@ -134,14 +168,12 @@
 		C406E571165B1BA10001B225 /* data */ = {
 			isa = PBXGroup;
 			children = (
+				C426271416683948002F8C12 /* behaviours */,
+				C426270D166832A4002F8C12 /* types */,
+				C4262706166824F3002F8C12 /* status */,
+				C4262704166824DC002F8C12 /* shapes */,
 				C406E569165B13150001B225 /* Component.cpp */,
 				C406E56A165B13150001B225 /* Component.h */,
-				C417A3C4165B210F0044BA2A /* Shape.cpp */,
-				C417A3C5165B210F0044BA2A /* Shape.h */,
-				C48CA7CF165C0CAB00C6DA5F /* RectangleShape.cpp */,
-				C48CA7D0165C0CAB00C6DA5F /* RectangleShape.h */,
-				C4BBDD5D165C6AE800FD264E /* BallShape.cpp */,
-				C4BBDD5E165C6AE800FD264E /* BallShape.h */,
 			);
 			name = data;
 			sourceTree = "<group>";
@@ -153,6 +185,75 @@
 				C48A3652165B1BE5003C31A5 /* Generator.h */,
 			);
 			name = generator;
+			sourceTree = "<group>";
+		};
+		C4262704166824DC002F8C12 /* shapes */ = {
+			isa = PBXGroup;
+			children = (
+				C417A3C4165B210F0044BA2A /* Shape.cpp */,
+				C417A3C5165B210F0044BA2A /* Shape.h */,
+				C48CA7CF165C0CAB00C6DA5F /* RectangleShape.cpp */,
+				C48CA7D0165C0CAB00C6DA5F /* RectangleShape.h */,
+				C4BBDD5D165C6AE800FD264E /* BallShape.cpp */,
+				C4BBDD5E165C6AE800FD264E /* BallShape.h */,
+			);
+			name = shapes;
+			sourceTree = "<group>";
+		};
+		C4262706166824F3002F8C12 /* status */ = {
+			isa = PBXGroup;
+			children = (
+				C426270716682525002F8C12 /* Status.cpp */,
+				C426270816682525002F8C12 /* Status.h */,
+				C426270A166826CF002F8C12 /* AliveStatus.cpp */,
+				C426270B166826CF002F8C12 /* AliveStatus.h */,
+			);
+			name = status;
+			sourceTree = "<group>";
+		};
+		C426270D166832A4002F8C12 /* types */ = {
+			isa = PBXGroup;
+			children = (
+				C426271116683578002F8C12 /* Wall.cpp */,
+				C426271216683578002F8C12 /* Wall.h */,
+				C426271E16683F59002F8C12 /* Block.cpp */,
+				C426271F16683F59002F8C12 /* Block.h */,
+				C46E6AEC166A529C0092BC39 /* Player.cpp */,
+				C46E6AED166A529C0092BC39 /* Player.h */,
+			);
+			name = types;
+			sourceTree = "<group>";
+		};
+		C426271416683948002F8C12 /* behaviours */ = {
+			isa = PBXGroup;
+			children = (
+				C426271516683962002F8C12 /* DoNothing.cpp */,
+				C426271616683962002F8C12 /* DoNothing.h */,
+				C426271816683999002F8C12 /* Behaviour.cpp */,
+				C426271916683999002F8C12 /* Behaviour.h */,
+				C426271B16683DED002F8C12 /* ChangeColor.cpp */,
+				C426271C16683DED002F8C12 /* ChangeColor.h */,
+			);
+			name = behaviours;
+			sourceTree = "<group>";
+		};
+		C47A87121669AB4400F89C22 /* game */ = {
+			isa = PBXGroup;
+			children = (
+				C47A87141669AB5400F89C22 /* Game.cpp */,
+				C47A87151669AB5400F89C22 /* Game.h */,
+			);
+			name = game;
+			sourceTree = "<group>";
+		};
+		C4ABE9CC166A376C00A233D3 /* config */ = {
+			isa = PBXGroup;
+			children = (
+				C4ABE9CE166A378800A233D3 /* game.config */,
+				C4ABE9CF166A386F00A233D3 /* ConfigFile.cpp */,
+				C4ABE9D0166A386F00A233D3 /* ConfigFile.h */,
+			);
+			name = config;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,6 +304,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4ABE9D2166A440B00A233D3 /* game.config in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,6 +322,16 @@
 				C417A3C6165B210F0044BA2A /* Shape.cpp in Sources */,
 				C48CA7D1165C0CAB00C6DA5F /* RectangleShape.cpp in Sources */,
 				C4BBDD5F165C6AE800FD264E /* BallShape.cpp in Sources */,
+				C426270916682525002F8C12 /* Status.cpp in Sources */,
+				C426270C166826CF002F8C12 /* AliveStatus.cpp in Sources */,
+				C426271316683578002F8C12 /* Wall.cpp in Sources */,
+				C426271716683962002F8C12 /* DoNothing.cpp in Sources */,
+				C426271A16683999002F8C12 /* Behaviour.cpp in Sources */,
+				C426271D16683DED002F8C12 /* ChangeColor.cpp in Sources */,
+				C426272016683F59002F8C12 /* Block.cpp in Sources */,
+				C47A87161669AB5400F89C22 /* Game.cpp in Sources */,
+				C4ABE9D1166A386F00A233D3 /* ConfigFile.cpp in Sources */,
+				C46E6AEE166A529C0092BC39 /* Player.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

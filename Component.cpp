@@ -12,7 +12,7 @@ int hey = 0;
 
 // 'v' is the incoming vector, 'n' is the normalized wall vector
 Pair reflect( Pair vector, Pair normal){
-    // R = V - 2 * (V · N)   <-- formula I found online somewhere
+    // R = V - 2 * (V · N)   <-- formula I found online 
     double d = (vector.x*normal.x) + (vector.y*normal.y);
     return {
         .x =  vector.x - 2 * d * normal.x,
@@ -21,24 +21,26 @@ Pair reflect( Pair vector, Pair normal){
 }
 
 
+Component::Component(){
+    
+}
 
 /**
  * Component Constructor
  **/
-Component::Component(double posX, double posY, double areaValue, double normalValue, double velocityVector, Shape* componentShape)
+Component::Component(double posX, double posY, double areaValue,
+                     double normalValue, double velocityVector, Shape* componentShape, Status* statusParam)
 {
     x = posX;
 	y = posY;
-    area = areaValue;
-    normal = normalValue;
+    area    = areaValue;
+    normal  = normalValue;
     velocity = velocityVector;
-    shape = componentShape;
+    shape   = componentShape;
+    status = statusParam;
     
-    vVector.x = .2;
-    vVector.y = -.1;
-    
-    // test
-    test = 0.1;
+    vVector.x = 0.5;
+    vVector.y = 0.5;
 }
 
 /**
@@ -49,12 +51,11 @@ Component::~Component() {
 }
 
 void Component::willCollideWith(Component& comp){
-    
+    doCollisionBehaviour();
 }
 
 void Component::collidedWith(Component& comp){
     //printf("\ncollision %d\n",hey++);
-    test = test * -1.0;
     Pair normal = comp.normalVector( center()  );
     Pair newVel = reflect(vVector, normal);
     //printf("vel: ( %f, %f )\n",vVector.x,vVector.y);
@@ -78,9 +79,8 @@ Pair Component::normalVector(Pair externalPoint){
     return shape->normalVector(externalPoint, pos);
 };
 
-// Test
-void Component::newFrame(unsigned long long  currentTimeStamp, unsigned long long  previousTimeStamp){
-    //printf("hey");
+
+void Component::newFrame(unsigned long currentTimeStamp, unsigned long previousTimeStamp){
     //double elapsedTime = difftime(currentTimeStamp, previousTimeStamp)*1000;
     //printf("e:%f",elapsedTime);
     previousPosition.x = x;
@@ -114,6 +114,10 @@ Shape* Component::getShape(){
     return shape;
 }
 
+Status* Component::getStatus(){
+    return status;
+}
+
 void Component::setShape(Shape* shapeObject){
     shape = shapeObject;
 }
@@ -122,6 +126,10 @@ void Component::setX(double xValue){
     x = xValue;
 }
 
+void Component::setStatus(Status* statusParam)
+{
+    status = statusParam;
+}
 void Component::draw(sf::RenderWindow &App)
 {
     shape->draw(App, x, y);

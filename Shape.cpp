@@ -27,7 +27,15 @@ Pair vector( Pair pointStart, Pair pointEnd ){
     };
 }
 
+void Shape::setColor(sf::Color paramColor)
+{
+    color = paramColor;
+}
 
+sf::Color Shape::getColor()
+{
+    return color;
+}
 
 /**
  * Component Constructor
