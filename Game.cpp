@@ -38,7 +38,7 @@ void Game::initializeGame(){
     
     // Game not paused
     gamePaused = false;
-    gameEnded  = false;
+    loseGame  = false;
     
     // Generate Components
     if (random){
@@ -121,9 +121,30 @@ void Game::removeDeadObjects(){
     {
         if(components[i]->getLife() <= 0)
         {
+            delete components[i];
             components.erase(components.begin()+i);
         }
     }
+}
+
+bool Game::didGameFinished()
+{
+    for(int i = 0 ; i < balls.size() ; i++)
+    {
+        if(balls[i]->getLife() <= 0)
+        {
+            delete balls[i];
+            balls.erase(balls.begin()+i);
+        }
+    }
+    
+    if(balls.size() == 0)
+    {
+        loseGame = true;
+        return true;
+    }
+    
+    return false;
 }
 
 void Game::keyboardListenner(){

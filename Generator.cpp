@@ -13,6 +13,7 @@
 #include "BallShape.h"  
 #include "DoNothing.h"
 #include "LoseLife.h"
+#include "Assassin.h"
 
 using namespace std;
 
@@ -58,8 +59,8 @@ void Generator::randomBlocks(vector<Component*>& components){
     
     // bottom wall
     Wall* bottomWall = new Wall(game_x, game_y+game_height, 0, 0, 0, NULL);
-    bottomWall->setBehaviour(new DoNothing());
-    recShape = new RectangleShape(0, 0, game_width, 20, sf::Color::Red);
+    bottomWall->setBehaviour(new Assassin());
+    recShape = new RectangleShape(0, 0, game_width, 20, sf::Color::Black);
     bottomWall->setShape(recShape);
     
     

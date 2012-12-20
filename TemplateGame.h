@@ -25,6 +25,7 @@ public:
     virtual bool gameIsRunning() = 0;
     virtual bool isGamePaused() = 0;
     virtual void removeDeadObjects() = 0;
+    virtual bool didGameFinished() = 0;
     
     TemplateGame();
 	~TemplateGame();

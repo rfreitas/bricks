@@ -29,8 +29,10 @@ void TemplateGame::run()
             move();
             checkCollisions();
             removeDeadObjects();
+            if(didGameFinished()) break;
             draw();
         }
-        
     }
+    
+    
 }
