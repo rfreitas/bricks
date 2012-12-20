@@ -29,7 +29,7 @@ Component::Component(){
  * Component Constructor
  **/
 Component::Component(double posX, double posY, double areaValue,
-                     double normalValue, double velocityVector, Shape* componentShape, Status* statusParam)
+                     double normalValue, double velocityVector, Shape* componentShape)
 {
     x = posX;
 	y = posY;
@@ -37,10 +37,11 @@ Component::Component(double posX, double posY, double areaValue,
     normal  = normalValue;
     velocity = velocityVector;
     shape   = componentShape;
-    status = statusParam;
     
     vVector.x = 0.5;
     vVector.y = 0.5;
+    
+    life = 20;
 }
 
 /**
@@ -51,7 +52,7 @@ Component::~Component() {
 }
 
 void Component::willCollideWith(Component& comp){
-    doCollisionBehaviour();
+    doCollisionBehaviour(comp);
 }
 
 void Component::collidedWith(Component& comp){
@@ -114,8 +115,9 @@ Shape* Component::getShape(){
     return shape;
 }
 
-Status* Component::getStatus(){
-    return status;
+int Component::getLife()
+{
+    return life;
 }
 
 void Component::setShape(Shape* shapeObject){
@@ -126,10 +128,11 @@ void Component::setX(double xValue){
     x = xValue;
 }
 
-void Component::setStatus(Status* statusParam)
+void Component::setLife(int newLife)
 {
-    status = statusParam;
+    life = newLife;
 }
+
 void Component::draw(sf::RenderWindow &App)
 {
     shape->draw(App, x, y);

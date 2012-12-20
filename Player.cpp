@@ -9,8 +9,8 @@
 #include "Player.h"
 
 Player::Player(double posX, double posY, double areaValue,
-             double normalValue, double velocityVector, Shape* componentShape, Status* statusParam)
-:Component(posX, posY, areaValue, normalValue, velocityVector, componentShape, statusParam)
+             double normalValue, double velocityVector, Shape* componentShape)
+:Component(posX, posY, areaValue, normalValue, velocityVector, componentShape)
 {
     platform_step = 10;
     winner = false;
@@ -30,7 +30,7 @@ void Player::setBehaviour(Behaviour* behaviourParam){
     collisionBehaviour = behaviourParam;
 }
 
-void Player::doCollisionBehaviour(){
+void Player::doCollisionBehaviour(Component& collidedWith){
 }
 
 void Player::setPlatformStep(int platform_step_param){

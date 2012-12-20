@@ -52,6 +52,7 @@ public:
     void keyboardListenner();
     bool gameIsRunning();
     bool isGamePaused();
+    void removeDeadObjects();
     
     Game(bool random, int numInitBalls, int game_x, int game_y,
          int window_height, int window_width, int game_height, int game_width, int platform_step);

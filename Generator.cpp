@@ -12,7 +12,7 @@
 #include "RectangleShape.h"
 #include "BallShape.h"  
 #include "DoNothing.h"
-#include "ChangeColor.h"
+#include "LoseLife.h"
 
 using namespace std;
 
@@ -39,48 +39,43 @@ void Generator::randomBlocks(vector<Component*>& components){
     
     //TODO
     // left wall
-    AliveStatus* aliveStatusLeft = new AliveStatus();
-    Wall* leftWall = new Wall(game_x, game_y, 0, 0, 0, NULL, aliveStatusLeft);
+    Wall* leftWall = new Wall(game_x, game_y, 0, 0, 0, NULL);
     leftWall->setBehaviour(new DoNothing());
     RectangleShape* recShape = new RectangleShape(0, 0, 20, game_height, sf::Color::White);
     leftWall->setShape(recShape);
     
     // right wall
-    AliveStatus* aliveStatusRight = new AliveStatus();
-    Wall* rightWall = new Wall(game_x+game_width, game_y, 0, 0, 0, NULL, aliveStatusRight);
+    Wall* rightWall = new Wall(game_x+game_width, game_y, 0, 0, 0, NULL);
     rightWall->setBehaviour(new DoNothing());
     recShape = new RectangleShape(0, 0, 20, game_height, sf::Color::White);
     rightWall->setShape(recShape);
     
     // top wall
-    Wall* topWall = new Wall(game_x, game_y, 0, 0, 0, NULL, NULL);
+    Wall* topWall = new Wall(game_x, game_y, 0, 0, 0, NULL);
     topWall->setBehaviour(new DoNothing());
     recShape = new RectangleShape(0, 0, game_width, 20, sf::Color::White);
     topWall->setShape(recShape);
     
     // bottom wall
-    Wall* bottomWall = new Wall(game_x, game_y+game_height, 0, 0, 0, NULL, NULL);
+    Wall* bottomWall = new Wall(game_x, game_y+game_height, 0, 0, 0, NULL);
     bottomWall->setBehaviour(new DoNothing());
     recShape = new RectangleShape(0, 0, game_width, 20, sf::Color::Red);
     bottomWall->setShape(recShape);
     
     
     // block 1
-    AliveStatus* aliveStatusBlock1 = new AliveStatus();
-    Block* block1 = new Block(200, 210, 0, 0, 0, NULL, aliveStatusBlock1);
-    block1->setBehaviour(new ChangeColor());
+    Block* block1 = new Block(200, 210, 0, 0, 0, NULL);
+    block1->setBehaviour(new LoseLife());
     recShape = new RectangleShape(0, 0, 120, 20, sf::Color::Yellow);
     block1->setShape(recShape);
     // block 2
-    AliveStatus* aliveStatusBlock2 = new AliveStatus();
-    Block* block2 = new Block(500, 200, 0, 0, 0, NULL, aliveStatusBlock2);
-    block2->setBehaviour(new ChangeColor());
+    Block* block2 = new Block(500, 200, 0, 0, 0, NULL);
+    block2->setBehaviour(new LoseLife());
     recShape = new RectangleShape(0, 0, 120, 20, sf::Color::Yellow);
     block2->setShape(recShape);
     // block 3
-    AliveStatus* aliveStatusBlock3 = new AliveStatus();
-    Block* block3 = new Block(300, 300, 0, 0, 0, NULL, aliveStatusBlock3);
-    block3->setBehaviour(new ChangeColor());
+    Block* block3 = new Block(300, 300, 0, 0, 0, NULL);
+    block3->setBehaviour(new LoseLife());
     recShape = new RectangleShape(0, 0, 120, 20, sf::Color::Yellow);
     block3->setShape(recShape);
     
@@ -102,7 +97,7 @@ void Generator::randomBalls(vector<Component*>& balls, int numBalls)
         int x = 340;
         int y = 80*i;
         BallShape* ballShape = new BallShape(10, sf::Color::White);
-        Component* ball = new Component(x, y, 0, 0, 0, NULL, NULL);
+        Component* ball = new Component(x, y, 0, 0, 0, NULL);
         ball->setShape(ballShape);
         balls.push_back(ball);
     }

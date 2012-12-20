@@ -19,10 +19,10 @@ private:
     
 public:
     Wall(double posX, double posY, double areaValue,
-         double normalValue, double velocityVector, Shape* componentShape, Status* statusParam);
+         double normalValue, double velocityVector, Shape* componentShape);
 	~Wall();
     
-    void doCollisionBehaviour();
+    void doCollisionBehaviour(Component& collidedWith);
     Behaviour* getBehaviour();
     void setBehaviour(Behaviour* behaviourParam);
 };

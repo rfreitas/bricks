@@ -47,12 +47,12 @@ void Game::initializeGame(){
     }
     
     RectangleShape* recShape = new RectangleShape(0, 0, 20, 500, sf::Color::White);
-    player_one = new Player(200, 510, 0, 0, 0, NULL, NULL);
+    player_one = new Player(200, 510, 0, 0, 0, NULL);
     recShape = new RectangleShape(0, 0, 90, 10, sf::Color::Yellow);
     player_one->setShape(recShape);
     
     recShape = new RectangleShape(0, 0, 20, 500, sf::Color::White);
-    player_two = new Player(0, 0, 0, 0, 0, NULL, NULL);
+    player_two = new Player(0, 0, 0, 0, 0, NULL);
     recShape = new RectangleShape(0, 0, 90, 10, sf::Color::Green);
     player_two->setShape(recShape);
 }
@@ -113,6 +113,16 @@ void Game::move(){
     for (int i = 0; i<balls.size(); i++) {
         Component* auxComponent = balls[i];
         balls[i]->newFrame(0, 0);
+    }
+}
+
+void Game::removeDeadObjects(){
+    for(int i = 0 ; i < components.size() ; i++)
+    {
+        if(components[i]->getLife() <= 0)
+        {
+            components.erase(components.begin()+i);
+        }
     }
 }
 

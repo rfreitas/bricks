@@ -24,6 +24,7 @@ public:
     virtual void keyboardListenner() = 0;
     virtual bool gameIsRunning() = 0;
     virtual bool isGamePaused() = 0;
+    virtual void removeDeadObjects() = 0;
     
     TemplateGame();
 	~TemplateGame();

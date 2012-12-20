@@ -28,6 +28,7 @@ void TemplateGame::run()
         if(!isGamePaused()){
             move();
             checkCollisions();
+            removeDeadObjects();
             draw();
         }
         

@@ -16,7 +16,7 @@ DoNothing::~DoNothing(){
     
 }
 
-void DoNothing::behave(Component* componentParam)
+void DoNothing::behave(Component* componentParam, Component& collidedWith)
 {
     // do nothing
 }
