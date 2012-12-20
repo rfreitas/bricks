@@ -23,17 +23,6 @@ GLint     platform_step = 10;
 // Game instance
 Game*   game;
 
-/*
-#include <CoreServices/CoreServices.h>
-
-//ref:http://stackoverflow.com/a/2170477/689223
-unsigned long long GetTimeSinceBootInMilliseconds()
-{
-    UnsignedWide uw = AbsoluteToNanoseconds(UpTime());
-    return ((((unsigned long long)uw.hi)<<32)|(uw.lo))/1000000;
-}*/
-
-
 void readConfiguration(char* file) {
 	ConfigFile config(file);
     
@@ -62,7 +51,7 @@ int main(int argc, char **argv)
     // Create, Instantiate and start a game
     game = new Game(r_blocks == 1 ? true : false, num_init_balls, game_x, game_y,
                     window_height, window_width, game_height, game_width, platform_step);
-    game->startGame();
+    game->run();
 
     return EXIT_SUCCESS;
 }

@@ -22,9 +22,16 @@ game_y(game_yParam),
 game_width(game_widthParam),
 game_height(game_heightParam),
 platform_step(platform_stepParam),
-App(sf::VideoMode(window_widthParam, window_heightParam), "RS Bricks")
+App(sf::VideoMode(window_widthParam, window_heightParam), "RS Bricks"),
+TemplateGame()
 {
-    
+}
+
+Game::~Game(){
+}
+
+
+void Game::initializeGame(){
     // Init Colision Manager & Init Components Generator
     collisionManager = new ColisionManager();
     Generator* generator = new Generator(game_x, game_y, game_width, game_height);
@@ -48,20 +55,14 @@ App(sf::VideoMode(window_widthParam, window_heightParam), "RS Bricks")
     player_two = new Player(0, 0, 0, 0, 0, NULL, NULL);
     recShape = new RectangleShape(0, 0, 90, 10, sf::Color::Green);
     player_two->setShape(recShape);
-    
-    
-    
-    //previousTimeStamp = currentTimeStamp = GetTimeSinceBootInMilliseconds();
 }
 
-Game::~Game(){
-    
+bool Game::gameIsRunning(){
+    return App.IsOpened();
 }
 
-void Game::startGame()
-{   
-    startGameLoop();
-    
+bool Game::isGamePaused(){
+    return gamePaused;
 }
 
 void Game::checkCollisions(){
@@ -114,24 +115,6 @@ void Game::move(){
         balls[i]->newFrame(0, 0);
     }
 }
-
-void Game::startGameLoop(){
-    while (App.IsOpened())
-    {
-        //currentTimeStamp = GetTimeSinceBootInMilliseconds();
-        // Listen to keyboard inputs
-        keyboardListenner();
-        
-        if(!gamePaused){
-            move();
-            checkCollisions();
-            draw();
-            previousTimeStamp = currentTimeStamp;
-        }
-        
-    }
-}
-
 
 void Game::keyboardListenner(){
     sf::Event Event;
