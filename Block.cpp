@@ -9,8 +9,8 @@
 #include "Block.h"
 
 Block::Block(double posX, double posY, double areaValue,
-           double normalValue, double velocityVector, Shape* componentShape, Status* statusParam)
-:Component(posX, posY, areaValue, normalValue, velocityVector, componentShape, statusParam)
+           double normalValue, double velocityVector, Shape* componentShape)
+:Component(posX, posY, areaValue, normalValue, velocityVector, componentShape)
 {
     
 }
@@ -30,6 +30,6 @@ void Block::setBehaviour(Behaviour* behaviourParam){
 }
 
 
-void Block::doCollisionBehaviour(){
-    collisionBehaviour->behave(this);
+void Block::doCollisionBehaviour(Component& collidedWith){
+    collisionBehaviour->behave(this, collidedWith);
 }

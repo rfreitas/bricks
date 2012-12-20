@@ -1,30 +1,29 @@
 //
-//  Wall.h
+//  WallOfDeath.h
 //  Bricks
 //
-//  Created by Nuno André Fontes Vinhas on 30/11/12.
+//  Created by Nuno André Fontes Vinhas on 20/12/12.
 //
 //
 
-#ifndef __Bricks__Wall__
-#define __Bricks__Wall__
+#ifndef __Bricks__WallOfDeath__
+#define __Bricks__WallOfDeath__
 
 #include <iostream>
 #include "Component.h"
 #include "Behaviour.h"
 
-class Wall : public Component{
+class WallOfDeath : public Component{
 private:
     Behaviour* collisionBehaviour;
     
 public:
-    Wall(double posX, double posY, double areaValue,
+    WallOfDeath(double posX, double posY, double areaValue,
          double normalValue, double velocityVector, Shape* componentShape);
-	~Wall();
+	~WallOfDeath();
     
     void doCollisionBehaviour(Component& collidedWith);
     Behaviour* getBehaviour();
     void setBehaviour(Behaviour* behaviourParam);
 };
-
-#endif /* defined(__Bricks__Wall__) */
+#endif /* defined(__Bricks__WallOfDeath__) */

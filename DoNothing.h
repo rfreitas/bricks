@@ -16,7 +16,7 @@ class DoNothing: public Behaviour {
 private:
     
 public:
-    void behave(Component* component);
+    void behave(Component* component, Component& collidedWith);
     
     DoNothing();
     ~DoNothing();

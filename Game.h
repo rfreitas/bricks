@@ -10,6 +10,7 @@
 #define __Bricks__Game__
 
 #include <iostream>
+#include "TemplateGame.h"
 #include <SFML/Graphics.hpp>
 #include "Component.h"
 #include "ColisionManager.h"
@@ -19,43 +20,44 @@
 
 using namespace std;
 
-class Game {
+class Game : public TemplateGame{
 private:
-    vector<Component*>  components;
-    vector<Component*>  balls;
-    Player*             player_one;
-    Player*             player_two;
+    vector<Component*> components;
+    vector<Component*> balls;
+    Player* player_one;
+    Player* player_two;
     
-    ColisionManager*    collisionManager;
-    sf::RenderWindow    App;
+    sf::RenderWindow App;
     
-    unsigned long       previousTimeStamp;
-    unsigned long       currentTimeStamp;
+    ColisionManager* collisionManager;
     
-    bool    gamePaused;
-    bool    gameEnded;
+    bool loseGame;
+    bool gamePaused;
     
-    bool    random;
-    double  game_x;
-    double  game_y;
-    double  game_width;
-    double  game_height;
-    int     num_init_balls;
-    int     platform_step;
-    
-    // Methods
-    void    startGameLoop();
-    void    checkCollisions();
-    void    move();
-    void    draw();
-    void    keyboardListenner();
+    bool random;
+    double game_x;
+    double game_y;
+    double game_width;
+    double game_height;
+    double window_width;
+    double window_height;
+    int num_init_balls;
+    int platform_step;
     
 public:
+    void initializeGame();
+    void checkCollisions();
+    void move();
+    void draw();
+    void keyboardListenner();
+    bool gameIsRunning();
+    bool isGamePaused();
+    void removeDeadObjects();
+    bool didGameFinished();
+    
     Game(bool random, int numInitBalls, int game_x, int game_y,
          int window_height, int window_width, int game_height, int game_width, int platform_step);
 	~Game();
-    
-    void startGame();
 };
 
 

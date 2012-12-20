@@ -22,16 +22,23 @@ game_y(game_yParam),
 game_width(game_widthParam),
 game_height(game_heightParam),
 platform_step(platform_stepParam),
-App(sf::VideoMode(window_widthParam, window_heightParam), "RS Bricks")
+App(sf::VideoMode(window_widthParam, window_heightParam), "RS Bricks"),
+TemplateGame()
 {
-    
+}
+
+Game::~Game(){
+}
+
+
+void Game::initializeGame(){
     // Init Colision Manager & Init Components Generator
     collisionManager = new ColisionManager();
     Generator* generator = new Generator(game_x, game_y, game_width, game_height);
     
     // Game not paused
     gamePaused = false;
-    gameEnded  = false;
+    loseGame  = false;
     
     // Generate Components
     if (random){
@@ -40,28 +47,22 @@ App(sf::VideoMode(window_widthParam, window_heightParam), "RS Bricks")
     }
     
     RectangleShape* recShape = new RectangleShape(0, 0, 20, 500, sf::Color::White);
-    player_one = new Player(200, 510, 0, 0, 0, NULL, NULL);
+    player_one = new Player(200, 510, 0, 0, 0, NULL);
     recShape = new RectangleShape(0, 0, 90, 10, sf::Color::Yellow);
     player_one->setShape(recShape);
     
     recShape = new RectangleShape(0, 0, 20, 500, sf::Color::White);
-    player_two = new Player(0, 0, 0, 0, 0, NULL, NULL);
+    player_two = new Player(0, 0, 0, 0, 0, NULL);
     recShape = new RectangleShape(0, 0, 90, 10, sf::Color::Green);
     player_two->setShape(recShape);
-    
-    
-    
-    //previousTimeStamp = currentTimeStamp = GetTimeSinceBootInMilliseconds();
 }
 
-Game::~Game(){
-    
+bool Game::gameIsRunning(){
+    return App.IsOpened();
 }
 
-void Game::startGame()
-{   
-    startGameLoop();
-    
+bool Game::isGamePaused(){
+    return gamePaused;
 }
 
 void Game::checkCollisions(){
@@ -115,23 +116,36 @@ void Game::move(){
     }
 }
 
-void Game::startGameLoop(){
-    while (App.IsOpened())
+void Game::removeDeadObjects(){
+    for(int i = 0 ; i < components.size() ; i++)
     {
-        //currentTimeStamp = GetTimeSinceBootInMilliseconds();
-        // Listen to keyboard inputs
-        keyboardListenner();
-        
-        if(!gamePaused){
-            move();
-            checkCollisions();
-            draw();
-            previousTimeStamp = currentTimeStamp;
+        if(components[i]->getLife() <= 0)
+        {
+            delete components[i];
+            components.erase(components.begin()+i);
         }
-        
     }
 }
 
+bool Game::didGameFinished()
+{
+    for(int i = 0 ; i < balls.size() ; i++)
+    {
+        if(balls[i]->getLife() <= 0)
+        {
+            delete balls[i];
+            balls.erase(balls.begin()+i);
+        }
+    }
+    
+    if(balls.size() == 0)
+    {
+        loseGame = true;
+        return true;
+    }
+    
+    return false;
+}
 
 void Game::keyboardListenner(){
     sf::Event Event;

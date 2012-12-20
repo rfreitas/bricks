@@ -16,7 +16,7 @@ class Behaviour {
 private:
     
 public:
-    virtual void behave(Component* c){};
+    virtual void behave(Component* c, Component& collidedWith){};
     
     Behaviour();
     ~Behaviour();

@@ -34,17 +34,18 @@ private:
     Pair    previousPosition;
     Pair    vVector;
     
+    int life;
+    
     Shape*  shape;
-    Status* status;
 	
 public:
     Component();
     Component(double posX, double posY, double areaValue, double normalValue,
-              double velocityVector, Shape* componentShape, Status* statusParam);
+              double velocityVector, Shape* componentShape);
 	
     ~Component();
     
-    virtual void doCollisionBehaviour(){};
+    virtual void doCollisionBehaviour(Component& collidedWith){};
     
     POSITION whereRelativeTo(Component& comp);
     
@@ -54,13 +55,14 @@ public:
     double  getNormal();
     double  getVelocity();
     Shape*  getShape();
-    Status* getStatus();
+    int getLife();
     
     void    setX(double x);
     void    setShape(Shape* shapeObject);
     void    setStatus(Status* statusParam);
     void    willCollideWith(Component& comp);
     void    collidedWith(Component& comp);
+    void setLife(int newLife);
     
     void    draw(sf::RenderWindow &App);
     
