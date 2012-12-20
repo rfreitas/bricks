@@ -10,6 +10,8 @@
 #define __Bricks__Game__
 
 #include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
 #include "TemplateGame.h"
 #include <SFML/Graphics.hpp>
 #include "Component.h"
@@ -31,7 +33,8 @@ private:
     
     ColisionManager* collisionManager;
     
-    bool loseGame;
+    int loseGames;
+    int winGames;
     bool gamePaused;
     
     bool random;
@@ -54,6 +57,8 @@ public:
     bool isGamePaused();
     void removeDeadObjects();
     bool didGameFinished();
+    void displayScore();
+    void clean();
     
     Game(bool random, int numInitBalls, int game_x, int game_y,
          int window_height, int window_width, int game_height, int game_width, int platform_step);
