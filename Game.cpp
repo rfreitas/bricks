@@ -7,6 +7,8 @@
 //
 
 #include "Game.h"
+#include <sstream>
+#include <string> // this should be already included in <sstream>
 
 
 // TODO
@@ -25,6 +27,8 @@ platform_step(platform_stepParam),
 App(sf::VideoMode(window_widthParam, window_heightParam), "RS Bricks"),
 TemplateGame()
 {
+    loseGames = 0;
+    winGames = 0;
 }
 
 Game::~Game(){
@@ -38,7 +42,6 @@ void Game::initializeGame(){
     
     // Game not paused
     gamePaused = false;
-    loseGame  = false;
     
     // Generate Components
     if (random){
@@ -57,6 +60,17 @@ void Game::initializeGame(){
     player_two->setShape(recShape);
 }
 
+void Game::clean()
+{
+//    for(int i = 0 ; i < components.size() ; i++)
+//    {
+//        delete components[i];
+//    }
+//    for(int i = 0 ; i < balls.size() ; i++)
+//    {
+//        delete balls[i];
+//    }
+}
 bool Game::gameIsRunning(){
     return App.IsOpened();
 }
@@ -101,6 +115,8 @@ void Game::draw(){
     player_one->draw(App);
     player_two->draw(App);
     
+    displayScore();
+    
     App.Display();
 }
 
@@ -140,11 +156,49 @@ bool Game::didGameFinished()
     
     if(balls.size() == 0)
     {
-        loseGame = true;
+        loseGames++;
         return true;
     }
     
     return false;
+}
+
+void Game::displayScore()
+{
+    sf::String winLabel;
+    winLabel.SetText("Win:");
+    winLabel.SetColor(sf::Color(255, 255, 255));
+    winLabel.SetPosition(10.f, 100.f);
+    winLabel.SetSize(18.f);
+    
+    ostringstream ss1;//create a stringstream
+    ss1 << winGames;//add number to the stream
+    
+    sf::String winValue;
+    winValue.SetText(ss1.str());
+    winValue.SetColor(sf::Color(255, 255, 255));
+    winValue.SetPosition(60.f, 100.f);
+    winValue.SetSize(18.f);
+    
+    sf::String lose;
+    lose.SetText("Lose:");
+    lose.SetColor(sf::Color(255, 255, 255));
+    lose.SetPosition(10.f, 120.f);
+    lose.SetSize(18.f);
+    
+    ostringstream ss;//create a stringstream
+    ss << loseGames;//add number to the stream
+
+    sf::String loseValue;
+    loseValue.SetText(ss.str());
+    loseValue.SetColor(sf::Color(255, 255, 255));
+    loseValue.SetPosition(60.f, 120.f);
+    loseValue.SetSize(18.f);
+    
+    App.Draw(winLabel);
+    App.Draw(winValue);
+    App.Draw(lose);
+    App.Draw(loseValue);
 }
 
 void Game::keyboardListenner(){
