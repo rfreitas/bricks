@@ -19,7 +19,7 @@ TemplateGame::~TemplateGame()
 
 void TemplateGame::run()
 {
-    while(true){
+    //while(true){
         initializeGame();
         
         while (gameIsRunning())
@@ -27,15 +27,13 @@ void TemplateGame::run()
             keyboardListenner();
             
             if(!isGamePaused()){
-                move();
-                checkCollisions();
-                removeDeadObjects();
+                iterate();
                 if(didGameFinished()) break;
                 draw();
             }
         }
         
         clean();
-    }
+    //}
     
 }
