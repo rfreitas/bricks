@@ -14,8 +14,6 @@ ConfigManager::ConfigManager() {
     
 }
 
-
-
 GLint ConfigManager::getWindowWidth(){
     return window_width;
 }
