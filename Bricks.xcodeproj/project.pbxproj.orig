@@ -7,15 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		869147701682821C006D55D5 /* Input.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8691476E1682821C006D55D5 /* Input.cpp */; };
+		8691477316828316006D55D5 /* SubObs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8691477116828315006D55D5 /* SubObs.cpp */; };
 		8691477A16829AF1006D55D5 /* CommandMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8691477816829AF1006D55D5 /* CommandMap.cpp */; };
 		8691477D1682A488006D55D5 /* KeyLeft.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8691477B1682A488006D55D5 /* KeyLeft.cpp */; };
 		869147801682A497006D55D5 /* KeyRight.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8691477E1682A497006D55D5 /* KeyRight.cpp */; };
 		869147831682A826006D55D5 /* ComponentGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 869147811682A826006D55D5 /* ComponentGroup.cpp */; };
-		869147971682A9C2006D55D5 /* Assassin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8691478C1682A9C2006D55D5 /* Assassin.cpp */; };
-		869147981682A9C2006D55D5 /* BallBehaviour.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8691478E1682A9C2006D55D5 /* BallBehaviour.cpp */; };
-		869147991682A9C2006D55D5 /* LoseLife.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 869147901682A9C2006D55D5 /* LoseLife.cpp */; };
-		8691479A1682A9C2006D55D5 /* TemplateGame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 869147921682A9C2006D55D5 /* TemplateGame.cpp */; };
-		8691479B1682A9C2006D55D5 /* WallOfDeath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 869147941682A9C2006D55D5 /* WallOfDeath.cpp */; };
 		A0072ADE0F1D0EC500B4A594 /* sfml-system.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = A01FB6CB0F07CFF2000AAC7B /* sfml-system.framework */; };
 		A0072ADF0F1D0EC500B4A594 /* sfml-window.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = A01FB6CC0F07CFF2000AAC7B /* sfml-window.framework */; };
 		A0072AE00F1D0EC500B4A594 /* sfml-graphics.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = A01FB6CA0F07CFF2000AAC7B /* sfml-graphics.framework */; };
@@ -24,10 +21,14 @@
 		A01FB6CF0F07CFF2000AAC7B /* sfml-system.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A01FB6CB0F07CFF2000AAC7B /* sfml-system.framework */; };
 		A01FB6D00F07CFF2000AAC7B /* sfml-window.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A01FB6CC0F07CFF2000AAC7B /* sfml-window.framework */; };
 		C406E56B165B13150001B225 /* Component.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C406E569165B13150001B225 /* Component.cpp */; };
+		C406E56F165B17EF0001B225 /* ColisionManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C406E56D165B17EF0001B225 /* ColisionManager.cpp */; };
 		C417A3C6165B210F0044BA2A /* Shape.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C417A3C4165B210F0044BA2A /* Shape.cpp */; };
+		C426270916682525002F8C12 /* Status.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C426270716682525002F8C12 /* Status.cpp */; };
+		C426270C166826CF002F8C12 /* AliveStatus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C426270A166826CF002F8C12 /* AliveStatus.cpp */; };
 		C426271316683578002F8C12 /* Wall.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C426271116683578002F8C12 /* Wall.cpp */; };
 		C426271716683962002F8C12 /* DoNothing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C426271516683962002F8C12 /* DoNothing.cpp */; };
 		C426271A16683999002F8C12 /* Behaviour.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C426271816683999002F8C12 /* Behaviour.cpp */; };
+		C426271D16683DED002F8C12 /* ChangeColor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C426271B16683DED002F8C12 /* ChangeColor.cpp */; };
 		C426272016683F59002F8C12 /* Block.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C426271E16683F59002F8C12 /* Block.cpp */; };
 		C46E6AEE166A529C0092BC39 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C46E6AEC166A529C0092BC39 /* Player.cpp */; };
 		C47A87161669AB5400F89C22 /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C47A87141669AB5400F89C22 /* Game.cpp */; };
@@ -67,16 +68,6 @@
 		8691477F1682A497006D55D5 /* KeyRight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyRight.h; sourceTree = "<group>"; };
 		869147811682A826006D55D5 /* ComponentGroup.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ComponentGroup.cpp; sourceTree = "<group>"; };
 		869147821682A826006D55D5 /* ComponentGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComponentGroup.h; sourceTree = "<group>"; };
-		8691478C1682A9C2006D55D5 /* Assassin.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Assassin.cpp; sourceTree = "<group>"; };
-		8691478D1682A9C2006D55D5 /* Assassin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Assassin.h; sourceTree = "<group>"; };
-		8691478E1682A9C2006D55D5 /* BallBehaviour.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BallBehaviour.cpp; sourceTree = "<group>"; };
-		8691478F1682A9C2006D55D5 /* BallBehaviour.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BallBehaviour.h; sourceTree = "<group>"; };
-		869147901682A9C2006D55D5 /* LoseLife.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LoseLife.cpp; sourceTree = "<group>"; };
-		869147911682A9C2006D55D5 /* LoseLife.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoseLife.h; sourceTree = "<group>"; };
-		869147921682A9C2006D55D5 /* TemplateGame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TemplateGame.cpp; sourceTree = "<group>"; };
-		869147931682A9C2006D55D5 /* TemplateGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TemplateGame.h; sourceTree = "<group>"; };
-		869147941682A9C2006D55D5 /* WallOfDeath.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WallOfDeath.cpp; sourceTree = "<group>"; };
-		869147951682A9C2006D55D5 /* WallOfDeath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WallOfDeath.h; sourceTree = "<group>"; };
 		A01FB6A90F07CF6E000AAC7B /* Bricks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bricks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A01FB6AC0F07CF6E000AAC7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A01FB6C80F07CFCE000AAC7B /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
@@ -86,14 +77,22 @@
 		A01FB6CD0F07CFF2000AAC7B /* SFML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SFML.framework; path = /Library/Frameworks/SFML.framework; sourceTree = "<absolute>"; };
 		C406E569165B13150001B225 /* Component.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Component.cpp; sourceTree = "<group>"; };
 		C406E56A165B13150001B225 /* Component.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Component.h; sourceTree = "<group>"; };
+		C406E56D165B17EF0001B225 /* ColisionManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ColisionManager.cpp; sourceTree = "<group>"; };
+		C406E56E165B17EF0001B225 /* ColisionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColisionManager.h; sourceTree = "<group>"; };
 		C417A3C4165B210F0044BA2A /* Shape.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Shape.cpp; sourceTree = "<group>"; };
 		C417A3C5165B210F0044BA2A /* Shape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shape.h; sourceTree = "<group>"; };
+		C426270716682525002F8C12 /* Status.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Status.cpp; sourceTree = "<group>"; };
+		C426270816682525002F8C12 /* Status.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Status.h; sourceTree = "<group>"; };
+		C426270A166826CF002F8C12 /* AliveStatus.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AliveStatus.cpp; sourceTree = "<group>"; };
+		C426270B166826CF002F8C12 /* AliveStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliveStatus.h; sourceTree = "<group>"; };
 		C426271116683578002F8C12 /* Wall.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Wall.cpp; sourceTree = "<group>"; };
 		C426271216683578002F8C12 /* Wall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Wall.h; sourceTree = "<group>"; };
 		C426271516683962002F8C12 /* DoNothing.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DoNothing.cpp; sourceTree = "<group>"; };
 		C426271616683962002F8C12 /* DoNothing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoNothing.h; sourceTree = "<group>"; };
 		C426271816683999002F8C12 /* Behaviour.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Behaviour.cpp; sourceTree = "<group>"; };
 		C426271916683999002F8C12 /* Behaviour.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Behaviour.h; sourceTree = "<group>"; };
+		C426271B16683DED002F8C12 /* ChangeColor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ChangeColor.cpp; sourceTree = "<group>"; };
+		C426271C16683DED002F8C12 /* ChangeColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeColor.h; sourceTree = "<group>"; };
 		C426271E16683F59002F8C12 /* Block.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Block.cpp; sourceTree = "<group>"; };
 		C426271F16683F59002F8C12 /* Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Block.h; sourceTree = "<group>"; };
 		C46E6AEC166A529C0092BC39 /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
@@ -189,25 +188,25 @@
 		A01FB6B20F07CF80000AAC7B /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				8691478C1682A9C2006D55D5 /* Assassin.cpp */,
-				8691478D1682A9C2006D55D5 /* Assassin.h */,
-				8691478E1682A9C2006D55D5 /* BallBehaviour.cpp */,
-				8691478F1682A9C2006D55D5 /* BallBehaviour.h */,
-				869147901682A9C2006D55D5 /* LoseLife.cpp */,
-				869147911682A9C2006D55D5 /* LoseLife.h */,
-				869147921682A9C2006D55D5 /* TemplateGame.cpp */,
-				869147931682A9C2006D55D5 /* TemplateGame.h */,
-				869147941682A9C2006D55D5 /* WallOfDeath.cpp */,
-				869147951682A9C2006D55D5 /* WallOfDeath.h */,
 				C4ABE9CC166A376C00A233D3 /* config */,
 				C47A87121669AB4400F89C22 /* game */,
 				C406E572165B1BB60001B225 /* generator */,
 				C406E571165B1BA10001B225 /* data */,
+				C406E570165B1B8D0001B225 /* colisions */,
 				A01FB6C80F07CFCE000AAC7B /* main.cpp */,
 				869147811682A826006D55D5 /* ComponentGroup.cpp */,
 				869147821682A826006D55D5 /* ComponentGroup.h */,
 			);
 			name = Sources;
+			sourceTree = "<group>";
+		};
+		C406E570165B1B8D0001B225 /* colisions */ = {
+			isa = PBXGroup;
+			children = (
+				C406E56D165B17EF0001B225 /* ColisionManager.cpp */,
+				C406E56E165B17EF0001B225 /* ColisionManager.h */,
+			);
+			name = colisions;
 			sourceTree = "<group>";
 		};
 		C406E571165B1BA10001B225 /* data */ = {
@@ -217,6 +216,7 @@
 				8691476C1682801D006D55D5 /* input */,
 				C426271416683948002F8C12 /* behaviours */,
 				C426270D166832A4002F8C12 /* types */,
+				C4262706166824F3002F8C12 /* status */,
 				C4262704166824DC002F8C12 /* shapes */,
 				C406E569165B13150001B225 /* Component.cpp */,
 				C406E56A165B13150001B225 /* Component.h */,
@@ -246,6 +246,17 @@
 			name = shapes;
 			sourceTree = "<group>";
 		};
+		C4262706166824F3002F8C12 /* status */ = {
+			isa = PBXGroup;
+			children = (
+				C426270716682525002F8C12 /* Status.cpp */,
+				C426270816682525002F8C12 /* Status.h */,
+				C426270A166826CF002F8C12 /* AliveStatus.cpp */,
+				C426270B166826CF002F8C12 /* AliveStatus.h */,
+			);
+			name = status;
+			sourceTree = "<group>";
+		};
 		C426270D166832A4002F8C12 /* types */ = {
 			isa = PBXGroup;
 			children = (
@@ -266,6 +277,8 @@
 				C426271616683962002F8C12 /* DoNothing.h */,
 				C426271816683999002F8C12 /* Behaviour.cpp */,
 				C426271916683999002F8C12 /* Behaviour.h */,
+				C426271B16683DED002F8C12 /* ChangeColor.cpp */,
+				C426271C16683DED002F8C12 /* ChangeColor.h */,
 			);
 			name = behaviours;
 			sourceTree = "<group>";
@@ -350,26 +363,27 @@
 			files = (
 				A01FB6C90F07CFCE000AAC7B /* main.cpp in Sources */,
 				C406E56B165B13150001B225 /* Component.cpp in Sources */,
+				C406E56F165B17EF0001B225 /* ColisionManager.cpp in Sources */,
 				C48A3653165B1BE5003C31A5 /* Generator.cpp in Sources */,
 				C417A3C6165B210F0044BA2A /* Shape.cpp in Sources */,
 				C48CA7D1165C0CAB00C6DA5F /* RectangleShape.cpp in Sources */,
 				C4BBDD5F165C6AE800FD264E /* BallShape.cpp in Sources */,
+				C426270916682525002F8C12 /* Status.cpp in Sources */,
+				C426270C166826CF002F8C12 /* AliveStatus.cpp in Sources */,
 				C426271316683578002F8C12 /* Wall.cpp in Sources */,
 				C426271716683962002F8C12 /* DoNothing.cpp in Sources */,
 				C426271A16683999002F8C12 /* Behaviour.cpp in Sources */,
+				C426271D16683DED002F8C12 /* ChangeColor.cpp in Sources */,
 				C426272016683F59002F8C12 /* Block.cpp in Sources */,
 				C47A87161669AB5400F89C22 /* Game.cpp in Sources */,
 				C4ABE9D1166A386F00A233D3 /* ConfigFile.cpp in Sources */,
 				C46E6AEE166A529C0092BC39 /* Player.cpp in Sources */,
+				869147701682821C006D55D5 /* Input.cpp in Sources */,
+				8691477316828316006D55D5 /* SubObs.cpp in Sources */,
 				8691477A16829AF1006D55D5 /* CommandMap.cpp in Sources */,
 				8691477D1682A488006D55D5 /* KeyLeft.cpp in Sources */,
 				869147801682A497006D55D5 /* KeyRight.cpp in Sources */,
 				869147831682A826006D55D5 /* ComponentGroup.cpp in Sources */,
-				869147971682A9C2006D55D5 /* Assassin.cpp in Sources */,
-				869147981682A9C2006D55D5 /* BallBehaviour.cpp in Sources */,
-				869147991682A9C2006D55D5 /* LoseLife.cpp in Sources */,
-				8691479A1682A9C2006D55D5 /* TemplateGame.cpp in Sources */,
-				8691479B1682A9C2006D55D5 /* WallOfDeath.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,7 +10,7 @@
 #define __Bricks__CommandMap__
 
 #include <iostream>
-#include "Observer.h"
+#include "SubObs.h"
 
 
 class CommandMap:public Observer{

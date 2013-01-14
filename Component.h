@@ -26,19 +26,21 @@ typedef enum
 
 class Component {
 private:
-	double  x;
-	double  y;
     double  area;
     double  normal;
     double  velocity;
     Pair    previousPosition;
     Pair    vVector;
-    
     int life;
     
     Shape*  shape;
+    
+protected:
+    double  x;
+	double  y;
 	
 public:
+    bool group;
     Component();
     Component(double posX, double posY, double areaValue, double normalValue,
               double velocityVector, Shape* componentShape);
@@ -60,16 +62,21 @@ public:
     void    setX(double x);
     void    setShape(Shape* shapeObject);
     void    setStatus(Status* statusParam);
-    void    willCollideWith(Component& comp);
-    void    collidedWith(Component& comp);
+    virtual void    willCollideWith(Component* comp);
+    virtual void    collidedWith(Component* comp);
     void setLife(int newLife);
     
     void    draw(sf::RenderWindow &App);
+    void    drawWithOrigin(sf::RenderWindow &App, double x, double y);
     
     Pair    normalVector(Pair externalPoint);
     Pair    center();
     
     void    newFrame(unsigned long currentTimeStamp, unsigned long previousTimeStamp);
+    
+    virtual bool collidingWith(Component* cB);
+    virtual void evaluateCollisionWith(Component* componentB);
+    virtual bool isGroup();
 };
 
 

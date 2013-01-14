@@ -23,7 +23,7 @@ class Subject {
     
     public:
         Subject();
-    ~Subject();
+        ~Subject();
         void attach(Observer* observer);
         void deattach(Observer* observer);
         void notify();

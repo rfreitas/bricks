@@ -9,7 +9,7 @@
 #define __SFML_Graphics_based_Application__Generator__
 
 #include <iostream>
-#include "Component.h"
+#include "ComponentGroup.h"
 
 using namespace std;
 
@@ -23,8 +23,8 @@ public:
     Generator(double game_xParam, double game_y, double game_width, double game_height);
 	~Generator();
     
-    void randomBlocks(vector<Component*>& components);
-    void randomBalls(vector<Component*>& balls, int numBalls);
+    void randomBlocks(ComponentGroup* components);
+    void randomBalls(ComponentGroup* balls, int numBalls);
 };
 
 #endif /* defined(__SFML_Graphics_based_Application__Generator__) */

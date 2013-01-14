@@ -35,7 +35,7 @@ Generator::~Generator() {
     
 }
 
-void Generator::randomBlocks(vector<Component*>& components){
+void Generator::randomBlocks(ComponentGroup* components){
     // generate and add to components vector
     
     //TODO
@@ -81,18 +81,17 @@ void Generator::randomBlocks(vector<Component*>& components){
     block3->setShape(recShape);
     
     
-    components.push_back(leftWall);
-    components.push_back(rightWall);
-    components.push_back(topWall);
-    components.push_back(bottomWall);
-    components.push_back(block1);
-    components.push_back(block2);
-    components.push_back(block3);
-    
+    components->push_back(leftWall);
+    components->push_back(rightWall);
+    components->push_back(topWall);
+    components->push_back(bottomWall);
+    components->push_back(block1);
+    components->push_back(block2);
+    components->push_back(block3);
 }
 
 
-void Generator::randomBalls(vector<Component*>& balls, int numBalls)
+void Generator::randomBalls(ComponentGroup* balls, int numBalls)
 {
     for(int i = 1; i <= numBalls ; i++){
         int x = 340;
@@ -100,18 +99,7 @@ void Generator::randomBalls(vector<Component*>& balls, int numBalls)
         BallShape* ballShape = new BallShape(10, sf::Color::White);
         Component* ball = new Component(x, y, 0, 0, 0, NULL);
         ball->setShape(ballShape);
-        balls.push_back(ball);
+        balls->push_back(ball);
     }
 }
-
-
-
-
-
-
-
-
-
-
-
 

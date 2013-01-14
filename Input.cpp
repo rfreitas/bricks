@@ -12,3 +12,8 @@ Input::Input()
 {
     
 }
+
+Input::~Input()
+{
+    
+}

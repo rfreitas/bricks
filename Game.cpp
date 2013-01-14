@@ -29,6 +29,8 @@ TemplateGame()
 {
     loseGames = 0;
     winGames = 0;
+    components = new ComponentGroup();
+    balls = new ComponentGroup();
 }
 
 Game::~Game(){
@@ -37,7 +39,6 @@ Game::~Game(){
 
 void Game::initializeGame(){
     // Init Colision Manager & Init Components Generator
-    collisionManager = new ColisionManager();
     Generator* generator = new Generator(game_x, game_y, game_width, game_height);
     
     // Game not paused
@@ -81,19 +82,10 @@ bool Game::isGamePaused(){
 
 void Game::checkCollisions(){
     // Iterate balls vs components
-    for(int i = 0; i < balls.size() ; i++){
-        Component* ball = balls[i];
-        
-        // Collision with player's platform
-        collisionManager->evaluate(*(balls[i]), *player_one);
-        collisionManager->evaluate(*(balls[i]), *player_two);
-        
-        // Collision with the others components
-        for(int j = 0 ; j < components.size() ; j++){
-            Component* actualComponent = components[j];
-            collisionManager->evaluate(*ball, *actualComponent);
-        }
-    }
+    
+    balls->evaluateCollisionWith(player_one);
+    balls->evaluateCollisionWith(player_two);
+    balls->evaluateCollisionWith(components);
 }
 
 void Game::draw(){
@@ -101,15 +93,9 @@ void Game::draw(){
     // Clear screen
     App.Clear();
     
-    for (int i = 0; i<components.size(); i++) {
-        Component* auxComponent = components[i];
-        auxComponent->draw(App);
-    }
-    
-    for (int i = 0; i<balls.size(); i++) {
-        Component* auxComponent = balls[i];
-        auxComponent->draw(App);
-    }
+    components->draw(App);
+    balls->draw(App);
+
     
     // draw player's platform
     player_one->draw(App);
@@ -120,41 +106,19 @@ void Game::draw(){
     App.Display();
 }
 
-void Game::move(){
-//    for (int i = 0; i<components.size(); i++) {
-//        Component* auxComponent = components[i];
-//        
-//    }
-    
-    for (int i = 0; i<balls.size(); i++) {
-        Component* auxComponent = balls[i];
-        balls[i]->newFrame(0, 0);
-    }
+void Game::move(){    
+    balls->newFrame(0, 0);
 }
 
 void Game::removeDeadObjects(){
-    for(int i = 0 ; i < components.size() ; i++)
-    {
-        if(components[i]->getLife() <= 0)
-        {
-            delete components[i];
-            components.erase(components.begin()+i);
-        }
-    }
+    components->removeDeadObjects();
 }
 
 bool Game::didGameFinished()
 {
-    for(int i = 0 ; i < balls.size() ; i++)
-    {
-        if(balls[i]->getLife() <= 0)
-        {
-            delete balls[i];
-            balls.erase(balls.begin()+i);
-        }
-    }
+    balls->removeDeadObjects();
     
-    if(balls.size() == 0)
+    if(balls->size() == 0)
     {
         loseGames++;
         return true;
