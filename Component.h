@@ -10,7 +10,6 @@
 #define __SFML_Graphics_based_Application__Component__
 
 #include "Shape.h"
-#include "Status.h"
 #include <iostream>
 
 typedef enum
@@ -61,7 +60,6 @@ public:
     
     void    setX(double x);
     void    setShape(Shape* shapeObject);
-    void    setStatus(Status* statusParam);
     virtual void    willCollideWith(Component* comp);
     virtual void    collidedWith(Component* comp);
     void setLife(int newLife);

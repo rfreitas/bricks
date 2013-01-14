@@ -16,6 +16,8 @@
 		869147991682A9C2006D55D5 /* LoseLife.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 869147901682A9C2006D55D5 /* LoseLife.cpp */; };
 		8691479A1682A9C2006D55D5 /* TemplateGame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 869147921682A9C2006D55D5 /* TemplateGame.cpp */; };
 		8691479B1682A9C2006D55D5 /* WallOfDeath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 869147941682A9C2006D55D5 /* WallOfDeath.cpp */; };
+		86B50DE616A4CA27004E4071 /* ConfigManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86B50DDE16A4CA27004E4071 /* ConfigManager.cpp */; };
+		86B50DE716A4CA27004E4071 /* ConfigMethod.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86B50DE016A4CA27004E4071 /* ConfigMethod.cpp */; };
 		A0072ADE0F1D0EC500B4A594 /* sfml-system.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = A01FB6CB0F07CFF2000AAC7B /* sfml-system.framework */; };
 		A0072ADF0F1D0EC500B4A594 /* sfml-window.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = A01FB6CC0F07CFF2000AAC7B /* sfml-window.framework */; };
 		A0072AE00F1D0EC500B4A594 /* sfml-graphics.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = A01FB6CA0F07CFF2000AAC7B /* sfml-graphics.framework */; };
@@ -33,8 +35,6 @@
 		C47A87161669AB5400F89C22 /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C47A87141669AB5400F89C22 /* Game.cpp */; };
 		C48A3653165B1BE5003C31A5 /* Generator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C48A3651165B1BE5003C31A5 /* Generator.cpp */; };
 		C48CA7D1165C0CAB00C6DA5F /* RectangleShape.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C48CA7CF165C0CAB00C6DA5F /* RectangleShape.cpp */; };
-		C4ABE9D1166A386F00A233D3 /* ConfigFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C4ABE9CF166A386F00A233D3 /* ConfigFile.cpp */; };
-		C4ABE9D2166A440B00A233D3 /* game.config in Resources */ = {isa = PBXBuildFile; fileRef = C4ABE9CE166A378800A233D3 /* game.config */; };
 		C4BBDD5F165C6AE800FD264E /* BallShape.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C4BBDD5D165C6AE800FD264E /* BallShape.cpp */; };
 /* End PBXBuildFile section */
 
@@ -77,6 +77,10 @@
 		869147931682A9C2006D55D5 /* TemplateGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TemplateGame.h; sourceTree = "<group>"; };
 		869147941682A9C2006D55D5 /* WallOfDeath.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WallOfDeath.cpp; sourceTree = "<group>"; };
 		869147951682A9C2006D55D5 /* WallOfDeath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WallOfDeath.h; sourceTree = "<group>"; };
+		86B50DDE16A4CA27004E4071 /* ConfigManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ConfigManager.cpp; sourceTree = "<group>"; };
+		86B50DDF16A4CA27004E4071 /* ConfigManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigManager.h; sourceTree = "<group>"; };
+		86B50DE016A4CA27004E4071 /* ConfigMethod.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ConfigMethod.cpp; sourceTree = "<group>"; };
+		86B50DE116A4CA27004E4071 /* ConfigMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigMethod.h; sourceTree = "<group>"; };
 		A01FB6A90F07CF6E000AAC7B /* Bricks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bricks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A01FB6AC0F07CF6E000AAC7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A01FB6C80F07CFCE000AAC7B /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
@@ -104,9 +108,6 @@
 		C48A3652165B1BE5003C31A5 /* Generator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Generator.h; sourceTree = "<group>"; };
 		C48CA7CF165C0CAB00C6DA5F /* RectangleShape.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RectangleShape.cpp; sourceTree = "<group>"; };
 		C48CA7D0165C0CAB00C6DA5F /* RectangleShape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RectangleShape.h; sourceTree = "<group>"; };
-		C4ABE9CE166A378800A233D3 /* game.config */ = {isa = PBXFileReference; lastKnownFileType = text; path = game.config; sourceTree = "<group>"; };
-		C4ABE9CF166A386F00A233D3 /* ConfigFile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ConfigFile.cpp; sourceTree = "<group>"; };
-		C4ABE9D0166A386F00A233D3 /* ConfigFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigFile.h; sourceTree = "<group>"; };
 		C4BBDD5D165C6AE800FD264E /* BallShape.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BallShape.cpp; sourceTree = "<group>"; };
 		C4BBDD5E165C6AE800FD264E /* BallShape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BallShape.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -282,9 +283,10 @@
 		C4ABE9CC166A376C00A233D3 /* config */ = {
 			isa = PBXGroup;
 			children = (
-				C4ABE9CE166A378800A233D3 /* game.config */,
-				C4ABE9CF166A386F00A233D3 /* ConfigFile.cpp */,
-				C4ABE9D0166A386F00A233D3 /* ConfigFile.h */,
+				86B50DDE16A4CA27004E4071 /* ConfigManager.cpp */,
+				86B50DDF16A4CA27004E4071 /* ConfigManager.h */,
+				86B50DE016A4CA27004E4071 /* ConfigMethod.cpp */,
+				86B50DE116A4CA27004E4071 /* ConfigMethod.h */,
 			);
 			name = config;
 			sourceTree = "<group>";
@@ -337,7 +339,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C4ABE9D2166A440B00A233D3 /* game.config in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,7 +360,6 @@
 				C426271A16683999002F8C12 /* Behaviour.cpp in Sources */,
 				C426272016683F59002F8C12 /* Block.cpp in Sources */,
 				C47A87161669AB5400F89C22 /* Game.cpp in Sources */,
-				C4ABE9D1166A386F00A233D3 /* ConfigFile.cpp in Sources */,
 				C46E6AEE166A529C0092BC39 /* Player.cpp in Sources */,
 				8691477A16829AF1006D55D5 /* CommandMap.cpp in Sources */,
 				8691477D1682A488006D55D5 /* KeyLeft.cpp in Sources */,
@@ -370,6 +370,8 @@
 				869147991682A9C2006D55D5 /* LoseLife.cpp in Sources */,
 				8691479A1682A9C2006D55D5 /* TemplateGame.cpp in Sources */,
 				8691479B1682A9C2006D55D5 /* WallOfDeath.cpp in Sources */,
+				86B50DE616A4CA27004E4071 /* ConfigManager.cpp in Sources */,
+				86B50DE716A4CA27004E4071 /* ConfigMethod.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,7 +6,6 @@
 //
 //
 #include "Generator.h"
-#include "AliveStatus.h"
 #include "Wall.h"
 #include "Block.h"
 #include "RectangleShape.h"
