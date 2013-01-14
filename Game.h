@@ -1,11 +1,3 @@
-//
-//  Game.h
-//  Bricks
-//
-//  Created by Nuno André Fontes Vinhas on 01/12/12.
-//
-//
-
 #ifndef __Bricks__Game__
 #define __Bricks__Game__
 
@@ -33,19 +25,19 @@ private:
     
     ColisionManager* collisionManager;
     
-    int loseGames;
-    int winGames;
+    //int loseGames;
+    //int winGames;
     bool gamePaused;
     
-    bool random;
-    double game_x;
-    double game_y;
-    double game_width;
-    double game_height;
-    double window_width;
-    double window_height;
-    int num_init_balls;
-    int platform_step;
+//    bool random;
+//    double game_x;
+//    double game_y;
+//    double game_width;
+//    double game_height;
+//    double window_width;
+//    double window_height;
+//    int num_init_balls;
+//    int platform_step;
     
 public:
     void initializeGame();
@@ -57,11 +49,10 @@ public:
     bool isGamePaused();
     void removeDeadObjects();
     bool didGameFinished();
-    void displayScore();
+    //void displayScore();
     void clean();
     
-    Game(bool random, int numInitBalls, int game_x, int game_y,
-         int window_height, int window_width, int game_height, int game_width, int platform_step);
+    Game();
 	~Game();
 };
 

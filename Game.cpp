@@ -1,34 +1,19 @@
-//
-//  Game.cpp
-//  Bricks
-//
-//  Created by Nuno André Fontes Vinhas on 01/12/12.
-//
-//
-
 #include "Game.h"
 #include <sstream>
 #include <string> // this should be already included in <sstream>
+#include "ConfigManager.h"
 
 
 // TODO
 #define GAME_LIMIT_LEFT 120
 #define GAME_LIMIT_RIGHT 700
 
-Game::Game(bool randomParam, int numInitBallsParam, int game_xParam, int game_yParam,
-           int window_heightParam, int window_widthParam, int game_heightParam, int game_widthParam, int platform_stepParam):
-random(randomParam),
-num_init_balls(numInitBallsParam),
-game_x(game_xParam),
-game_y(game_yParam),
-game_width(game_widthParam),
-game_height(game_heightParam),
-platform_step(platform_stepParam),
-App(sf::VideoMode(window_widthParam, window_heightParam), "RS Bricks"),
+Game::Game():
+App(sf::VideoMode(ConfigManager::Instance()->getWindowWidth(), ConfigManager::Instance()->getWindowHeight()), "RS Bricks"),
 TemplateGame()
 {
-    loseGames = 0;
-    winGames = 0;
+//    loseGames = 0;
+//    winGames = 0;
 }
 
 Game::~Game(){
@@ -38,7 +23,7 @@ Game::~Game(){
 void Game::initializeGame(){
     // Init Colision Manager & Init Components Generator
     collisionManager = new ColisionManager();
-    Generator* generator = new Generator(game_x, game_y, game_width, game_height);
+    Generator* generator = new Generator(ConfigManager::Instance()->getGameX(), ConfigManager::Instance()->getGameY(), ConfigManager::Instance()->getGameWidth(), ConfigManager::Instance()->getGameHeight());
     
     // Game not paused
     gamePaused = false;
@@ -46,7 +31,7 @@ void Game::initializeGame(){
     // Generate Components
     if (random){
         generator->randomBlocks(components);
-        generator->randomBalls(balls,num_init_balls);
+        generator->randomBalls(balls, ConfigManager::Instance()->getNumInitBalls());
     }
     
     RectangleShape* recShape = new RectangleShape(0, 0, 20, 500, sf::Color::White);
@@ -115,7 +100,7 @@ void Game::draw(){
     player_one->draw(App);
     player_two->draw(App);
     
-    displayScore();
+    //displayScore();
     
     App.Display();
 }
@@ -156,50 +141,50 @@ bool Game::didGameFinished()
     
     if(balls.size() == 0)
     {
-        loseGames++;
+//        loseGames++;
         return true;
     }
     
     return false;
 }
 
-void Game::displayScore()
-{
-    sf::String winLabel;
-    winLabel.SetText("Win:");
-    winLabel.SetColor(sf::Color(255, 255, 255));
-    winLabel.SetPosition(10.f, 100.f);
-    winLabel.SetSize(18.f);
-    
-    ostringstream ss1;//create a stringstream
-    ss1 << winGames;//add number to the stream
-    
-    sf::String winValue;
-    winValue.SetText(ss1.str());
-    winValue.SetColor(sf::Color(255, 255, 255));
-    winValue.SetPosition(60.f, 100.f);
-    winValue.SetSize(18.f);
-    
-    sf::String lose;
-    lose.SetText("Lose:");
-    lose.SetColor(sf::Color(255, 255, 255));
-    lose.SetPosition(10.f, 120.f);
-    lose.SetSize(18.f);
-    
-    ostringstream ss;//create a stringstream
-    ss << loseGames;//add number to the stream
-
-    sf::String loseValue;
-    loseValue.SetText(ss.str());
-    loseValue.SetColor(sf::Color(255, 255, 255));
-    loseValue.SetPosition(60.f, 120.f);
-    loseValue.SetSize(18.f);
-    
-    App.Draw(winLabel);
-    App.Draw(winValue);
-    App.Draw(lose);
-    App.Draw(loseValue);
-}
+//void Game::displayScore()
+//{
+//    sf::String winLabel;
+//    winLabel.SetText("Win:");
+//    winLabel.SetColor(sf::Color(255, 255, 255));
+//    winLabel.SetPosition(10.f, 100.f);
+//    winLabel.SetSize(18.f);
+//    
+//    ostringstream ss1;//create a stringstream
+//    ss1 << winGames;//add number to the stream
+//    
+//    sf::String winValue;
+//    winValue.SetText(ss1.str());
+//    winValue.SetColor(sf::Color(255, 255, 255));
+//    winValue.SetPosition(60.f, 100.f);
+//    winValue.SetSize(18.f);
+//    
+//    sf::String lose;
+//    lose.SetText("Lose:");
+//    lose.SetColor(sf::Color(255, 255, 255));
+//    lose.SetPosition(10.f, 120.f);
+//    lose.SetSize(18.f);
+//    
+//    ostringstream ss;//create a stringstream
+//    ss << loseGames;//add number to the stream
+//
+//    sf::String loseValue;
+//    loseValue.SetText(ss.str());
+//    loseValue.SetColor(sf::Color(255, 255, 255));
+//    loseValue.SetPosition(60.f, 120.f);
+//    loseValue.SetSize(18.f);
+//    
+//    App.Draw(winLabel);
+//    App.Draw(winValue);
+//    App.Draw(lose);
+//    App.Draw(loseValue);
+//}
 
 void Game::keyboardListenner(){
     sf::Event Event;
@@ -214,14 +199,14 @@ void Game::keyboardListenner(){
         // Escape key pressed
         if ((Event.Type == sf::Event::KeyPressed) && (Event.Key.Code == sf::Key::Left)){
             double x = player_one->getX();
-            x -= platform_step;
+            x -= ConfigManager::Instance()->getPlatformStep();
             if(x>=GAME_LIMIT_LEFT){
                 player_one->setX(x);
             }
         }
         else if ((Event.Type == sf::Event::KeyPressed) && (Event.Key.Code == sf::Key::Right)){
             double x = player_one->getX();
-            x += platform_step;
+            x += ConfigManager::Instance()->getPlatformStep();
             RectangleShape* shape = dynamic_cast<RectangleShape*>(player_one->getShape());
             if(x + shape->getX2() <= GAME_LIMIT_RIGHT){
                 player_one->setX(x);

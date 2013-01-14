@@ -19,7 +19,7 @@ TemplateGame::~TemplateGame()
 
 void TemplateGame::run()
 {
-    while(true){
+    //while(true){
         initializeGame();
         
         while (gameIsRunning())
@@ -36,6 +36,6 @@ void TemplateGame::run()
         }
         
         clean();
-    }
+    //}
     
 }
