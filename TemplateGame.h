@@ -18,15 +18,13 @@ private:
     
 public:
     virtual void initializeGame() = 0;
-    virtual void checkCollisions() = 0;
-    virtual void move() = 0;
     virtual void draw() = 0;
     virtual void keyboardListenner() = 0;
     virtual bool gameIsRunning() = 0;
     virtual bool isGamePaused() = 0;
-    virtual void removeDeadObjects() = 0;
     virtual bool didGameFinished() = 0;
     virtual void clean() = 0;
+    virtual void iterate() = 0;
     
     TemplateGame();
 	~TemplateGame();

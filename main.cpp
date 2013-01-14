@@ -8,7 +8,6 @@
 
 using namespace std;
 
-
 // Game instance
 Game*   game;
 

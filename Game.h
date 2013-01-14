@@ -29,28 +29,21 @@ private:
     //int winGames;
     bool gamePaused;
     
-//    bool random;
-//    double game_x;
-//    double game_y;
-//    double game_width;
-//    double game_height;
-//    double window_width;
-//    double window_height;
-//    int num_init_balls;
-//    int platform_step;
+    void checkCollisions();
+    void move();
+    void removeDeadObjects();
     
 public:
     void initializeGame();
-    void checkCollisions();
-    void move();
     void draw();
     void keyboardListenner();
     bool gameIsRunning();
     bool isGamePaused();
-    void removeDeadObjects();
     bool didGameFinished();
     //void displayScore();
     void clean();
+    
+    void iterate();
     
     Game();
 	~Game();
