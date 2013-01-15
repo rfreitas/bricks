@@ -4,14 +4,10 @@ ConfigManager* ConfigManager::m_pInstance = NULL;
 
 ConfigManager* ConfigManager::Instance()
 {
-    if (!m_pInstance) {  // Only allow one instance of class to be generated.
+    if (!m_pInstance) {
         m_pInstance = new ConfigManager;
     }
     return m_pInstance;
- }
-
-ConfigManager::ConfigManager() {
-    
 }
 
 GLint ConfigManager::getWindowWidth(){
@@ -50,7 +46,9 @@ int ConfigManager::getPlatformStep(){
     return platform_step;
 }
 
-
+ConfigManager::ConfigManager() {
+    
+}
 
 
 
