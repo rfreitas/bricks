@@ -75,6 +75,7 @@ public:
     void setBehaviour(behavioursType behaviourType);
     
     void    setX(double x);
+    void    setY(double y);
     void    setShape(Shape* shapeObject);
     virtual void    willCollideWith(Component* comp);
     virtual void    collidedWith(Component* comp);

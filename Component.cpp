@@ -49,7 +49,7 @@ void Component::doCollisionBehaviour(Component& collidedWith){
 
 
 Component::Component(){
-    
+    collisionBehaviour = DoNothingType;
 }
 
 /**
@@ -157,6 +157,9 @@ void Component::setShape(Shape* shapeObject){
 
 void Component::setX(double xValue){
     x = xValue;
+}
+void Component::setY(double yValue){
+    y = yValue;
 }
 
 void Component::setLife(int newLife)

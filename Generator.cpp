@@ -86,12 +86,13 @@ void Generator::randomBlocks(ComponentGroup* components){
 
 void Generator::randomBalls(ComponentGroup* balls, int numBalls)
 {
+    int x = 340;
+    int y = 0;
+    Component* protoBall = new Component(x, y, 0, 0, 0, new BallShape(10, sf::Color::White) );
     for(int i = 1; i <= numBalls ; i++){
-        int x = 340;
         int y = 80*i;
-        BallShape* ballShape = new BallShape(10, sf::Color::White);
-        Component* ball = new Component(x, y, 0, 0, 0, NULL);
-        ball->setShape(ballShape);
+        Component* ball = protoBall->clone();
+        ball->setY(y);
         balls->push_back(ball);
     }
 }
