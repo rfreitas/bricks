@@ -19,21 +19,17 @@ TemplateGame::~TemplateGame()
 
 void TemplateGame::run()
 {
-    //while(true){
-        initializeGame();
-        
-        while (gameIsRunning())
-        {
-            keyboardListenner();
-            
-            if(!isGamePaused()){
-                iterate();
-                if(didGameFinished()) break;
-                draw();
-            }
-        }
-        
-        clean();
-    //}
+    initializeGame();
     
+    while (gameIsRunning() && !didGameFinished())
+    {
+        keyboardListenner();
+        
+        if(!isGamePaused()){
+            iterate();
+            draw();
+        }
+    }
+    
+    clean();
 }
