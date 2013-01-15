@@ -20,6 +20,33 @@ Pair reflect( Pair vector, Pair normal){
     };
 }
 
+vector<Behaviour*> Component::behaviours;
+
+vector<Behaviour*> Component::getBehaviours()
+{
+    if (behaviours.size() == 0) {  // Only allow one instance of class to be generated.
+        behaviours.assign (3, new Behaviour());
+        behaviours[AssassinType] = new Assassin();
+        behaviours[DoNothingType] = new DoNothing();
+        behaviours[LoseLifeType] = new LoseLife();
+    }
+    return behaviours;
+}
+
+behavioursType Component::getBehaviour(){
+    return collisionBehaviour;
+}
+
+void Component::setBehaviour(behavioursType behaviourParam){
+    collisionBehaviour = behaviourParam;
+}
+
+
+void Component::doCollisionBehaviour(Component& collidedWith){
+    getBehaviours()[collisionBehaviour]->behave(this, collidedWith);
+}
+
+
 
 Component::Component(){
     
@@ -42,6 +69,10 @@ Component::Component(double posX, double posY, double areaValue,
     vVector.y = 0.5;
     
     life = 20;
+}
+
+Component* Component::clone(){
+    return new Component(x, y, area, normal, velocity, shape);
 }
 
 /**

@@ -7,6 +7,7 @@
 //
 
 #include "Assassin.h"
+#include "Component.h"
 
 Assassin::Assassin():Behaviour(){
     

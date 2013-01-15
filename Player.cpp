@@ -22,17 +22,6 @@ Player::~Player()
 }
 
 
-Behaviour* Player::getBehaviour(){
-    return collisionBehaviour;
-}
-
-void Player::setBehaviour(Behaviour* behaviourParam){
-    collisionBehaviour = behaviourParam;
-}
-
-void Player::doCollisionBehaviour(Component& collidedWith){
-}
-
 void Player::setPlatformStep(int platform_step_param){
     platform_step = platform_step_param;
 }

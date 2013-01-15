@@ -7,6 +7,7 @@
 //
 
 #include "LoseLife.h"
+#include "Component.h"
 
 LoseLife::LoseLife():Behaviour(){
     

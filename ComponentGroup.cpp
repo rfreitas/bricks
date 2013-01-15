@@ -9,7 +9,6 @@
 #include "ComponentGroup.h"
 
 ComponentGroup::ComponentGroup(){
-    group = true;
 }
 
 ComponentGroup::~ComponentGroup(){

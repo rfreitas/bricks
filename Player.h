@@ -15,8 +15,6 @@
 
 class Player : public Component{
 private:
-    Behaviour* collisionBehaviour;
-    
     int platform_step;
     bool winner;
     
@@ -25,9 +23,6 @@ public:
           double normalValue, double velocityVector, Shape* componentShape);
 	~Player();
     
-    void    doCollisionBehaviour(Component& collidedWith);
-    Behaviour* getBehaviour();
-    void    setBehaviour(Behaviour* behaviourParam);
     void    setPlatformStep(int platform_step_param);
     int     getPlatformStep();
     void    setAsWinner();

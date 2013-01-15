@@ -10,7 +10,9 @@
 #define __Bricks__Behaviour__
 
 #include <iostream>
-#include "Component.h"
+//#include "Component.h"
+
+class Component;
 
 class Behaviour {
 private:

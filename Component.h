@@ -11,6 +11,13 @@
 
 #include "Shape.h"
 #include <iostream>
+#include "Component.h"
+#include <SFML/Graphics.hpp>
+#include "Assassin.h"
+#include "LoseLife.h"
+#include "DoNothing.h"
+
+using namespace std;
 
 typedef enum
 {
@@ -21,32 +28,36 @@ typedef enum
     
 }  POSITION;
 
+typedef enum  { DoNothingType, AssassinType, LoseLifeType } behavioursType;
+
 
 
 class Component {
 private:
+    static vector<Behaviour*> behaviours;
     double  area;
     double  normal;
     double  velocity;
     Pair    previousPosition;
     Pair    vVector;
     int life;
-    
     Shape*  shape;
     
 protected:
     double  x;
 	double  y;
+    vector<Behaviour*> getBehaviours();
+    behavioursType collisionBehaviour;
 	
 public:
-    bool group;
     Component();
     Component(double posX, double posY, double areaValue, double normalValue,
               double velocityVector, Shape* componentShape);
 	
     ~Component();
     
-    virtual void doCollisionBehaviour(Component& collidedWith){};
+    //PROTOTYPE
+    Component* clone();
     
     POSITION whereRelativeTo(Component& comp);
     
@@ -57,6 +68,11 @@ public:
     double  getVelocity();
     Shape*  getShape();
     int getLife();
+    
+    //behaviour STRATEGY
+    void doCollisionBehaviour(Component& collidedWith);
+    behavioursType getBehaviour();
+    void setBehaviour(behavioursType behaviourType);
     
     void    setX(double x);
     void    setShape(Shape* shapeObject);

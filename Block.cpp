@@ -12,24 +12,10 @@ Block::Block(double posX, double posY, double areaValue,
            double normalValue, double velocityVector, Shape* componentShape)
 :Component(posX, posY, areaValue, normalValue, velocityVector, componentShape)
 {
-    
+    collisionBehaviour = LoseLifeType;
 }
 
 Block::~Block()
 {
     
-}
-
-
-Behaviour* Block::getBehaviour(){
-    return collisionBehaviour;
-}
-
-void Block::setBehaviour(Behaviour* behaviourParam){
-    collisionBehaviour = behaviourParam;
-}
-
-
-void Block::doCollisionBehaviour(Component& collidedWith){
-    collisionBehaviour->behave(this, collidedWith);
 }

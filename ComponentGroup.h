@@ -9,10 +9,7 @@
 #ifndef __Bricks__ComponentGroup__
 #define __Bricks__ComponentGroup__
 
-#include <iostream>
 #include "Component.h"
-#include <SFML/Graphics.hpp>
-using namespace std;
 
 class ComponentGroup: public Component {
     private:
