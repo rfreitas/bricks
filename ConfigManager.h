@@ -9,7 +9,6 @@ private:
     static ConfigManager* m_pInstance;
     ConfigManager();
     
-    // values are read from "game.config"
     GLint     window_width = 800;
     GLint     window_height = 640;
     GLint     game_width = 600;
