@@ -26,20 +26,20 @@ int ComponentGroup::getLife(){
     return life;
 }
 
-void    ComponentGroup::draw(sf::RenderWindow &App){
+void ComponentGroup::draw(sf::RenderWindow &App){
     for(int i = 0; i < components.size() ; i++){
         components[i]->drawWithOrigin(App, x, y);
     }
 }
 
-void    ComponentGroup::drawWithOrigin(sf::RenderWindow &App, double xOrigin, double yOrigin)
+void ComponentGroup::drawWithOrigin(sf::RenderWindow &App, double xOrigin, double yOrigin)
 {
     for(int i = 0; i < components.size() ; i++){
         components[i]->drawWithOrigin(App, x+xOrigin, y+yOrigin);
     }
 }
 
-void    ComponentGroup::push_back(Component* component){
+void ComponentGroup::push_back(Component* component){
     components.push_back(component);
 }
 
