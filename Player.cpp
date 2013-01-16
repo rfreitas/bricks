@@ -16,11 +16,26 @@ Player::Player(double posX, double posY, double areaValue,
     winner = false;
 }
 
-Player::~Player()
-{
-    
+Player::~Player(){
 }
 
+Pair Player::normalVector(Pair externalPoint){
+    Pair normal = Component::normalVector(externalPoint);
+    //return normal;
+    Pair centerPoint = center();
+    double diff = centerPoint.x - externalPoint.x;
+    
+    double width = getShape()->getWidth();
+    diff = diff*0.5/width;
+    
+    if ( normal.y != 0 ){
+        double angle = 3.14/2*normal.y + diff*-1;
+        normal.x = cos(angle);
+        normal.y = sin(angle);
+    }
+    
+    return normal;
+};
 
 void Player::setPlatformStep(int platform_step_param){
     platform_step = platform_step_param;

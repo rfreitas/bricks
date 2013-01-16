@@ -28,5 +28,7 @@ public:
     void    setAsWinner();
     bool    isWinner();
     
+    Pair normalVector(Pair externalPoint);
+    
 };
 #endif /* defined(__Bricks__Player__) */

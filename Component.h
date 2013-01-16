@@ -84,7 +84,7 @@ public:
     void    draw(sf::RenderWindow &App);
     void    drawWithOrigin(sf::RenderWindow &App, double x, double y);
     
-    Pair    normalVector(Pair externalPoint);
+    virtual Pair    normalVector(Pair externalPoint);
     Pair    center();
     
     void    newFrame();

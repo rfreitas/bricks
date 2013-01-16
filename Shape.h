@@ -39,6 +39,7 @@ public:
     Pair center();
     void setColor(sf::Color paramColor);
     sf::Color getColor();
+    virtual double getWidth();
 };
 
 

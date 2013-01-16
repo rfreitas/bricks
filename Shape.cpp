@@ -27,6 +27,12 @@ Pair vector( Pair pointStart, Pair pointEnd ){
     };
 }
 
+double Shape::getWidth(){
+    double* rec = getBounderyRectangle();
+    return rec[2] - rec[0];
+}
+
+
 void Shape::setColor(sf::Color paramColor)
 {
     color = paramColor;
