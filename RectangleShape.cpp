@@ -68,7 +68,9 @@ Pair RectangleShape::normalVector( Pair externalPoint, Pair topLeft){
     };
     //printf("extPoint: %f,%f \n", externalPoint.x, externalPoint.y);
     //printf(" topLeft: %f,%f \n", topLeft.x, topLeft.y);
-    if ( externalPoint.x <= topLeft.x){
+    
+    
+    if ( externalPoint.x <= topLeft.x +3){
         outNormal.x = -1;
     }
     else if (externalPoint.x >= bottomRight.x){
@@ -81,7 +83,28 @@ Pair RectangleShape::normalVector( Pair externalPoint, Pair topLeft){
         outNormal.y = 1;
     }
     else{
-        //error
+        //externa point is actually internal, to compensate for that we will look for the closest side of the rectangle to the supposed external point
+        int distToLeftSide = topLeft.x - externalPoint.x;
+        outNormal.x = -1;
+        int minDist = distToLeftSide;
+        
+        int distToRightSide = abs(bottomRight.x - externalPoint.x);
+        if ( distToRightSide <  minDist ){
+            outNormal.x = 1;
+            minDist = distToRightSide;
+        }
+        int distToTopSide = abs(topLeft.y - externalPoint.y);
+        if ( distToTopSide <  minDist ){
+            outNormal.y = -1;
+            outNormal.x = 0;
+            minDist = distToTopSide;
+        }
+        int distToBottomSide = abs(bottomRight.y -externalPoint.y);
+        if ( distToBottomSide <  minDist ){
+            outNormal.y = 1;
+            outNormal.x = 0;
+        }
+        
     }
     //printf("%f,%f\n", outNormal.x, outNormal.y);
     return outNormal;

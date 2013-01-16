@@ -97,9 +97,10 @@ Component* ComponentGroup::closestComponentTo(Component* other){
     int min = INT_MAX;
     Component* closest = NULL;
     for (int i=0; i< components.size(); i++){
-        int dist = components[i]->distance(other);
+        Component* component = components[i];
+        int dist = component->distance(other);
         if ( dist < min ){
-            closest = other;
+            closest = component;
             min = dist;
         }
     }
