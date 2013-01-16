@@ -67,7 +67,7 @@ Component::Component(double posX, double posY, double areaValue,
     vVector.x = 0.5;
     vVector.y = 0.5;
     
-    life = 20;
+    life = 100;
     
     collisionBehaviour = DoNothingType;
 }
