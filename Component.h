@@ -37,7 +37,6 @@ private:
     static vector<Behaviour*> behaviours;
     double  area;
     double  normal;
-    double  velocity;
     Pair    previousPosition;
     Pair    vVector;
     int life;
@@ -65,7 +64,7 @@ public:
     double  getY();
     double  getArea();
     double  getNormal();
-    double  getVelocity();
+    Pair getVelocity();
     Shape*  getShape();
     int getLife();
     

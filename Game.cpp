@@ -16,6 +16,8 @@ TemplateGame()
     //winGames = 0;
     components = new ComponentGroup();
     balls = new ComponentGroup();
+    leftKeyBeingPressed = false;
+    rightKeyBeingPressed = false;
 }
 
 Game::~Game(){
@@ -96,19 +98,35 @@ int platformStep(){
 
 void Game::movePlayerTowardsClosestBall( Player* player){
     Component* closestBall = balls->closestComponentTo(player);
-    int sign = -1;
+    double sign = -1;
     Pair closestBallCenter = closestBall->center();
     Pair playerCenter = player->center();
     if ( closestBallCenter.x > playerCenter.x ){
         sign = 1;
     }
-    int step = sign;
+    double step = sign*0.2;
     player->setX( player->getX() + step );
 }
 
 void Game::move(){    
     balls->newFrame();
     movePlayerTowardsClosestBall(player_two);
+    
+    double x = player_one->getX();
+    double step = .7;
+    RectangleShape* shape = dynamic_cast<RectangleShape*>(player_one->getShape());
+    if (leftKeyBeingPressed){
+        x -= step;
+        if(x>=GAME_LIMIT_LEFT){
+            player_one->setX(x);
+        }
+    }
+    else if (rightKeyBeingPressed){
+        x += step;
+        if(x + shape->getX2() <= GAME_LIMIT_RIGHT){
+            player_one->setX(x);
+        }
+    }
 }
 
 void Game::removeDeadObjects(){
@@ -166,6 +184,13 @@ bool Game::didGameFinished()
 //    App.Draw(loseValue);
 //}
 
+bool isLeftKeyEvent(sf::Event Event){
+    return Event.Key.Code == sf::Key::Left;
+}
+bool isRightKeyEvent(sf::Event Event){
+    return Event.Key.Code == sf::Key::Right;
+}
+
 void Game::keyboardListenner(){
     sf::Event Event;
     while (App.GetEvent(Event))
@@ -175,27 +200,31 @@ void Game::keyboardListenner(){
             App.Close();
         }
         
+        if ( Event.Type == sf::Event::KeyReleased){
+            if ( isLeftKeyEvent(Event) && leftKeyBeingPressed ){
+                leftKeyBeingPressed = false;
+            }
+            else if ( isRightKeyEvent(Event) && rightKeyBeingPressed ){
+                rightKeyBeingPressed = false;
+            }
+        }
+        
         // TODO check the game limits
         // Escape key pressed
-        if ((Event.Type == sf::Event::KeyPressed) && (Event.Key.Code == sf::Key::Left)){
-            double x = player_one->getX();
-            x -= ConfigManager::Instance()->getPlatformStep();
-            if(x>=GAME_LIMIT_LEFT){
-                player_one->setX(x);
+            if (Event.Type == sf::Event::KeyPressed){
+                if (isLeftKeyEvent(Event)){
+                    leftKeyBeingPressed = true;
+                }
+                else if (isRightKeyEvent(Event)){
+                    rightKeyBeingPressed = true;
+                }
+                // Pause the game when space bar is pressed
+                else if (Event.Key.Code == sf::Key::Space){
+                    gamePaused = !gamePaused;
+                }
             }
-        }
-        else if ((Event.Type == sf::Event::KeyPressed) && (Event.Key.Code == sf::Key::Right)){
-            double x = player_one->getX();
-            x += ConfigManager::Instance()->getPlatformStep();
-            RectangleShape* shape = dynamic_cast<RectangleShape*>(player_one->getShape());
-            if(x + shape->getX2() <= GAME_LIMIT_RIGHT){
-                player_one->setX(x);
-            }
-        }
-        // Pause the game when space bar is pressed
-        else if ((Event.Type == sf::Event::KeyPressed) && (Event.Key.Code == sf::Key::Space)){
-            gamePaused = !gamePaused;
-        }
+        
+       
     }
     
 }

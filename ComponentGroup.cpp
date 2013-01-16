@@ -93,13 +93,16 @@ int ComponentGroup::size(){
     return components.size();
 }
 
+
+
 Component* ComponentGroup::closestComponentTo(Component* other){
+    //and headed towards other
     int min = INT_MAX;
     Component* closest = NULL;
     for (int i=0; i< components.size(); i++){
         Component* component = components[i];
         int dist = component->distance(other);
-        if ( dist < min ){
+        if ( !closest || (closest->getVelocity().y > 0 && component->getVelocity().y < 0) || (closest->getVelocity().y < 0 && component->getVelocity().y < 0 && dist < min) ){
             closest = component;
             min = dist;
         }

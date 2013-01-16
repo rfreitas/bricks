@@ -39,9 +39,11 @@ void Generator::randomBlocks(ComponentGroup* components){
     rightWall->setShape(recShape);
     
     // top wall
+    /*
     Wall* topWall = new Wall(ConfigManager::Instance()->getGameX(), ConfigManager::Instance()->getGameY(), 0, 0, 0, NULL);
     recShape = new RectangleShape(0, 0, ConfigManager::Instance()->getGameWidth(), 20, sf::Color::White);
     topWall->setShape(recShape);
+     */
     
     // bottom wall
     Wall* bottomWall = new Wall(ConfigManager::Instance()->getGameX(), ConfigManager::Instance()->getGameY()+ConfigManager::Instance()->getGameHeight(), 0, 0, 0, NULL);
@@ -66,7 +68,7 @@ void Generator::randomBlocks(ComponentGroup* components){
     
     components->push_back(leftWall);
     components->push_back(rightWall);
-    components->push_back(topWall);
+    //components->push_back(topWall);
     components->push_back(bottomWall);
     components->push_back(block1);
     components->push_back(block2);
@@ -76,13 +78,10 @@ void Generator::randomBlocks(ComponentGroup* components){
 
 void Generator::randomBalls(ComponentGroup* balls, int numBalls)
 {
-    int x = 340;
-    int y = 0;
-    Component* protoBall = new Component(x, y, 0, 0, 0, new BallShape(10, sf::Color::White) );
+    Component* protoBall = new Component(340, 0, 0, 0, 0, new BallShape(10, sf::Color::White) );
     for(int i = 1; i <= numBalls ; i++){
-        int y = 80*i;
         Component* ball = protoBall->clone();
-        ball->setY(y);
+        ball->setY(80*i);
         balls->push_back(ball);
     }
 }

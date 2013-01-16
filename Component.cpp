@@ -62,11 +62,10 @@ Component::Component(double posX, double posY, double areaValue,
 	y = posY;
     area    = areaValue;
     normal  = normalValue;
-    velocity = velocityVector;
     shape   = componentShape;
     
-    vVector.x = 0.1;
-    vVector.y = 0.1;
+    vVector.x = 0.3;
+    vVector.y = 0.3;
     
     life = 20;
     
@@ -74,7 +73,7 @@ Component::Component(double posX, double posY, double areaValue,
 }
 
 Component* Component::clone(){
-    return new Component(x, y, area, normal, velocity, shape);
+    return new Component(x, y, area, normal, 0, shape);
 }
 
 /**
@@ -138,8 +137,8 @@ double Component::getNormal(){
     return normal;
 }
 
-double Component::getVelocity(){
-    return velocity;
+Pair Component::getVelocity(){
+    return vVector;
 }
 
 Shape* Component::getShape(){

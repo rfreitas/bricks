@@ -22,6 +22,9 @@ private:
     
     sf::RenderWindow App;
     
+    bool leftKeyBeingPressed;
+    bool rightKeyBeingPressed;
+    
     
     //int loseGames;
     //int winGames;
