@@ -87,7 +87,7 @@ public:
     Pair    normalVector(Pair externalPoint);
     Pair    center();
     
-    void    newFrame(unsigned long currentTimeStamp, unsigned long previousTimeStamp);
+    void    newFrame();
     
     virtual bool collidingWith(Component* cB);
     virtual void evaluateCollisionWith(Component* componentB);

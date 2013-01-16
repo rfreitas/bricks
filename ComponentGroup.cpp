@@ -79,9 +79,9 @@ void ComponentGroup::collidedWith(Component* comp){
     
 }
 
-void ComponentGroup::newFrame(unsigned long currentTimeStamp, unsigned long previousTimeStamp){
+void ComponentGroup::newFrame(){
     for(int i = 0 ; i < components.size() ; i++){
-        components[i]->newFrame(currentTimeStamp, previousTimeStamp);
+        components[i]->newFrame();
     }
 }
 

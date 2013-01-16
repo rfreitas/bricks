@@ -1,10 +1,3 @@
-//
-//  Generator.cpp
-//  SFML Graphics-based Application
-//
-//  Created by Nuno André Fontes Vinhas on 20/11/12.
-//
-//
 #include "Generator.h"
 #include "Wall.h"
 #include "Block.h"
@@ -12,6 +5,7 @@
 #include "BallShape.h"  
 #include "DoNothing.h"
 #include "LoseLife.h"
+#include "ConfigManager.h"
 #include "Assassin.h"
 
 using namespace std;
@@ -19,11 +13,7 @@ using namespace std;
 /**
  * Component Constructor
  **/
-Generator::Generator(double game_x, double game_y, double game_width, double game_height):
-game_x(game_x),
-game_y(game_y),
-game_width(game_width),
-game_height(game_height)
+Generator::Generator()
 {
 }
 
@@ -39,24 +29,24 @@ void Generator::randomBlocks(ComponentGroup* components){
     
     //TODO
     // left wall
-    Wall* leftWall = new Wall(game_x, game_y, 0, 0, 0, NULL);
-    RectangleShape* recShape = new RectangleShape(0, 0, 20, game_height, sf::Color::White);
+    Wall* leftWall = new Wall(ConfigManager::Instance()->getGameX(), ConfigManager::Instance()->getGameY(), 0, 0, 0, NULL);
+    RectangleShape* recShape = new RectangleShape(0, 0, 20, ConfigManager::Instance()->getGameHeight(), sf::Color::White);
     leftWall->setShape(recShape);
     
     // right wall
-    Wall* rightWall = new Wall(game_x+game_width, game_y, 0, 0, 0, NULL);
-    recShape = new RectangleShape(0, 0, 20, game_height, sf::Color::White);
+    Wall* rightWall = new Wall(ConfigManager::Instance()->getGameX()+ConfigManager::Instance()->getGameWidth(), ConfigManager::Instance()->getGameY(), 0, 0, 0, NULL);
+    recShape = new RectangleShape(0, 0, 20, ConfigManager::Instance()->getGameHeight(), sf::Color::White);
     rightWall->setShape(recShape);
     
     // top wall
-    Wall* topWall = new Wall(game_x, game_y, 0, 0, 0, NULL);
-    recShape = new RectangleShape(0, 0, game_width, 20, sf::Color::White);
+    Wall* topWall = new Wall(ConfigManager::Instance()->getGameX(), ConfigManager::Instance()->getGameY(), 0, 0, 0, NULL);
+    recShape = new RectangleShape(0, 0, ConfigManager::Instance()->getGameWidth(), 20, sf::Color::White);
     topWall->setShape(recShape);
     
     // bottom wall
-    Wall* bottomWall = new Wall(game_x, game_y+game_height, 0, 0, 0, NULL);
+    Wall* bottomWall = new Wall(ConfigManager::Instance()->getGameX(), ConfigManager::Instance()->getGameY()+ConfigManager::Instance()->getGameHeight(), 0, 0, 0, NULL);
     bottomWall->setBehaviour(AssassinType);
-    recShape = new RectangleShape(0, 0, game_width, 20, sf::Color::Black);
+    recShape = new RectangleShape(0, 0, ConfigManager::Instance()->getGameWidth(), 20, sf::Color::Black);
     bottomWall->setShape(recShape);
     
     

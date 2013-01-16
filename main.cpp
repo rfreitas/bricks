@@ -5,6 +5,7 @@
 
 #include <iostream>
 #include "ConfigManager.h"
+#include "CollisionWithLeftWall.h"
 
 using namespace std;
 
@@ -20,8 +21,12 @@ Game*   game;
 int main(int argc, char **argv)
 {
     // Create, Instantiate and start a game
-    game = new Game();
-    game->run();
+//    game = new Game();
+//    game->run();
 
+    CollisionWithLeftWall* c = new CollisionWithLeftWall();
+    c->init();
+    c->run();
+    
     return EXIT_SUCCESS;
 }

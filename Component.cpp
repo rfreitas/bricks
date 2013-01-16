@@ -112,9 +112,7 @@ Pair Component::normalVector(Pair externalPoint){
 };
 
 
-void Component::newFrame(unsigned long currentTimeStamp, unsigned long previousTimeStamp){
-    //double elapsedTime = difftime(currentTimeStamp, previousTimeStamp)*1000;
-    //printf("e:%f",elapsedTime);
+void Component::newFrame(){
     previousPosition.x = x;
     previousPosition.y = y;
     x += vVector.x;
@@ -198,21 +196,21 @@ bool Component::collidingWith(Component* cB)
     double yCB2 = bounderiesCB[3] + cB->getY();
     
     
-    //    printf("xCA1=%.2f yCA1=%.2f xCA2=%.2f yCA2=%.2f\n",xCA1,yCA1,xCA2,yCA2);
-    //    printf("xCB1=%.2f yCB1=%.2f xCB2=%.2f yCB2=%.2f\n",xCB1,yCB1,xCB2,yCB2);
-    //
+    printf("xCA1=%.2f yCA1=%.2f xCA2=%.2f yCA2=%.2f\n",xCA1,yCA1,xCA2,yCA2);
+    printf("xCB1=%.2f yCB1=%.2f xCB2=%.2f yCB2=%.2f\n",xCB1,yCB1,xCB2,yCB2);
+    
     
     if((xCA1 <= xCB1 && xCA2 >= xCB1) ||
        ((xCA1 >= xCB1 && xCA1 <= xCB2) && (xCA2 >= xCB1 && xCA2 <= xCB2)) ||
        (xCA1 <= xCB2 && xCA2 >= xCB2))
     {
         
-        //        printf("first\n");
+        printf("first\n");
         if((yCA1 <= yCB1 && yCA2 >= yCB1) ||
            ((yCA1 >= yCB1 && yCA1 <= yCB2) && (yCA2 >= yCB1 && yCA2 <= yCB2)) ||
            (yCA1 <= yCB2 && yCA2 >= yCB2)){
             
-            //            printf("second\n");
+            printf("second\n");
             return true;
         }
     }

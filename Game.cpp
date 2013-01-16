@@ -24,7 +24,7 @@ Game::~Game(){
 
 void Game::initializeGame(){
     // Init Colision Manager & Init Components Generator
-    Generator* generator = new Generator(ConfigManager::Instance()->getGameX(), ConfigManager::Instance()->getGameY(), ConfigManager::Instance()->getGameWidth(), ConfigManager::Instance()->getGameHeight());
+    Generator* generator = new Generator();
     
     // Game not paused
     gamePaused = false;
@@ -66,8 +66,6 @@ bool Game::isGamePaused(){
 }
 
 void Game::checkCollisions(){
-    // Iterate balls vs components
-    
     balls->evaluateCollisionWith(player_one);
     balls->evaluateCollisionWith(player_two);
     balls->evaluateCollisionWith(components);
@@ -92,7 +90,7 @@ void Game::draw(){
 }
 
 void Game::move(){    
-    balls->newFrame(0, 0);
+    balls->newFrame();
 }
 
 void Game::removeDeadObjects(){
