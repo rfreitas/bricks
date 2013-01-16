@@ -92,7 +92,7 @@ void Game::draw(){
 }
 
 
-int platformStep(){
+double platformStep(){
     return ConfigManager::Instance()->getPlatformStep();
 }
 
@@ -104,7 +104,7 @@ void Game::movePlayerTowardsClosestBall( Player* player){
     if ( closestBallCenter.x > playerCenter.x ){
         sign = 1;
     }
-    double step = sign*0.2;
+    double step = sign*platformStep();
     player->setX( player->getX() + step );
 }
 
@@ -113,7 +113,7 @@ void Game::move(){
     movePlayerTowardsClosestBall(player_two);
     
     double x = player_one->getX();
-    double step = .7;
+    double step = platformStep();
     RectangleShape* shape = dynamic_cast<RectangleShape*>(player_one->getShape());
     if (leftKeyBeingPressed){
         x -= step;

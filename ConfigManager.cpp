@@ -42,7 +42,7 @@ int ConfigManager::getNumInitBalls(){
     return num_init_balls;
 }
 
-int ConfigManager::getPlatformStep(){
+double ConfigManager::getPlatformStep(){
     return platform_step;
 }
 

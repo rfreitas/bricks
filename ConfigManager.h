@@ -17,7 +17,7 @@ private:
     GLint     game_y = 50;
     bool      r_blocks = true;
     GLint     num_init_balls = 2;
-    GLint     platform_step = 10;
+    double     platform_step = 0.7;
     
 public:
     GLint getWindowWidth();
@@ -28,7 +28,7 @@ public:
     GLint getGameY();
     bool getRandomBlocks();
     int getNumInitBalls();
-    int getPlatformStep();
+    double getPlatformStep();
     
     static ConfigManager* Instance();
 	~ConfigManager();
