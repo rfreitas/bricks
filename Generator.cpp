@@ -2,7 +2,7 @@
 #include "Wall.h"
 #include "Block.h"
 #include "RectangleShape.h"
-#include "BallShape.h"  
+#include "BallShape.h"
 #include "DoNothing.h"
 #include "LoseLife.h"
 #include "ConfigManager.h"
@@ -30,19 +30,19 @@ void Generator::randomBlocks(ComponentGroup* components){
     //TODO
     // left wall
     Wall* leftWall = new Wall(ConfigManager::Instance()->getGameX(), ConfigManager::Instance()->getGameY(), 0, 0, 0, NULL);
-    RectangleShape* recShape = new RectangleShape(0, 0, 20, ConfigManager::Instance()->getGameHeight(), sf::Color::White);
+    RectangleShape* recShape = new RectangleShape(0, 15, 20, ConfigManager::Instance()->getGameHeight()-15, sf::Color::White);
     leftWall->setShape(recShape);
     
     // right wall
     Wall* rightWall = new Wall(ConfigManager::Instance()->getGameX()+ConfigManager::Instance()->getGameWidth(), ConfigManager::Instance()->getGameY(), 0, 0, 0, NULL);
-    recShape = new RectangleShape(0, 0, 20, ConfigManager::Instance()->getGameHeight(), sf::Color::White);
+    recShape = new RectangleShape(0, 15, 20, ConfigManager::Instance()->getGameHeight()-15, sf::Color::White);
     rightWall->setShape(recShape);
     
     // top wall
     /*
-    Wall* topWall = new Wall(ConfigManager::Instance()->getGameX(), ConfigManager::Instance()->getGameY(), 0, 0, 0, NULL);
-    recShape = new RectangleShape(0, 0, ConfigManager::Instance()->getGameWidth(), 20, sf::Color::White);
-    topWall->setShape(recShape);
+     Wall* topWall = new Wall(ConfigManager::Instance()->getGameX(), ConfigManager::Instance()->getGameY(), 0, 0, 0, NULL);
+     recShape = new RectangleShape(0, 0, ConfigManager::Instance()->getGameWidth(), 20, sf::Color::White);
+     topWall->setShape(recShape);
      */
     sf::Color color(0, 0, 0, 0);
     
@@ -60,18 +60,44 @@ void Generator::randomBlocks(ComponentGroup* components){
     upWall->setShape(recShape);
     
     
+    // yy1 100
+    for(int j = 200 ; j < 600 ; j = j+100) {
+        for(int i = 1 ; i < 4 ; i++) {
+            Block* block1 = new Block(200 * i, j, 0, 0, 0, NULL);
+            recShape = new RectangleShape(0, 0, 120, 20, sf::Color::Yellow);
+            block1->setShape(recShape);
+            components->push_back(block1);
+        }
+    }
+    
+    // yy2 200
+//    for(int i = 1 ; i < 4 ; i++) {
+//        Block* block1 = new Block(200 * i, 200, 0, 0, 0, NULL);
+//        recShape = new RectangleShape(0, 0, 120, 20, sf::Color::Yellow);
+//        block1->setShape(recShape);
+//        components->push_back(block1);
+//    }
+//    
+//    // yy3 300
+//    for(int i = 1 ; i < 4 ; i++) {
+//        Block* block1 = new Block(200 * i, 300, 0, 0, 0, NULL);
+//        recShape = new RectangleShape(0, 0, 120, 20, sf::Color::Yellow);
+//        block1->setShape(recShape);
+//        components->push_back(block1);
+//    }
+    
     // block 1
-    Block* block1 = new Block(200, 210, 0, 0, 0, NULL);
-    recShape = new RectangleShape(0, 0, 120, 20, sf::Color::Yellow);
-    block1->setShape(recShape);
-    // block 2
-    Block* block2 = new Block(500, 200, 0, 0, 0, NULL);
-    recShape = new RectangleShape(0, 0, 120, 20, sf::Color::Yellow);
-    block2->setShape(recShape);
-    // block 3
-    Block* block3 = new Block(300, 300, 0, 0, 0, NULL);
-    recShape = new RectangleShape(0, 0, 120, 20, sf::Color::Yellow);
-    block3->setShape(recShape);
+    //    Block* block1 = new Block(200, 210, 0, 0, 0, NULL);
+    //    recShape = new RectangleShape(0, 0, 120, 20, sf::Color::Yellow);
+    //    block1->setShape(recShape);
+    //    // block 2
+    //    Block* block2 = new Block(500, 200, 0, 0, 0, NULL);
+    //    recShape = new RectangleShape(0, 0, 120, 20, sf::Color::Yellow);
+    //    block2->setShape(recShape);
+    //    // block 3
+    //    Block* block3 = new Block(300, 300, 0, 0, 0, NULL);
+    //    recShape = new RectangleShape(0, 0, 120, 20, sf::Color::Yellow);
+    //    block3->setShape(recShape);
     
     
     components->push_back(leftWall);
@@ -79,9 +105,9 @@ void Generator::randomBlocks(ComponentGroup* components){
     //components->push_back(topWall);
     components->push_back(bottomWall);
     components->push_back(upWall);
-    components->push_back(block1);
-    components->push_back(block2);
-    components->push_back(block3);
+    //    components->push_back(block1);
+    //    components->push_back(block2);
+    //    components->push_back(block3);
 }
 
 
@@ -92,9 +118,9 @@ void Generator::randomBalls(ComponentGroup* balls, int numBalls)
         Component* ball = protoBall->clone();
         ball->setY(80*i + 50);
         Pair newVel = ball->getVelocity();
-        newVel.x = 1.4;
+        newVel.x = 0.4;
         if (i%2 != 0){
-            newVel.y = -1*newVel.y;
+            newVel.y = -1*newVel.y * 3.5;
         }
         ball->setVelocity(newVel);
         balls->push_back(ball);
