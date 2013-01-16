@@ -5,10 +5,10 @@
 
 #include <iostream>
 #include "ConfigManager.h"
-#include "CollisionWithLeftWall.h"
-#include "CollisionWithUpWall.h"
-#include "CollisionWithRightWall.h"
-#include "CollisionWithDownWall.h"
+#include "CollisionWithLeftObject.h"
+#include "CollisionWithUpObject.h"
+#include "CollisionWithRightObject.h"
+#include "CollisionWithDownObject.h"
 
 using namespace std;
 
@@ -16,19 +16,19 @@ using namespace std;
 Game*   game;
 
 void runTests() {
-    CollisionWithLeftWall* l = new CollisionWithLeftWall();
+    CollisionWithLeftObject* l = new CollisionWithLeftObject();
     l->init();
     l->run();
     
-    CollisionWithUpWall* u = new CollisionWithUpWall();
+    CollisionWithUpObject* u = new CollisionWithUpObject();
     u->init();
     u->run();
     
-    CollisionWithRightWall* r = new CollisionWithRightWall();
+    CollisionWithRightObject* r = new CollisionWithRightObject();
     r->init();
     r->run();
     
-    CollisionWithDownWall* d = new CollisionWithDownWall();
+    CollisionWithDownObject* d = new CollisionWithDownObject();
     d->init();
     d->run();
 }

@@ -1,20 +1,20 @@
 
 
-#include "CollisionWithUpWall.h"
+#include "CollisionWithUpObject.h"
 #include "BallShape.h"
 #include "Wall.h"
 #include "RectangleShape.h"
 #include "ConfigManager.h"
 #include <cassert>
 
-CollisionWithUpWall::CollisionWithUpWall(){
+CollisionWithUpObject::CollisionWithUpObject(){
 }
 
-CollisionWithUpWall::~CollisionWithUpWall(){
+CollisionWithUpObject::~CollisionWithUpObject(){
     
 }
 
-void CollisionWithUpWall::init() {
+void CollisionWithUpObject::init() {
     //parede
     wall = new Wall(0, 0, 0, 0, 0, NULL);
     RectangleShape* recShape = new RectangleShape(0, 0, 100, 20, sf::Color::White);
@@ -25,7 +25,7 @@ void CollisionWithUpWall::init() {
     ball = protoBall->clone();
 }
 
-void CollisionWithUpWall::run() {
+void CollisionWithUpObject::run() {
     bool collided = ball->collidingWith(wall);
     assert(collided == true);
 }

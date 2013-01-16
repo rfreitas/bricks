@@ -31,10 +31,10 @@
 		C426271716683962002F8C12 /* DoNothing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C426271516683962002F8C12 /* DoNothing.cpp */; };
 		C426271A16683999002F8C12 /* Behaviour.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C426271816683999002F8C12 /* Behaviour.cpp */; };
 		C426272016683F59002F8C12 /* Block.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C426271E16683F59002F8C12 /* Block.cpp */; };
-		C434ED7C16A6167300C5EE3E /* CollisionWithLeftWall.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C434ED7A16A6167300C5EE3E /* CollisionWithLeftWall.cpp */; };
-		C434ED7F16A628C000C5EE3E /* CollisionWithUpWall.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C434ED7D16A628BF00C5EE3E /* CollisionWithUpWall.cpp */; };
-		C434ED8216A628D600C5EE3E /* CollisionWithRightWall.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C434ED8016A628D600C5EE3E /* CollisionWithRightWall.cpp */; };
-		C434ED8516A628EA00C5EE3E /* CollisionWithDownWall.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C434ED8316A628EA00C5EE3E /* CollisionWithDownWall.cpp */; };
+		C434ED8816A634EE00C5EE3E /* CollisionWithLeftObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C434ED8616A634EE00C5EE3E /* CollisionWithLeftObject.cpp */; };
+		C434ED8B16A6357300C5EE3E /* CollisionWithRightObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C434ED8916A6357300C5EE3E /* CollisionWithRightObject.cpp */; };
+		C434ED8E16A635C800C5EE3E /* CollisionWithUpObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C434ED8C16A635C800C5EE3E /* CollisionWithUpObject.cpp */; };
+		C434ED9116A6361600C5EE3E /* CollisionWithDownObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C434ED8F16A6361600C5EE3E /* CollisionWithDownObject.cpp */; };
 		C46E6AEE166A529C0092BC39 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C46E6AEC166A529C0092BC39 /* Player.cpp */; };
 		C47A87161669AB5400F89C22 /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C47A87141669AB5400F89C22 /* Game.cpp */; };
 		C48A3653165B1BE5003C31A5 /* Generator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C48A3651165B1BE5003C31A5 /* Generator.cpp */; };
@@ -104,14 +104,14 @@
 		C426271916683999002F8C12 /* Behaviour.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Behaviour.h; sourceTree = "<group>"; };
 		C426271E16683F59002F8C12 /* Block.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Block.cpp; sourceTree = "<group>"; };
 		C426271F16683F59002F8C12 /* Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Block.h; sourceTree = "<group>"; };
-		C434ED7A16A6167300C5EE3E /* CollisionWithLeftWall.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CollisionWithLeftWall.cpp; sourceTree = "<group>"; };
-		C434ED7B16A6167300C5EE3E /* CollisionWithLeftWall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollisionWithLeftWall.h; sourceTree = "<group>"; };
-		C434ED7D16A628BF00C5EE3E /* CollisionWithUpWall.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CollisionWithUpWall.cpp; sourceTree = "<group>"; };
-		C434ED7E16A628BF00C5EE3E /* CollisionWithUpWall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollisionWithUpWall.h; sourceTree = "<group>"; };
-		C434ED8016A628D600C5EE3E /* CollisionWithRightWall.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CollisionWithRightWall.cpp; sourceTree = "<group>"; };
-		C434ED8116A628D600C5EE3E /* CollisionWithRightWall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollisionWithRightWall.h; sourceTree = "<group>"; };
-		C434ED8316A628EA00C5EE3E /* CollisionWithDownWall.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CollisionWithDownWall.cpp; sourceTree = "<group>"; };
-		C434ED8416A628EA00C5EE3E /* CollisionWithDownWall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollisionWithDownWall.h; sourceTree = "<group>"; };
+		C434ED8616A634EE00C5EE3E /* CollisionWithLeftObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CollisionWithLeftObject.cpp; sourceTree = "<group>"; };
+		C434ED8716A634EE00C5EE3E /* CollisionWithLeftObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollisionWithLeftObject.h; sourceTree = "<group>"; };
+		C434ED8916A6357300C5EE3E /* CollisionWithRightObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CollisionWithRightObject.cpp; sourceTree = "<group>"; };
+		C434ED8A16A6357300C5EE3E /* CollisionWithRightObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollisionWithRightObject.h; sourceTree = "<group>"; };
+		C434ED8C16A635C800C5EE3E /* CollisionWithUpObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CollisionWithUpObject.cpp; sourceTree = "<group>"; };
+		C434ED8D16A635C800C5EE3E /* CollisionWithUpObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollisionWithUpObject.h; sourceTree = "<group>"; };
+		C434ED8F16A6361600C5EE3E /* CollisionWithDownObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CollisionWithDownObject.cpp; sourceTree = "<group>"; };
+		C434ED9016A6361600C5EE3E /* CollisionWithDownObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollisionWithDownObject.h; sourceTree = "<group>"; };
 		C46E6AEC166A529C0092BC39 /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
 		C46E6AED166A529C0092BC39 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		C47A87141669AB5400F89C22 /* Game.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Game.cpp; sourceTree = "<group>"; };
@@ -285,14 +285,14 @@
 		C434ED7916A615EA00C5EE3E /* tests */ = {
 			isa = PBXGroup;
 			children = (
-				C434ED7A16A6167300C5EE3E /* CollisionWithLeftWall.cpp */,
-				C434ED7B16A6167300C5EE3E /* CollisionWithLeftWall.h */,
-				C434ED7D16A628BF00C5EE3E /* CollisionWithUpWall.cpp */,
-				C434ED7E16A628BF00C5EE3E /* CollisionWithUpWall.h */,
-				C434ED8016A628D600C5EE3E /* CollisionWithRightWall.cpp */,
-				C434ED8116A628D600C5EE3E /* CollisionWithRightWall.h */,
-				C434ED8316A628EA00C5EE3E /* CollisionWithDownWall.cpp */,
-				C434ED8416A628EA00C5EE3E /* CollisionWithDownWall.h */,
+				C434ED8616A634EE00C5EE3E /* CollisionWithLeftObject.cpp */,
+				C434ED8716A634EE00C5EE3E /* CollisionWithLeftObject.h */,
+				C434ED8916A6357300C5EE3E /* CollisionWithRightObject.cpp */,
+				C434ED8A16A6357300C5EE3E /* CollisionWithRightObject.h */,
+				C434ED8C16A635C800C5EE3E /* CollisionWithUpObject.cpp */,
+				C434ED8D16A635C800C5EE3E /* CollisionWithUpObject.h */,
+				C434ED8F16A6361600C5EE3E /* CollisionWithDownObject.cpp */,
+				C434ED9016A6361600C5EE3E /* CollisionWithDownObject.h */,
 			);
 			name = tests;
 			sourceTree = "<group>";
@@ -400,10 +400,10 @@
 				8691479B1682A9C2006D55D5 /* WallOfDeath.cpp in Sources */,
 				86B50DE616A4CA27004E4071 /* ConfigManager.cpp in Sources */,
 				86B50DE716A4CA27004E4071 /* ConfigMethod.cpp in Sources */,
-				C434ED7C16A6167300C5EE3E /* CollisionWithLeftWall.cpp in Sources */,
-				C434ED7F16A628C000C5EE3E /* CollisionWithUpWall.cpp in Sources */,
-				C434ED8216A628D600C5EE3E /* CollisionWithRightWall.cpp in Sources */,
-				C434ED8516A628EA00C5EE3E /* CollisionWithDownWall.cpp in Sources */,
+				C434ED8816A634EE00C5EE3E /* CollisionWithLeftObject.cpp in Sources */,
+				C434ED8B16A6357300C5EE3E /* CollisionWithRightObject.cpp in Sources */,
+				C434ED8E16A635C800C5EE3E /* CollisionWithUpObject.cpp in Sources */,
+				C434ED9116A6361600C5EE3E /* CollisionWithDownObject.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
