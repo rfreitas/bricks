@@ -30,12 +30,12 @@ void Generator::randomBlocks(ComponentGroup* components){
 
     //TODO
     // left wall
-    Wall* leftWall = new Wall(ConfigManager::Instance()->getGameX(), ConfigManager::Instance()->getGameY(), 0, 0, 0, NULL);
+    Wall* leftWall = new Wall(ConfigManager::Instance()->getGameX(), ConfigManager::Instance()->getGameY()+10, 0, 0, 0, NULL);
     RectangleShape* recShape = new RectangleShape(0, 15, 20, ConfigManager::Instance()->getGameHeight()-15, colorWall);
     leftWall->setShape(recShape);
     
     // right wall
-    Wall* rightWall = new Wall(ConfigManager::Instance()->getGameX()+ConfigManager::Instance()->getGameWidth(), ConfigManager::Instance()->getGameY(), 0, 0, 0, NULL);
+    Wall* rightWall = new Wall(ConfigManager::Instance()->getGameX()+ConfigManager::Instance()->getGameWidth(), ConfigManager::Instance()->getGameY()+10, 0, 0, 0, NULL);
     recShape = new RectangleShape(0, 15, 20, ConfigManager::Instance()->getGameHeight()-15, colorWall);
     rightWall->setShape(recShape);
     
