@@ -15,18 +15,7 @@ using namespace std;
 // Game instance
 Game*   game;
 
-////////////////////////////////////////////////////////////
-/// Entry point of application
-///
-/// \return Application exit code
-///
-////////////////////////////////////////////////////////////
-int main(int argc, char **argv)
-{
-    // Create, Instantiate and start a game
-//    game = new Game();
-//    game->run();
-
+void runTests() {
     CollisionWithLeftWall* l = new CollisionWithLeftWall();
     l->init();
     l->run();
@@ -42,6 +31,20 @@ int main(int argc, char **argv)
     CollisionWithDownWall* d = new CollisionWithDownWall();
     d->init();
     d->run();
+}
+
+////////////////////////////////////////////////////////////
+/// Entry point of application
+///
+/// \return Application exit code
+///
+////////////////////////////////////////////////////////////
+int main(int argc, char **argv)
+{
+    runTests();
+    // Create, Instantiate and start a game
+    game = new Game();
+    game->run();
     
     return EXIT_SUCCESS;
 }
