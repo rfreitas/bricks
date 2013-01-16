@@ -44,12 +44,20 @@ void Generator::randomBlocks(ComponentGroup* components){
     recShape = new RectangleShape(0, 0, ConfigManager::Instance()->getGameWidth(), 20, sf::Color::White);
     topWall->setShape(recShape);
      */
+    sf::Color color(0, 0, 0, 0);
+    
     
     // bottom wall
     Wall* bottomWall = new Wall(ConfigManager::Instance()->getGameX(), ConfigManager::Instance()->getGameY()+ConfigManager::Instance()->getGameHeight(), 0, 0, 0, NULL);
     bottomWall->setBehaviour(AssassinType);
-    recShape = new RectangleShape(0, 0, ConfigManager::Instance()->getGameWidth(), 20, sf::Color::Black);
+    recShape = new RectangleShape(0, 0, ConfigManager::Instance()->getGameWidth(), 20, color);
     bottomWall->setShape(recShape);
+    
+    // up wall
+    Wall* upWall = new Wall(ConfigManager::Instance()->getGameX(), ConfigManager::Instance()->getGameY(), 0, 0, 0, NULL);
+    upWall->setBehaviour(AssassinType);
+    recShape = new RectangleShape(0, 0, ConfigManager::Instance()->getGameWidth(), 20, color);
+    upWall->setShape(recShape);
     
     
     // block 1
@@ -70,6 +78,7 @@ void Generator::randomBlocks(ComponentGroup* components){
     components->push_back(rightWall);
     //components->push_back(topWall);
     components->push_back(bottomWall);
+    components->push_back(upWall);
     components->push_back(block1);
     components->push_back(block2);
     components->push_back(block3);
@@ -78,12 +87,12 @@ void Generator::randomBlocks(ComponentGroup* components){
 
 void Generator::randomBalls(ComponentGroup* balls, int numBalls)
 {
-    Component* protoBall = new Component(340, 0, 0, 0, 0, new BallShape(10, sf::Color::White) );
+    Component* protoBall = new Component(400, 0, 0, 0, 0, new BallShape(10, sf::Color::White) );
     for(int i = 1; i <= numBalls ; i++){
         Component* ball = protoBall->clone();
-        ball->setY(80*i + 10);
+        ball->setY(80*i + 50);
         Pair newVel = ball->getVelocity();
-        newVel.x = 0.2;
+        newVel.x = 1.4;
         if (i%2 != 0){
             newVel.y = -1*newVel.y;
         }
