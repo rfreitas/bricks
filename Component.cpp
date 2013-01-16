@@ -141,6 +141,10 @@ Pair Component::getVelocity(){
     return vVector;
 }
 
+void Component::setVelocity(Pair newVel){
+    vVector = newVel;
+}
+
 Shape* Component::getShape(){
     return shape;
 }

@@ -65,6 +65,7 @@ public:
     double  getArea();
     double  getNormal();
     Pair getVelocity();
+    void setVelocity(Pair newVelocity);
     Shape*  getShape();
     int getLife();
     

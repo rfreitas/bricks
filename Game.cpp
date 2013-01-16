@@ -38,12 +38,12 @@ void Game::initializeGame(){
     }
     
     RectangleShape* recShape = new RectangleShape(0, 0, 20, 500, sf::Color::White);
-    player_one = new Player(200, 510, 0, 0, 0, NULL);
-    recShape = new RectangleShape(0, 0, 90, 10, sf::Color::Yellow);
+    player_one = new Player(400, 510, 0, 0, 0, NULL);
+    recShape = new RectangleShape(0, 0, 90, 20, sf::Color::Yellow);
     player_one->setShape(recShape);
     
     recShape = new RectangleShape(0, 0, 20, 500, sf::Color::White);
-    player_two = new Player(0, 0, 0, 0, 0, NULL);
+    player_two = new Player(400, 40, 0, 0, 0, NULL);
     recShape = new RectangleShape(0, 0, 90, 10, sf::Color::Green);
     player_two->setShape(recShape);
 }
@@ -71,6 +71,7 @@ void Game::checkCollisions(){
     balls->evaluateCollisionWith(player_one);
     balls->evaluateCollisionWith(player_two);
     balls->evaluateCollisionWith(components);
+    balls->evaluateCollisionOfIncludedElements();
 }
 
 void Game::draw(){
@@ -193,7 +194,7 @@ bool isRightKeyEvent(sf::Event Event){
 
 void Game::keyboardListenner(){
     sf::Event Event;
-    while (App.GetEvent(Event))
+    if (App.GetEvent(Event))
     {
         // Close window : exit
         if (Event.Type == sf::Event::KeyPressed && Event.Key.Code == sf::Key::Escape){
