@@ -5,3 +5,4 @@ xcuserdata
 Bricks.xcodeproj/project.pbxproj
 Bricks.xcodeproj/project.xcworkspace/xcuserdata/NunoVinhas.xcuserdatad/UserInterfaceState.xcuserstate
 Bricks.xcodeproj/xcuserdata/NunoVinhas.xcuserdatad/xcdebugger/Breakpoints.xcbkptlist
+*.orig
