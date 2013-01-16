@@ -28,7 +28,7 @@ typedef enum
     
 }  POSITION;
 
-typedef enum  { DoNothingType, AssassinType, LoseLifeType } behavioursType;
+typedef enum  { DoNothingType = 0, AssassinType = 1, LoseLifeType = 2 } behavioursType;
 
 
 

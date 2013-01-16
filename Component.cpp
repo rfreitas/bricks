@@ -65,10 +65,12 @@ Component::Component(double posX, double posY, double areaValue,
     velocity = velocityVector;
     shape   = componentShape;
     
-    vVector.x = 0.5;
-    vVector.y = 0.5;
+    vVector.x = 0.1;
+    vVector.y = 0.1;
     
     life = 20;
+    
+    collisionBehaviour = DoNothingType;
 }
 
 Component* Component::clone(){
