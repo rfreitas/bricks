@@ -92,3 +92,16 @@ bool ComponentGroup::isGroup(){
 int ComponentGroup::size(){
     return components.size();
 }
+
+Component* ComponentGroup::closestComponentTo(Component* other){
+    int min = INTMAX_MAX;
+    Component* closest = NULL;
+    for (int i=0; i< components.size(); i++){
+        int dist = distance(other);
+        if ( dist < min ){
+            closest = other;
+            min = dist;
+        }
+    }
+    return closest;
+}

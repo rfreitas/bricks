@@ -92,6 +92,7 @@ public:
     virtual bool collidingWith(Component* cB);
     virtual void evaluateCollisionWith(Component* componentB);
     virtual bool isGroup();
+    int distance(Component* other);
 };
 
 

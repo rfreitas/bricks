@@ -32,5 +32,7 @@ class ComponentGroup: public Component {
     
         void willCollideWith(Component* comp);
         void collidedWith(Component* comp);
+    
+        Component* closestComponentTo(Component* other);
 };
 #endif /* defined(__Bricks__ComponentGroup__) */

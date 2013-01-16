@@ -240,3 +240,11 @@ void Component::evaluateCollisionWith(Component* componentB)
 bool Component::isGroup(){
     return false;
 }
+
+double distanceBetweenPairs( Pair pos, Pair pos1){
+    return sqrt( pow(pos.x - pos1.x, 2) + pow(pos.y - pos1.y, 2) );
+}
+
+int Component::distance(Component* other){
+    return distanceBetweenPairs( center(), other->center() );
+}

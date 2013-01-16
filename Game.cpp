@@ -89,8 +89,23 @@ void Game::draw(){
     App.Display();
 }
 
+
+int platformStep(){
+    return ConfigManager::Instance()->getPlatformStep();
+}
+
+void Game::movePlayerTowardsClosestBall( Player* player){
+    Component* closestBall = balls->closestComponentTo(player);
+    int sign = -1;
+    if ( closestBall->center().x > player->center().x ){
+        sign = 1;
+    }
+    player->setX( sign*platformStep() );
+}
+
 void Game::move(){    
     balls->newFrame();
+    movePlayerTowardsClosestBall(player_two);
 }
 
 void Game::removeDeadObjects(){

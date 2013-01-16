@@ -30,6 +30,7 @@ private:
     void checkCollisions();
     void move();
     void removeDeadObjects();
+    void movePlayerTowardsClosestBall( Player* player);
     
 public:
     void initializeGame();
