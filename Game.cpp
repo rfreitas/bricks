@@ -40,13 +40,16 @@ void Game::initializeGame(){
         generator->randomBalls(balls, ConfigManager::Instance()->getNumInitBalls());
     }
     
+    sf::Color color2(180.0, 0.0, 0.0);
+    sf::Color color1(0.0, 0.0, 180.0);
+    
     player_one = new Player(400, ConfigManager::Instance()->getGameHeight()+35, 0, 0, 0, NULL);
-    RectangleShape* recShape = new RectangleShape(0, 0, 120, 10, sf::Color::Yellow);
+    RectangleShape* recShape = new RectangleShape(0, 0, 120, 10, color1);
     player_one->setShape(recShape);
     
     recShape = new RectangleShape(0, 0, 20, 500, sf::Color::White);
     player_two = new Player(400, ConfigManager::Instance()->getGameY()+25, 0, 0, 0, NULL);
-    recShape = new RectangleShape(0, 0, 120, 10, sf::Color::Green);
+    recShape = new RectangleShape(0, 0, 120, 10, color2);
     player_two->setShape(recShape);
 }
 
@@ -109,10 +112,13 @@ void Game::movePlayerTowardsClosestBall( Player* player){
         sign = 1;
     }
     double step = sign*platformStep();
+    
+    if( player->getX() + step >=ConfigManager::Instance()->getGameX() + 20 && player->getX() + step + 120 <= ConfigManager::Instance()->getGameX()+ConfigManager::Instance()->getGameWidth()) {
     player->setX( player->getX() + step );
+    }
 }
 
-void Game::move(){    
+void Game::move(){
     balls->newFrame();
     movePlayerTowardsClosestBall(player_two);
     
