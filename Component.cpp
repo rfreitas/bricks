@@ -64,8 +64,8 @@ Component::Component(double posX, double posY, double areaValue,
     normal  = normalValue;
     shape   = componentShape;
     
-    vVector.x = 0.4;
-    vVector.y = 0.4;
+    vVector.x = 0.3;
+    vVector.y = 0.3;
     
     life = 20;
     
@@ -101,7 +101,7 @@ Pair Component::center(){
     Pair shapeCenter = shape->center();
     return {
         .x = shapeCenter.x +x,
-        .y = shapeCenter.y + y
+        .y = shapeCenter.y
     };
 };
 
