@@ -111,7 +111,8 @@ Component* ComponentGroup::closestComponentTo(Component* other){
     for (int i=0; i< components.size(); i++){
         Component* component = components[i];
         int dist = component->distance(other);
-        if ( !closest || (closest->getVelocity().y > 0 && component->getVelocity().y < 0) || (closest->getVelocity().y < 0 && component->getVelocity().y < 0 && dist < min) ){
+        if ( !closest ||
+            ( (component->center().y > other->center().y && (closest->getVelocity().y > 0 && component->getVelocity().y < 0)) || (closest->getVelocity().y < 0 && component->getVelocity().y < 0 && dist < min)) ){
             closest = component;
             min = dist;
         }
