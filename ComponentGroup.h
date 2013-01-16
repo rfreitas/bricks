@@ -26,6 +26,7 @@ class ComponentGroup: public Component {
     
         bool collidingWith(Component* cB);
         void evaluateCollisionWith(Component* componentB);
+        void evaluateCollisionOfIncludedElements();
         void newFrame();
         bool isGroup();
         int size();

@@ -81,7 +81,13 @@ void Generator::randomBalls(ComponentGroup* balls, int numBalls)
     Component* protoBall = new Component(340, 0, 0, 0, 0, new BallShape(10, sf::Color::White) );
     for(int i = 1; i <= numBalls ; i++){
         Component* ball = protoBall->clone();
-        ball->setY(80*i);
+        ball->setY(80*i + 10);
+        Pair newVel = ball->getVelocity();
+        newVel.x = 0.2;
+        if (i%2 != 0){
+            newVel.y = -1*newVel.y;
+        }
+        ball->setVelocity(newVel);
         balls->push_back(ball);
     }
 }

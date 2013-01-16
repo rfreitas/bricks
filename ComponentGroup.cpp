@@ -71,6 +71,15 @@ void ComponentGroup::evaluateCollisionWith(Component* componentB)
     }
 }
 
+void ComponentGroup::evaluateCollisionOfIncludedElements(){
+    for(int i = 0 ; i < components.size() ; i++){
+        for (int p = i+1; p < components.size(); p++){
+            components[i]->evaluateCollisionWith(components[p]);
+        }
+        
+    }
+}
+
 void ComponentGroup::willCollideWith(Component* comp){
     
 }
