@@ -1,6 +1,6 @@
 #include "Game.h"
 #include <sstream>
-#include <string> // this should be already included in <sstream>
+#include <string> 
 #include "ConfigManager.h"
 
 
@@ -8,12 +8,19 @@ Game::Game():
 App(sf::VideoMode(ConfigManager::Instance()->getWindowWidth(), ConfigManager::Instance()->getWindowHeight()), "RS Bricks"),
 TemplateGame()
 {
-    //loseGames = 0;
-    //winGames = 0;
     components = new ComponentGroup();
     balls = new ComponentGroup();
     leftKeyBeingPressed = false;
     rightKeyBeingPressed = false;
+    
+    image = sf::Image();
+    std::string filename("background.jpeg");
+    
+    if(!image.LoadFromFile(filename)) {
+        throw "Error loading image";
+    }
+    sprite=sf::Sprite(image);
+    sprite.Resize(ConfigManager::Instance()->getWindowWidth(), ConfigManager::Instance()->getWindowHeight());
 }
 
 Game::~Game(){
@@ -74,9 +81,10 @@ void Game::draw(){
     // Clear screen
     App.Clear();
     
+    App.Draw(sprite);
+    
     components->draw(App);
     balls->draw(App);
-
     
     // draw player's platform
     player_one->draw(App);

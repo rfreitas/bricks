@@ -31,6 +31,7 @@
 		C426271716683962002F8C12 /* DoNothing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C426271516683962002F8C12 /* DoNothing.cpp */; };
 		C426271A16683999002F8C12 /* Behaviour.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C426271816683999002F8C12 /* Behaviour.cpp */; };
 		C426272016683F59002F8C12 /* Block.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C426271E16683F59002F8C12 /* Block.cpp */; };
+		C4309D5316A7501600EBA575 /* background.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = C4309D5216A7501600EBA575 /* background.jpeg */; };
 		C434ED8816A634EE00C5EE3E /* CollisionWithLeftObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C434ED8616A634EE00C5EE3E /* CollisionWithLeftObject.cpp */; };
 		C434ED8B16A6357300C5EE3E /* CollisionWithRightObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C434ED8916A6357300C5EE3E /* CollisionWithRightObject.cpp */; };
 		C434ED8E16A635C800C5EE3E /* CollisionWithUpObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C434ED8C16A635C800C5EE3E /* CollisionWithUpObject.cpp */; };
@@ -104,6 +105,7 @@
 		C426271916683999002F8C12 /* Behaviour.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Behaviour.h; sourceTree = "<group>"; };
 		C426271E16683F59002F8C12 /* Block.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Block.cpp; sourceTree = "<group>"; };
 		C426271F16683F59002F8C12 /* Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Block.h; sourceTree = "<group>"; };
+		C4309D5216A7501600EBA575 /* background.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpeg; sourceTree = "<group>"; };
 		C434ED8616A634EE00C5EE3E /* CollisionWithLeftObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CollisionWithLeftObject.cpp; sourceTree = "<group>"; };
 		C434ED8716A634EE00C5EE3E /* CollisionWithLeftObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollisionWithLeftObject.h; sourceTree = "<group>"; };
 		C434ED8916A6357300C5EE3E /* CollisionWithRightObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CollisionWithRightObject.cpp; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 		A01FB6B10F07CF7C000AAC7B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C4309D5216A7501600EBA575 /* background.jpeg */,
 				A01FB6AC0F07CF6E000AAC7B /* Info.plist */,
 			);
 			name = Resources;
@@ -367,6 +370,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4309D5316A7501600EBA575 /* background.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

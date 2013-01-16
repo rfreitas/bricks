@@ -20,6 +20,10 @@ private:
     Player* player_one;
     Player* player_two;
     
+    sf::Sprite sprite;
+    sf::Image image;
+
+    
     sf::RenderWindow App;
     
     bool leftKeyBeingPressed;

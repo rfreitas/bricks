@@ -90,7 +90,7 @@ void Generator::randomBalls(ComponentGroup* balls, int numBalls)
         Component* ball = protoBall->clone();
         ball->setY(80*i + 50);
         Pair newVel = ball->getVelocity();
-        newVel.x = 0.4;
+        newVel.x = 1.4;
         if (i%2 != 0){
             newVel.y = -1*newVel.y;
         }
