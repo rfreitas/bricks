@@ -104,7 +104,7 @@ void Game::movePlayerTowardsClosestBall( Player* player){
     if ( closestBallCenter.x > playerCenter.x ){
         sign = 1;
     }
-    double step = sign*0.2;
+    double step = sign*0.7;
     player->setX( player->getX() + step );
 }
 
