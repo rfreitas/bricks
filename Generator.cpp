@@ -44,17 +44,19 @@ void Generator::randomBlocks(ComponentGroup* components){
     recShape = new RectangleShape(0, 0, ConfigManager::Instance()->getGameWidth(), 20, sf::Color::White);
     topWall->setShape(recShape);
      */
+    sf::Color color(0, 0, 0, 0);
+    
     
     // bottom wall
     Wall* bottomWall = new Wall(ConfigManager::Instance()->getGameX(), ConfigManager::Instance()->getGameY()+ConfigManager::Instance()->getGameHeight(), 0, 0, 0, NULL);
     bottomWall->setBehaviour(AssassinType);
-    recShape = new RectangleShape(0, 0, ConfigManager::Instance()->getGameWidth(), 20, sf::Color::Red);
+    recShape = new RectangleShape(0, 0, ConfigManager::Instance()->getGameWidth(), 20, color);
     bottomWall->setShape(recShape);
     
     // up wall
     Wall* upWall = new Wall(ConfigManager::Instance()->getGameX(), ConfigManager::Instance()->getGameY(), 0, 0, 0, NULL);
     upWall->setBehaviour(AssassinType);
-    recShape = new RectangleShape(0, 0, ConfigManager::Instance()->getGameWidth(), 20, sf::Color::Red);
+    recShape = new RectangleShape(0, 0, ConfigManager::Instance()->getGameWidth(), 20, color);
     upWall->setShape(recShape);
     
     
