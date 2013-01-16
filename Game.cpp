@@ -97,10 +97,13 @@ int platformStep(){
 void Game::movePlayerTowardsClosestBall( Player* player){
     Component* closestBall = balls->closestComponentTo(player);
     int sign = -1;
-    if ( closestBall->center().x > player->center().x ){
+    Pair closestBallCenter = closestBall->center();
+    Pair playerCenter = player->center();
+    if ( closestBallCenter.x > playerCenter.x ){
         sign = 1;
     }
-    player->setX( sign*platformStep() );
+    int step = sign;
+    player->setX( player->getX() + step );
 }
 
 void Game::move(){    
