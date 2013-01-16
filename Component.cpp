@@ -64,8 +64,8 @@ Component::Component(double posX, double posY, double areaValue,
     normal  = normalValue;
     shape   = componentShape;
     
-    vVector.x = 0.3;
-    vVector.y = 0.3;
+    vVector.x = 0.5;
+    vVector.y = 0.5;
     
     life = 20;
     

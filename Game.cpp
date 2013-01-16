@@ -4,10 +4,6 @@
 #include "ConfigManager.h"
 
 
-// TODO
-#define GAME_LIMIT_LEFT 120
-#define GAME_LIMIT_RIGHT 700
-
 Game::Game():
 App(sf::VideoMode(ConfigManager::Instance()->getWindowWidth(), ConfigManager::Instance()->getWindowHeight()), "RS Bricks"),
 TemplateGame()
@@ -37,14 +33,13 @@ void Game::initializeGame(){
         generator->randomBalls(balls, ConfigManager::Instance()->getNumInitBalls());
     }
     
-    RectangleShape* recShape = new RectangleShape(0, 0, 20, 500, sf::Color::White);
-    player_one = new Player(400, 510, 0, 0, 0, NULL);
-    recShape = new RectangleShape(0, 0, 90, 20, sf::Color::Yellow);
+    player_one = new Player(400, ConfigManager::Instance()->getGameHeight()+35, 0, 0, 0, NULL);
+    RectangleShape* recShape = new RectangleShape(0, 0, 120, 10, sf::Color::Yellow);
     player_one->setShape(recShape);
     
     recShape = new RectangleShape(0, 0, 20, 500, sf::Color::White);
-    player_two = new Player(400, 40, 0, 0, 0, NULL);
-    recShape = new RectangleShape(0, 0, 90, 10, sf::Color::Green);
+    player_two = new Player(400, ConfigManager::Instance()->getGameY()+25, 0, 0, 0, NULL);
+    recShape = new RectangleShape(0, 0, 120, 10, sf::Color::Green);
     player_two->setShape(recShape);
 }
 
@@ -118,13 +113,13 @@ void Game::move(){
     RectangleShape* shape = dynamic_cast<RectangleShape*>(player_one->getShape());
     if (leftKeyBeingPressed){
         x -= step;
-        if(x>=GAME_LIMIT_LEFT){
+        if(x>=ConfigManager::Instance()->getGameX() + 20){
             player_one->setX(x);
         }
     }
     else if (rightKeyBeingPressed){
         x += step;
-        if(x + shape->getX2() <= GAME_LIMIT_RIGHT){
+        if(x + shape->getX2() <= ConfigManager::Instance()->getGameX()+ConfigManager::Instance()->getGameWidth()){
             player_one->setX(x);
         }
     }
