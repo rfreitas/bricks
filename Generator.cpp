@@ -91,7 +91,7 @@ void Generator::randomBalls(ComponentGroup* balls, int numBalls)
     for(int i = 1; i <= numBalls ; i++){
         Component* ball = protoBall->clone();
         ball->setY(30*i + 350);
-        int x = (rand() % ConfigManager::Instance()->getGameWidth() - 125) + 125;
+        int x = (rand() % (ConfigManager::Instance()->getGameWidth() - 125)) + 125;
         ball->setX(x);
         Pair newVel = ball->getVelocity();
         newVel.x = 0.1 * i;
