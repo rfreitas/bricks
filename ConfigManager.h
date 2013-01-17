@@ -16,7 +16,7 @@ private:
     GLint     game_x = 100;
     GLint     game_y = 50;
     bool      r_blocks = true;
-    GLint     num_init_balls = 6;
+    GLint     num_init_balls = 3;
     double     platform_step = 1.7;
     
 public:

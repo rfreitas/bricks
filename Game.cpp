@@ -241,8 +241,8 @@ void Game::keyboardListenner(){
 
 void Game::iterate()
 {
-    move();
     checkCollisions();
     removeDeadObjects();
+    move();
 }
 

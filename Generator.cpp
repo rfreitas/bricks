@@ -7,6 +7,9 @@
 #include "LoseLife.h"
 #include "ConfigManager.h"
 #include "Assassin.h"
+#include <iostream>
+#include <ctime>
+#include <cstdlib>
 
 using namespace std;
 
@@ -83,16 +86,20 @@ void Generator::randomBalls(ComponentGroup* balls, int numBalls)
 {
     sf::Color colorDefault(150, 150, 120);
     Component* protoBall = new Component(400, 0, 0, 0, 0, new BallShape(10, colorDefault) );
+    srand(time(NULL));
+    
     for(int i = 1; i <= numBalls ; i++){
         Component* ball = protoBall->clone();
-        ball->setY(80*i + 50);
+        ball->setY(30*i + 350);
+        int x = (rand() % ConfigManager::Instance()->getGameWidth() - 125) + 125;
+        ball->setX(x);
         Pair newVel = ball->getVelocity();
-        newVel.x = 0.3 * i;
+        newVel.x = 0.1 * i;
         if (i%2 != 0){
-            newVel.y = -1*newVel.y * 1.7;
+            newVel.y = -1*newVel.y * 1.8;
         }
         else {
-            newVel.y = newVel.y * 3.5;
+            newVel.y = newVel.y * 2.7;
         }
         ball->setVelocity(newVel);
         balls->push_back(ball);
